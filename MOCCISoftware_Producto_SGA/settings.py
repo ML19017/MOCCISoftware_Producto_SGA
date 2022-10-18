@@ -54,7 +54,7 @@ ROOT_URLCONF = 'MOCCISoftware_Producto_SGA.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['MOCCISoftware_Producto_SGA/templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
