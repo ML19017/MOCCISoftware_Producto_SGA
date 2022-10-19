@@ -1,10 +1,11 @@
 from django.shortcuts import render
+from django.http import HttpRequest
 
-#Vistas
+# Vistas
 def ingresarAsociado(request):
     
-    return render(request, 'ingresarAsociado.html')
+    return render(request, 'ingresar_asociado.html')
 
 def login(request):
 
-    return render(request, 'login')
+    return render(request, 'login.html')
