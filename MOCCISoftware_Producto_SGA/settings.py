@@ -75,7 +75,6 @@ WSGI_APPLICATION = 'MOCCISoftware_Producto_SGA.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'SGA_BD',
         'USER': 'postgres',
         'PASSWORD': '',
