@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -20,7 +21,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-(5t_68zfx#*qi4+&5hj!ne)j)2yn(*stegb8*6=s6ji32r9yol'
+SECRET_KEY = 'django-insecure-)hmz3syv89zytwmiu2@ohx@z0gd6^js(xz%7&_4*!2z7ps7+2='
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -37,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'Aplicaciones.IngresoAsociados',
 ]
 
 MIDDLEWARE = [
@@ -54,7 +56,7 @@ ROOT_URLCONF = 'MOCCISoftware_Producto_SGA.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['MOCCISoftware_Producto_SGA/templates'],
+        'DIRS': [],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -75,11 +77,12 @@ WSGI_APPLICATION = 'MOCCISoftware_Producto_SGA.wsgi.application'
 
 DATABASES = {
     'default': {
-        'NAME': 'SGA_BD',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'sga_db',
         'USER': 'postgres',
-        'PASSWORD': '',
-        'HOST':'127.0.0.1',
-        'DATABSE_PORT': '5432',
+        'PASSWORD': '1234',
+        'HOST': '127.0.0.1',
+        'DATEBASE_PORT': '5432',
     }
 }
 
@@ -121,6 +124,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
+STATICFILES_DIRS = (os.path.join(BASE_DIR, 'IngresoAsociados/static'),)
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field

@@ -1,11 +1,6 @@
+#from django.http import HttpResponse
 from django.shortcuts import render
-from django.http import HttpRequest
 
-# Vistas
-def ingresarAsociado(request):
-    
-    return render(request, 'ingresar_asociado.html')
-
+# Create your views here.
 def login(request):
-
-    return render(request, 'login.html')
+    return render(request, "login.html")
