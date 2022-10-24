@@ -1,3 +1,4 @@
+from unittest.util import _MAX_LENGTH
 from django.db import models
 
 # Create your models here.
@@ -21,13 +22,11 @@ class Solicitante(models.Model):
     situacionSolicitante=models.CharField(max_length=10)
 
 class Ejecutivo(models.Model):
-    # id_ejecutivo=models.CharField(max_length=10)
     user=models.CharField(max_length=100)
     password=models.CharField(max_length=100)
     nombre=models.CharField(max_length=35)
 
 class ActividadEconomica(models.Model):
-    # id_actividad=models.CharField(max_length=15)
     rubro_profesion=models.CharField(max_length=50)
     capacidadPago=models.DecimalField(decimal_places=2, max_digits=10)
     capacidadAhorro=models.DecimalField(decimal_places=2, max_digits=10)
@@ -35,7 +34,6 @@ class ActividadEconomica(models.Model):
     lugarTrabajo=models.CharField(max_length=50)
 
 class Referencia(models.Model):
-    # id_referencia=models.CharField(max_length=15)
     tipo=models.CharField(max_length=10)
     nombre=models.CharField(max_length=70)
     telefono=models.IntegerField()
@@ -73,5 +71,11 @@ class Domicilio(models.Model):
     usoInmueble=models.CharField(max_length=150)
     tiempo=models.IntegerField()
 
-#class Documentos(models.Model):
-    
+class Genero(models.Model):
+    nombre=models.CharField(max_length=25)
+
+class TipoDocumento(models.Model):
+    nombre=models.CharField(max_length=32)
+
+class Rubro(models.Model):
+    nombre=models.CharField(max_length=32)

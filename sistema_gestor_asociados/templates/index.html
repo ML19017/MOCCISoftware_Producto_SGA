@@ -1,95 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="estiloTemplates.css">
-  <title>Bienvenido</title>
-
-</head>
-<body>
-  <nav>
-    <img src="./iconos/icono.svg" alt="menu" class="menu">
-
-    <div class="navbar-left">
-      <img src="./iconos/icono.svg" alt="logo" class="logo">
-
-      <ul>
-        <li>
-          <a href="/">INICIO</a>
-        </li>
-        <li>
-          <a href="/">SÉ SOCIO</a>
-        </li>
-        <li>
-          <a href="/">ANEXOS</a>
-        </li>
-        <li>
-          <a href="/">NOSOTROS</a>
-        </li>
-        <li>
-            <a href="/">TU PROCESO</a>
-          </li>
-      </ul>
-    </div>
-
-    <div class="navbar-right">
-      <ul>
-        <li class="navbar-email">MOCCI SOFTWARE</li>
-      </ul>
-    </div>
-  </nav>
-
- 
-  <section class="main-container">
-    <div class="cards-container">
-
-      <div class="product-card">
-        <img src="https://images.pexels.com/photos/2312369/pexels-photo-2312369.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="">
-        <div class="product-info">
-          <div>
-            <p>¿Cuál es nuestro objetivo?</p>
-            <p>Nuestro objetivo principal consiste en mejorar sus condiciones económicas y sociales por medio de la acción conjunta
-                orientada al bien de todos los asociados antes que a los intereses individuales
-            </p>
+  <head>
+    <title>Desktop</title>
+    {% include "nav.html" %}
+  </head>
+  <body>
+    <section class="main-container">
+      <div class="cards-container">
+        <div class="product-card">
+          <img src="https://images.pexels.com/photos/2312369/pexels-photo-2312369.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="">
+          <div class="product-info">
+            <div>
+              <p>¿Cuál es nuestro objetivo?</p>
+              <p>Nuestro objetivo principal consiste en mejorar sus condiciones económicas y sociales por medio de la acción conjunta
+                  orientada al bien de todos los asociados antes que a los intereses individuales
+              </p>
+            </div> 
           </div>
+        </div>
+        <div class="product-card">
+          <img src="https://images.pexels.com/photos/1602726/pexels-photo-1602726.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="">
+          <div class="product-info">
+            <div>
+              <p>¿Por qué es importante invertir en tu futuro?</p>
+              <p>
+                  Una buena inversión hace crecer tu dinero y te ayuda a tener un patrimonio para el futuro
+              </p>
+            </div>
           
-        </div>
-      </div>
-
-      <div class="product-card">
-        <img src="https://images.pexels.com/photos/1602726/pexels-photo-1602726.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="">
-        <div class="product-info">
-          <div>
-            <p>¿Por qué es importante invertir en tu futuro?</p>
-            <p>
-                Una buena inversión hace crecer tu dinero y te ayuda a tener un patrimonio para el futuro
-            </p>
           </div>
-         
         </div>
-      </div>
-
-      <div class="product-card">
-        <img src="https://images.pexels.com/photos/3760067/pexels-photo-3760067.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="">
-        <div class="product-info">
-          <div>
-            <p>¿Quieres ser socio?</p>
-            <p>
-                Unete a las filas de nuestra cooperativa, para ser socio solo necesitas llenar un pequeño formulario
-            </p>
+        <div class="product-card">
+          <img src="https://images.pexels.com/photos/3760067/pexels-photo-3760067.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="">
+          <div class="product-info">
+            <div>
+              <p>¿Quieres ser socio?</p>
+              <p>
+                  Unete a las filas de nuestra cooperativa, para ser socio solo necesitas llenar un pequeño formulario
+              </p>
+            </div>
           </div>
-         
         </div>
       </div>
-
-
-    </div>
-
-    <a href="" class="boton">Sé parte de nuestros asociados</a>
-
-  </section>
-
-</body>
+      <a href="" class="boton">Sé parte de nuestros asociados</a>
+    </section>
+  </body>
 </html>

@@ -12,10 +12,42 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.CreateModel(
+            name='Genero',
+            fields=[
+                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('nombre', models.CharField(max_length=25)),
+                ('codigo', models.CharField(max_length=1)),
+            ],
+        ),
+        migrations.CreateModel(
+            name='Rubro',
+            fields=[
+                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('nombre', models.CharField(max_length=32)),
+                ('area', models.CharField(max_length=32)),
+            ],
+        ),
+        migrations.CreateModel(
+            name='EstadoCivil',
+            fields=[
+                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('nombre', models.CharField(max_length=32)),
+                ('codigo', models.CharField(max_length=5)),
+            ],
+        ),
+        migrations.CreateModel(
+            name='TipoDocumento',
+            fields=[
+                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('nombre', models.CharField(max_length=32)),
+                ('codigo', models.CharField(max_length=5)),
+            ],
+        ),
+        migrations.CreateModel(
             name='ActividadEconomica',
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('rubro_profesion', models.CharField(max_length=50)),
+                ('rubro_profesion', models.ForeignKey('Rubro', on_delete=models.DO_NOTHING)),
                 ('capacidadPago', models.DecimalField(decimal_places=2, max_digits=10)),
                 ('capacidadAhorro', models.DecimalField(decimal_places=2, max_digits=10)),
                 ('asociaciones', models.CharField(max_length=50)),
@@ -41,6 +73,7 @@ class Migration(migrations.Migration):
                 ('fechaNacim', models.DateField()),
                 ('empresa', models.CharField(max_length=30)),
                 ('cargo', models.CharField(max_length=20)),
+                ('tipoDocumento', models.ForeignKey('TipoDocumento', on_delete=models.DO_NOTHING))
                 ('numeroDocumento', models.CharField(max_length=10)),
                 ('telefonoCelular', models.CharField(max_length=10)),
                 ('telefonoOficina', models.CharField(max_length=10)),
@@ -102,16 +135,18 @@ class Migration(migrations.Migration):
                 ('primerApellido', models.CharField(max_length=15)),
                 ('segundoApellido', models.CharField(max_length=15)),
                 ('apellidoCasada', models.CharField(max_length=15)),
-                ('genero', models.CharField(max_length=10)),
+                ('genero', models.ForeignKey('Genero', on_delete=models.DO_NOTHING)),
                 ('fechaNacim', models.DateField()),
-                ('estadoCivil', models.CharField(max_length=10)),
-                ('nit', models.CharField(max_length=12)),
+                ('estadoCivil', models.ForeignKey('EstadoCivil', on_delete=models.DO_NOTHING)),
+                ('tipoDocumento', models.ForeignKey('TipoDocumento', on_delete=models.DO_NOTHING)),
                 ('numeroDocumento', models.CharField(max_length=10)),
+                ('nit', models.CharField(max_length=12)),
                 ('isss', models.CharField(max_length=12)),
                 ('tipoDocumento', models.CharField(max_length=10)),
                 ('tipoTrabajador', models.CharField(max_length=10)),
-                ('dreccion', models.CharField(max_length=10)),
+                ('direccion', models.CharField(max_length=10)),
                 ('situacionSolicitante', models.CharField(max_length=10)),
+                ('').
             ],
         ),
     ]
