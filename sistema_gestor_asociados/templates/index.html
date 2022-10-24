@@ -6,43 +6,13 @@
   </head>
   <body>
     <section class="main-container">
-      <div class="cards-container">
-        <div class="product-card">
-          <img src="https://images.pexels.com/photos/2312369/pexels-photo-2312369.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="">
-          <div class="product-info">
-            <div>
-              <p>¿Cuál es nuestro objetivo?</p>
-              <p>Nuestro objetivo principal consiste en mejorar sus condiciones económicas y sociales por medio de la acción conjunta
-                  orientada al bien de todos los asociados antes que a los intereses individuales
-              </p>
-            </div> 
-          </div>
-        </div>
-        <div class="product-card">
-          <img src="https://images.pexels.com/photos/1602726/pexels-photo-1602726.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="">
-          <div class="product-info">
-            <div>
-              <p>¿Por qué es importante invertir en tu futuro?</p>
-              <p>
-                  Una buena inversión hace crecer tu dinero y te ayuda a tener un patrimonio para el futuro
-              </p>
-            </div>
-          
-          </div>
-        </div>
-        <div class="product-card">
-          <img src="https://images.pexels.com/photos/3760067/pexels-photo-3760067.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="">
-          <div class="product-info">
-            <div>
-              <p>¿Quieres ser socio?</p>
-              <p>
-                  Unete a las filas de nuestra cooperativa, para ser socio solo necesitas llenar un pequeño formulario
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <a href="" class="boton">Sé parte de nuestros asociados</a>
+      <table>
+        <thead>
+            <tr><th>Id</th><th>Nombres</th><th>Apellidos</th><th>Apellido de Casada</tr><th>Nacional</th><th>Fecha de Nacimiento</th></tr>
+        </thead>
+        {% for solicitud in solicitante %}
+          <tr><td></td><td></td><td></td><td></td><td></td><tr>
+        {% endfor %}
     </section>
   </body>
 </html>

@@ -95,7 +95,8 @@
         gap: 100px;
         place-content: center;
         margin: 24px;
-        margin-left: 300px;
+        margin-left: 200px;
+        margin-right: 200px;
       }
       .product-card {
         width: 240px;

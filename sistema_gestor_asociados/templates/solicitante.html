@@ -1,181 +1,133 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500;700&amp;display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="estiloTemplates.css">
-  <title>Datos del Conyuge</title>
+    <body>
+        <div class="comun">
+            <div class="form-container">
+                <form action="/sistema_gestor_asociados/" class="form" method="post">
+                    <!-- @ID && @PARAMS : patron / name-name
+                        #fecha-Solicitante
+                        #lugar-Solicitante
+                        #nombres-Solicitante
+                        #apellidos-Solicitante
+                        #empresa-Solicitante
+                        #cargo-Solicitante
+                        #ubicacion-empresa-Solicitante
+                        #tipo-documento-Solicitante
+                        #numero-identidad-Solicitante
+                        #tel-pais-personal-Solicitante
+                        #tel-personal-Solicitante
+                        #tel-pais-oficina-Solicitante
+                        #tel-oficina-Solicitante
+                        #email-Solicitante
+                    -->
+                    <!-- #Datos Personales -->
+                    <label for="/" class="labelTitulo">Datos Personales</label>
+                    <label class="label" for="nombres-Solicitante">
+                        Nombres:
+                    </label>
+                        <input class="input" type="text" name="nombres-Solicitante" id="nombres-Solicitante" title="" placeholder="Nombres del Solicitante" pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]+" minlength="5" maxlength="32" required>
 
-</head>
+                    <label class="label" for="apellido1-Solicitante">
+                        Apellido 1:
+                    </label>
+                        <input class="input" type="text" name="apellido1-Solicitante" id="apellido1-Solicitante" placeholder="Apellido 1 del Solicitante" pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]+" minlength="5" maxlength="32" required>
 
-<body>
-    
+                    <label class="label" for="apellido2-Solicitante">
+                        Apellido 2:
+                    </label>
+                        <input class="input" type="text" name="apellido2-Solicitante" id="apellido2-Solicitante" placeholder="Apellido 2 del Solicitante" pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]+" minlength="5" maxlength="32" required>
 
-<nav>
-    <img src="./iconos/icono.svg" alt="menu" class="menu">
+                    <label class="label" for="apellidoCasada-Solicitante">
+                        Apellido Casada:
+                    </label>
+                        <input class="input" type="text" name="apellidoCasada-Solicitante" id="apellidoCasada-Solicitante" placeholder="Apellido de casada de la Solicitante" pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]+" minlength="5" maxlength="32" required>
 
-    <div class="navbar-left">
-      <img src="./iconos/icono.svg" alt="logo" class="logo">
+                    <label class="label" for="generoSolicitante">
+                        Genero:
+                    </label>
+                        <select class="input" id="generoSolicitante" name="generoSolicitante" title="" placeholder="" required>
+                            <option>Opcion 1</option>
+                        </select>
 
-      <ul>
-        <li>
-          <a href="/">INICIO</a>
-        </li>
-        <li>
-          <a href="/">SÉ SOCIO</a>
-        </li>
-        <li>
-          <a href="/">ANEXOS</a>
-        </li>
-        <li>
-          <a href="/">NOSOTROS</a>
-        </li>
-        <li>
-            <a href="/">TU PROCESO</a>
-          </li>
-      </ul>
-    </div>
+                    <label class="label" for="estadoCivilSolicitante">
+                        Estado Civil:
+                    </label>
+                        <select class="input" id="estadoCivilSolicitante" name="estadoCivilSolicitante" title="" placeholder="" required>
+                            <option>Opcion 1</option>
+                        </select>
 
-    <div class="navbar-right">
-      <ul>
-        <li class="navbar-email">MOCCI SOFTWARE</li>
-      </ul>
-    </div>
-  </nav>
+                    <label class="label" for="fecha-Solicitante">
+                        Fecha de Nacimiento:
+                    </label>
+                        <input class="input" type="date" name="fecha-Solicitante" id="fecha-Solicitante" title="Fecha de Nacimiento" required>
 
+                    <label class="label" for="lugar-Solicitante">
+                        Lugar de Nacimiento:
+                    </label>
+                        <input class="input" type="text" name="lugar-Solicitante" id="lugar-Solicitante" title="" placeholder="Lugar de Nacimiento" pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]+" minlength="5" maxlength="40" required>
 
-  <div class="comun">
-    <div class="form-container">
-        <form action="POST" class="form">
+                    <label class="label" for="empresa-Solicitante">
+                        Empresa donde trabaja:
+                    </label>
+                        <input class="input" type="text" name="empresa-Solicitante" id="empresa-Solicitante" title="Nombre de la Empresa" placeholder="Nombre de la Empresa/Institución" pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]+" minlength="5" maxlength="32" required>
 
-    <!-- @ID && @PARAMS : patron / name-name
-        #fecha-Solicitante
-        #lugar-Solicitante
-        #nombres-Solicitante
-        #apellidos-Solicitante
-        #empresa-Solicitante
-        #cargo-Solicitante
-        #ubicacion-empresa-Solicitante
-        #tipo-documento-Solicitante
-        #numero-identidad-Solicitante
-        #tel-pais-personal-Solicitante
-        #tel-personal-Solicitante
-        #tel-pais-oficina-Solicitante
-        #tel-oficina-Solicitante
-        #email-Solicitante
-    -->
-    <!-- #Datos Personales -->
-    <label for="/" class="labelTitulo">Datos Personales</label>
-    <label class="label" for="nombres-Solicitante">
-        Nombres:
-    </label>
-        <input class="input" type="text" name="nombres-Solicitante" id="nombres-Solicitante" title="" placeholder="Nombres del Solicitante" pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]+" minlength="5" maxlength="32" required>
-    
-    <label class="label" for="apellido1-Solicitante">
-        Apellido 1:
-    </label>
-        <input class="input" type="text" name="apellido1-Solicitante" id="apellido1-Solicitante" placeholder="Apellido 1 del Solicitante" pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]+" minlength="5" maxlength="32" required>
-    
-    <label class="label" for="apellido2-Solicitante">
-        Apellido 2:
-    </label>
-        <input class="input" type="text" name="apellido2-Solicitante" id="apellido2-Solicitante" placeholder="Apellido 2 del Solicitante" pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]+" minlength="5" maxlength="32" required>
-    
-    <label class="label" for="apellidoCasada-Solicitante">
-        Apellido Casada:
-    </label>
-        <input class="input" type="text" name="apellidoCasada-Solicitante" id="apellidoCasada-Solicitante" placeholder="Apellido de casada de la Solicitante" pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]+" minlength="5" maxlength="32" required>
-    
-    <label class="label" for="generoSolicitante">
-        Genero:
-    </label>
-        <select class="input" id="generoSolicitante" name="generoSolicitante" title="" placeholder="" required>
-            <option>Opcion 1</option>
-        </select>
-    
-    <label class="label" for="estadoCivilSolicitante">
-        Estado Civil:
-    </label>
-        <select class="input" id="estadoCivilSolicitante" name="estadoCivilSolicitante" title="" placeholder="" required>
-            <option>Opcion 1</option>
-        </select>
-    
-    <label class="label" for="fecha-Solicitante">
-        Fecha de Nacimiento:
-    </label>
-        <input class="input" type="date" name="fecha-Solicitante" id="fecha-Solicitante" title="Fecha de Nacimiento" required>
-    
-    <label class="label" for="lugar-Solicitante">
-        Lugar de Nacimiento:
-    </label>
-        <input class="input" type="text" name="lugar-Solicitante" id="lugar-Solicitante" title="" placeholder="Lugar de Nacimiento" pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]+" minlength="5" maxlength="40" required>
-    
-    <label class="label" for="empresa-Solicitante">
-        Empresa donde trabaja:
-    </label>
-        <input class="input" type="text" name="empresa-Solicitante" id="empresa-Solicitante" title="Nombre de la Empresa" placeholder="Nombre de la Empresa/Institución" pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]+" minlength="5" maxlength="32" required>
-    
-    <label class="label" for="cargo-Solicitante">
-        Cargo:
-    </label>
-        <input class="input" type="text" name="cargo-Solicitante" id="cargo-Solicitante" title="Cargo que desempeña dentro de la empresa" placeholder="Cargo ejercido" pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]+" minlength="5" maxlength="32" required>
-   
-    <label class="label" for="ubicacion-empresa-Solicitante">
-        Ubicación de la Empresa:
-    </label>
-        <input class="input" type="text" name="ubicacion-empresa-Solicitante" id="ubicacion-empresa-Solicitante" title="Dirección de la Empresa" placeholder="Dirección de la emmpresa" pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]+" minlength="5" maxlength="40" required>
-    <!-- #Fin de datos personales -->
-    <!-- #Datos Legales-->
-    <label class="label" for="tipo-documento-Solicitante">
-        Tipo de Documento:
-    </label>
-        <select class="input" id="tipo-documento-Solicitante" name="tipo-documento-Solicitante" title="Seleccione un tipo de Documento" required>
-        </select>
-    <label class="label" for="numero-identidad-Solicitante">
-        Número de Identidad:
-    </label>
-        <input class="input" type="text" name="numero-identidad-Solicitante" id="numero-identidad-Solicitante" title="Número de Identidad #" placeholder="Número de Identidad" pattern="[0-9]+" minlength="5" required>
-    <!-- #Fin de datos legales -->
-    <!-- #Datos de contacto -->
-    <label class="label" for="tel-pais-personal-Solicitante">
-        Codigo del País:
-    </label>
-        <select class="input" id="tel-pais-personal-Solicitante" name="tel-pais-personal-Solicitante" title="Seleccione el codigo del País" required>
-        </select>
-    <label class="label" for="tel-personal-Solicitante">
-        Télefono personal:
-    </label>
-        <input class="input" type="tel" name="tel-personal-Solicitante" id="tel-personal-Solicitante" title="Un número de teléfono válido consiste de cuatro dígitos 
-    con un (-) seguido y cuatro dígitos más" placeholder="9999-4444" pattern="[0-9]{4}[ -][0-9]{4}" minlength="9" maxlength="9" required>
-    <label class="label" for="tel-pais-oficina-Solicitante">
-        Codigo del País
-    </label>
-        <select class="input" id="tel-pais-oficina-Solicitante" name="tel-pais-oficina-Solicitante" title="" placeholder="" required>
-            <option>Opcion 1</option>
-        </select>
-    <label class="label" for="tel-oficina-Solicitante">
-        Télefono de Oficina:
-    </label>
-        <input class="input" type="tel" name="tel-oficina-Solicitante" id="" title="Un número de teléfono válido consiste de cuatro dígitos
-    con un (-) seguido y cuatro dígitos más" placeholder="7777-3333" pattern="[0-9]{4}[ -][0-9]{4}" minlength="9" maxlength="9" required>
-    <!-- #RFC5322 15S@1 REGEX -->
-    <label class="label" for="email-Solicitante">
-        Correo Electrónico:
-    </label>
-        <input class="input" type="email" name="email-Solicitante" id="email-Solicitante" title="Ingrese un Correo Electrónico" pattern="\A(?=[a-z0-9@.! #$%&'*+/=?^_'{|} ~-]{6,254}\z)
-    (?=[a-z 0-9.! #$%&'*+/=?^_'{|} ~-]{1,64}@)
-    [a-z 0-9!#$%&'*+/=?^_'{|} ~-]+(?:\. [a-z0-9!#$%&'*+/=?^_'{|} ~-]+)*
-    @ (?:(?=[a-z0-9-]{1,63}\. )[a-z 0-9](?:[a-z 0-9-]*[a-z 0-9])? \. )+
-    (?=[a-z 0-9-]{1,63}\z)[a-z 0-9](?:[a-z 0-9-]*[a-z 0-9])? \z" placeholder="ejemplo@correo.com" required>
-    <!-- #Fin de datos de contacto -->
-    <input  type="submit" value="Enviar" class="primary-button">
-</div>
-        </form>
-    </div>
-  </div>
-</body>
+                    <label class="label" for="cargo-Solicitante">
+                        Cargo:
+                    </label>
+                        <input class="input" type="text" name="cargo-Solicitante" id="cargo-Solicitante" title="Cargo que desempeña dentro de la empresa" placeholder="Cargo ejercido" pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]+" minlength="5" maxlength="32" required>
+
+                    <label class="label" for="ubicacion-empresa-Solicitante">
+                        Ubicación de la Empresa:
+                    </label>
+                        <input class="input" type="text" name="ubicacion-empresa-Solicitante" id="ubicacion-empresa-Solicitante" title="Dirección de la Empresa" placeholder="Dirección de la emmpresa" pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]+" minlength="5" maxlength="40" required>
+                    <!-- #Fin de datos personales -->
+                    <!-- #Datos Legales-->
+                    <label class="label" for="tipo-documento-Solicitante">
+                        Tipo de Documento:
+                    </label>
+                        <select class="input" id="tipo-documento-Solicitante" name="tipo-documento-Solicitante" title="Seleccione un tipo de Documento" required>
+                        </select>
+                    <label class="label" for="numero-identidad-Solicitante">
+                        Número de Identidad:
+                    </label>
+                        <input class="input" type="text" name="numero-identidad-Solicitante" id="numero-identidad-Solicitante" title="Número de Identidad #" placeholder="Número de Identidad" pattern="[0-9]+" minlength="5" required>
+                    <!-- #Fin de datos legales -->
+                    <!-- #Datos de contacto -->
+                    <label class="label" for="tel-pais-personal-Solicitante">
+                        Codigo del País:
+                    </label>
+                        <select class="input" id="tel-pais-personal-Solicitante" name="tel-pais-personal-Solicitante" title="Seleccione el codigo del País" required>
+                        </select>
+                    <label class="label" for="tel-personal-Solicitante">
+                        Télefono personal:
+                    </label>
+                        <input class="input" type="tel" name="tel-personal-Solicitante" id="tel-personal-Solicitante" title="Un número de teléfono válido consiste de cuatro dígitos 
+                    con un (-) seguido y cuatro dígitos más" placeholder="9999-4444" pattern="[0-9]{4}[ -][0-9]{4}" minlength="9" maxlength="9" required>
+                    <label class="label" for="tel-pais-oficina-Solicitante">
+                        Codigo del País
+                    </label>
+                        <select class="input" id="tel-pais-oficina-Solicitante" name="tel-pais-oficina-Solicitante" title="" placeholder="" required>
+                            <option>Opcion 1</option>
+                        </select>
+                    <label class="label" for="tel-oficina-Solicitante">
+                        Télefono de Oficina:
+                    </label>
+                        <input class="input" type="tel" name="tel-oficina-Solicitante" id="" title="Un número de teléfono válido consiste de cuatro dígitos
+                    con un (-) seguido y cuatro dígitos más" placeholder="7777-3333" pattern="[0-9]{4}[ -][0-9]{4}" minlength="9" maxlength="9" required>
+                    <!-- #RFC5322 15S@1 REGEX -->
+                    <label class="label" for="email-Solicitante">
+                        Correo Electrónico:
+                    </label>
+                        <input class="input" type="email" name="email-Solicitante" id="email-Solicitante" title="Ingrese un Correo Electrónico" pattern="\A(?=[a-z0-9@.! #$%&'*+/=?^_'{|} ~-]{6,254}\z)
+                    (?=[a-z 0-9.! #$%&'*+/=?^_'{|} ~-]{1,64}@)
+                    [a-z 0-9!#$%&'*+/=?^_'{|} ~-]+(?:\. [a-z0-9!#$%&'*+/=?^_'{|} ~-]+)*
+                    @ (?:(?=[a-z0-9-]{1,63}\. )[a-z 0-9](?:[a-z 0-9-]*[a-z 0-9])? \. )+
+                    (?=[a-z 0-9-]{1,63}\z)[a-z 0-9](?:[a-z 0-9-]*[a-z 0-9])? \z" placeholder="ejemplo@correo.com" required>
+                    <!-- #Fin de datos de contacto -->
+                    <input  type="submit" value="Enviar" class="primary-button">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </body>
 </html>
