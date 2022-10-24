@@ -1,5 +1,5 @@
 """
-ASGI config for MOCCISoftware_Producto_SGA project.
+ASGI config for sistema_gestor_asociados project.
 
 It exposes the ASGI callable as a module-level variable named ``application``.
 
@@ -11,6 +11,6 @@ import os
 
 from django.core.asgi import get_asgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'MOCCISoftware_Producto_SGA.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'sistema_gestor_asociados.settings')
 
 application = get_asgi_application()

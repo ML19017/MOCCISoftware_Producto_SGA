@@ -1,0 +1,92 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500;700&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="estiloTemplates.css">
+  <title>Datos del Conyuge</title>
+
+</head>
+
+<nav>
+    <img src="./iconos/icono.svg" alt="menu" class="menu">
+
+    <div class="navbar-left">
+      <img src="./iconos/icono.svg" alt="logo" class="logo">
+
+      <ul>
+        <li>
+          <a href="/">INICIO</a>
+        </li>
+        <li>
+          <a href="/">SÉ SOCIO</a>
+        </li>
+        <li>
+          <a href="/">ANEXOS</a>
+        </li>
+        <li>
+          <a href="/">NOSOTROS</a>
+        </li>
+        <li>
+            <a href="/">TU PROCESO</a>
+          </li>
+      </ul>
+    </div>
+
+    <div class="navbar-right">
+      <ul>
+        <li class="navbar-email">MOCCI SOFTWARE</li>
+      </ul>
+    </div>
+  </nav>
+
+<body>
+
+<div class="comun">
+<div class="form-container">
+    <form action="POST" class="form"></form>
+    <!-- @ID && @PARAMS : patron / name-name
+        #dirección
+        #numeroCasaDepartamento
+        #usoInmueble
+        #tiempoDeEstancia
+       
+    -->
+    <!-- #Datos Personales -->
+    <label for="/" class="labelTitulo">Datos de Domicilio</label>
+    <label class="label" for="direccion">
+        Direccion:
+    </label>
+        <input class="input" type="text" name="direccion" id="direccion" title="" placeholder="Ingrese su direccion" pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]+" minlength="5" maxlength="32" required>
+    
+    <label class="label" for="numeroCasaDepartamento">
+        Numero de casa o departamento
+    </label>
+        <input class="input" type="text" name="numeroCasaDepartamento" id="numeroCasaDepartamento" placeholder="Numero de departamento" pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]+" minlength="5" maxlength="32" required>
+    
+    <label class="label" for="usoInmueble">
+        Uso inmueble
+    </label>
+        <select class="input" id="usoInmueble" name="usoInmueble" title="" placeholder="" required>
+            <option>Opcion 1</option>
+        </select>
+    
+    <label class="label" for="tiempoDeEstancia">
+        Tiempo de Instancia:
+    </label>
+        <input class="input" type="text" name="tiempoDeEstancia" id="tiempoDeEstancia" placeholder="Tiempo de instancia" pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]+" minlength="5" maxlength="32" required>
+    
+        <input  type="submit" value="Enviar" class="primary-button">
+</div>
+
+</div>
+
+    
+</body>
+</html>

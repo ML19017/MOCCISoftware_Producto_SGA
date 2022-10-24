@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500;700&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="estiloTemplates.css">
+  <title>Referencias</title>
+
+</head>
+
+<nav>
+    <img src="./iconos/icono.svg" alt="menu" class="menu">
+
+    <div class="navbar-left">
+      <img src="./iconos/icono.svg" alt="logo" class="logo">
+
+      <ul>
+        <li>
+          <a href="/">INICIO</a>
+        </li>
+        <li>
+          <a href="/">SÉ SOCIO</a>
+        </li>
+        <li>
+          <a href="/">ANEXOS</a>
+        </li>
+        <li>
+          <a href="/">NOSOTROS</a>
+        </li>
+        <li>
+            <a href="/">TU PROCESO</a>
+          </li>
+      </ul>
+    </div>
+
+    <div class="navbar-right">
+      <ul>
+        <li class="navbar-email">MOCCI SOFTWARE</li>
+      </ul>
+    </div>
+  </nav>
+  <body>
+    
+        <div class="comun">
+            <div class="form-container">
+                <form action="POST" class="form">
+                    <label for="/" class="labelTitulo">Referencia Profesional</label>
+                    <label class="label" for="nombreReferencia">Nombre de referencia</label>
+                        <input class="input" type="text" name="nombreReferencia" id="nombreReferencia" title="nombreReferencia" placeholder="Nombre de la referencia">
+                    <label for="tel-profesional-referencia" class="label">Telefono de referencia</label>
+                        <input class="input" type="tel" name="tel-profesional-referencia" id="tel-profesional-referencia" title="Un número de teléfono válido consiste de cuatro dígitos 
+                    con un (-) seguido y cuatro dígitos más" placeholder="9999-4444" pattern="[0-9]{4}[ -][0-9]{4}" minlength="9" maxlength="9" required>
+                    <label for="email-referencia" class="label">Correo electronico</label>
+                    <input class="input" type="email" name="email-referencia" id="email-referencia" title="Ingrese un Correo Electrónico" pattern="\A(?=[a-z0-9@.! #$%&'*+/=?^_'{|} ~-]{6,254}\z)
+        (?=[a-z 0-9.! #$%&'*+/=?^_'{|} ~-]{1,64}@)
+        [a-z 0-9!#$%&'*+/=?^_'{|} ~-]+(?:\. [a-z0-9!#$%&'*+/=?^_'{|} ~-]+)*
+        @ (?:(?=[a-z0-9-]{1,63}\. )[a-z 0-9](?:[a-z 0-9-]*[a-z 0-9])? \. )+
+        (?=[a-z 0-9-]{1,63}\z)[a-z 0-9](?:[a-z 0-9-]*[a-z 0-9])? \z" placeholder="ejemplo@correo.com" required>
+
+
+        <!--Referencia Familiar-->
+                <label class="labelTitulo" for="/">Referencias Personales</label>
+                <label for="nombreReferenciaPersonal" class="label">Nombre de Referencia Personal</label>
+                    <input class="input" type="text" name="nombreReferenciaPersonal" id="nombreReferenciaPersonal" title="nombreReferenciaPersonal" placeholder="Nombre referencia personal">
+                <label class="label" for="tel-personal-referencia">Telefono referencia personal</label>
+                    <input class="input" type="tel" name="tel-personal-referencia" id="tel-personal-referencia" title="Un número de teléfono válido consiste de cuatro dígitos 
+                    con un (-) seguido y cuatro dígitos más" placeholder="9999-4444" pattern="[0-9]{4}[ -][0-9]{4}" minlength="9" maxlength="9" required>
+                <label class="label" for="email-referencia-personal">Correo electronico de referencia personal</label>
+                <input class="input" type="email" name="email-referencia-personal" id="email-referencia-personal" title="Ingrese un Correo Electrónico" pattern="\A(?=[a-z0-9@.! #$%&'*+/=?^_'{|} ~-]{6,254}\z)
+        (?=[a-z 0-9.! #$%&'*+/=?^_'{|} ~-]{1,64}@)
+        [a-z 0-9!#$%&'*+/=?^_'{|} ~-]+(?:\. [a-z0-9!#$%&'*+/=?^_'{|} ~-]+)*
+        @ (?:(?=[a-z0-9-]{1,63}\. )[a-z 0-9](?:[a-z 0-9-]*[a-z 0-9])? \. )+
+        (?=[a-z 0-9-]{1,63}\z)[a-z 0-9](?:[a-z 0-9-]*[a-z 0-9])? \z" placeholder="ejemplo@correo.com" required>
+            <input  type="submit" value="Enviar" class="primary-button">
+                </form>
+            </div>
+        </div>
+
+    
+  </body>
+</html>

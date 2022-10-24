@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+        <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500;700&amp;display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="estiloTemplates.css">
+        <title>Beneficiario</title>
+    </head>
+    <body>
+        
+        <nav>
+			<img src="./iconos/icono.svg" alt="menu" class="menu">
+		
+			<div class="navbar-left">
+			  <img src="./iconos/icono.svg" alt="logo" class="logo">
+		
+			  <ul>
+				<li>
+				  <a href="/">INICIO</a>
+				</li>
+				<li>
+				  <a href="/">SÉ SOCIO</a>
+				</li>
+				<li>
+				  <a href="/">ANEXOS</a>
+				</li>
+				<li>
+				  <a href="/">NOSOTROS</a>
+				</li>
+				<li>
+					<a href="/">TU PROCESO</a>
+				  </li>
+			  </ul>
+			</div>
+		
+			<div class="navbar-right">
+			  <ul>
+				<li class="navbar-email">MOCCI SOFTWARE</li>
+			  </ul>
+			</div>
+		  </nav>
+
+            <!--datos beneficiario-->
+            
+            <div class="comun">
+            <div class="form-container">
+                <form action="POST">
+                <label class="labelTitulo">
+                    Datos Beneficiario: <br>
+                </label>
+                <label class="label" for="beneficiario-nombre">
+                    Nombre: <br>
+                </label>
+                    <input class="input" type="text" name="beneficiario-nombre" id="beneficiario-nombre" title="beneficiario-nombre" placeholder="Nombre del beneficiario"/>
+                <label class="label" for="beneficiario-parentesco">
+                   <br> Parentesto: <br>
+                </label>
+                <select class="input" form="beneficiario-parentesco" id="beneficiario-parentesco" title="beneficiario-parentesco" aria-placeholder="Seleccione una">
+                    <option selected="">Seleccionar</option>
+                    <option value="1">Padre</option>
+                    <option value="2">Madre</option>
+                    <option value="3">Hijo/a</option>
+                    <option value="4">Hermano/a</option>
+                    <option value="5">Primo/a</option>
+                    <option value="6">Abuelo/a</option>
+                    <option value="7">Tío/a</option>
+                    <option value="8">Otro</option>
+                  </select>
+                <label class="label" for="beneficiario-edad">
+                    <br>  Edad: <br>
+                </label>
+                    <input class="input" type="number" name="beneficiario-edad" id="beneficiario-edad" title="beneficiario-edad" placeholder="Edad del beneficiario"/>
+                <label class="label" for="beneficiario-porcentaje">
+                    <br> Porcentaje: 
+                </label>
+                    <input class="input" type="number" name="beneficiario-porcentaje" id="beneficiario-porcentaje" title="beneficiario-porcentaje" placeholder="Porcentaje del beneficiario"/>
+                <label class="label" for="beneficiario-partida">
+                    <br> Partida de Nacimiento: 
+                </label>
+                    <input class="input" type="file" name="beneficiario-partida" id="beneficiario-partida" title="beneficiario-partida"/>
+                <label class="label" for="beneficiario-dui">
+                    <br>  DUI: 
+                </label>
+                    <input class="input" type="text" name="beneficiario-dui" id="beneficiario-dui" title="beneficiario-dui" placeholder="Dui del beneficiario"/>
+            
+            <!--datos complementarios-->
+            <label class="labelTitulo"><br>Datos complementarios </label>
+            
+                <label class="label" for="beneficiario-fecha">
+                    <br> Fecha de Acta: 
+                </label>
+                    <input class="input" type="date" name="beneficiario-fecha" id="beneficiario-fecha" title="beneficiario-fecha" placeholder="Fecha de acta"/>
+                <label class="label" for="beneficiario-lugar"><br>Lugar </label>
+                    <input class="input" type="text" name="beneficiario-lugar" id="beneficiario-lugar" title="beneficiario-lugar" placeholder="Lugar de beneficiario"/>
+                    <input  type="submit" value="Enviar" class="primary-button">
+            </form>
+            </div>
+        </div>
+       
+        
+    </body>
+</html>
