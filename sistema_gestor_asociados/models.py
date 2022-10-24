@@ -18,7 +18,7 @@ class Pais(models.Model):
     codigo = models.CharField(max_length = 3)
     telefono = models.CharField(max_length = 30)
 
-class EstadoCivil():
+class EstadoCivil(models.Model):
     nombre = models.CharField(max_length=32)
 
 class Ejecutivo(models.Model):
@@ -51,7 +51,7 @@ class Domicilio(models.Model):
     direccion = models.CharField(max_length = 150)
     numeroCasaDepart = models.IntegerField()
     usoInmueble = models.CharField(max_length = 150)
-    tiempo = models.IntegerField(max_digits = 2)
+    tiempo = models.IntegerField()
 
 class Conyuge(models.Model):
     nombres = models.CharField(max_length = 35)
