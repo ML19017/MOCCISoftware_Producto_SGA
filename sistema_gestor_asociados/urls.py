@@ -19,7 +19,14 @@ from django.urls import path
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('/', login),
     path('sistema_gestor_asociados/',login),
     path('sistema_gestor_asociados/desktop', index),
     path('sistema_gestor_asociados/ingresar_solicitud', ingresar_solicitud),
+    path('sistema_gestor_asociados/ingresar_solicitud/datos_personales', datos_personales),
+    path('sistema_gestor_asociados/ingresar_solicitud/datos_conyuge', datos_conyuge),
+    path('sistema_gestor_asociados/ingresar_solicitud/actividad_economica', actividad_conomica),
+    path('sistema_gestor_asociados/ingresar_solicitud/referencias', referencias),
+    path('sistema_gestor_asociados/ingresar_solicitud/beneficiarios', beneficiarios),
+    path('sistema_gestor_asociados/ingresar_solicitud/domicilio', domicilio),
 ]

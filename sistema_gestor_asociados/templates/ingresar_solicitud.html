@@ -5,101 +5,97 @@
         {% include "nav.html" %}
     </head>
     <body>
+        <!--#datos personas, datos del cónyuge, actividad economica, referencias, beneficiarios, domicilio, anexos-->
         <body>
             <section class="main-container">
               <div class="cards-container">
+                <!-- #Datos personales -->
                 <div class="product-card">
-                  <img src="https://images.pexels.com/photos/2312369/pexels-photo-2312369.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="">
+                    {% load static %}
+                  <img src="{% static 'resources/datos_personales.jpg' %}" alt="" title="Datos Personales">
                   <div class="product-info">
                     <div>
-                      <p>¿Cuál es nuestro objetivo?</p>
-                      <p>Nuestro objetivo principal consiste en mejorar sus condiciones económicas y sociales por medio de la acción conjunta
-                          orientada al bien de todos los asociados antes que a los intereses individuales
+                      <p>PASO I: Ingresar Datos Personales</p>
+                      <p>
+                        Añada los datos personales del solicitante.
                       </p>
                     </div> 
                   </div>
                 </div>
+                <!-- #Datos del Conyuge -->
                 <div class="product-card">
-                  <img src="https://images.pexels.com/photos/1602726/pexels-photo-1602726.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="">
+                  <img src="{% static 'resources/datos_conyuge.jpg' %}" alt="" title="Datos Cónyuge">
                   <div class="product-info">
                     <div>
-                      <p>¿Por qué es importante invertir en tu futuro?</p>
+                      <p>PASO II: Ingresar Datos del Cónyuge</p>
                       <p>
-                          Una buena inversión hace crecer tu dinero y te ayuda a tener un patrimonio para el futuro
-                      </p>
-                    </div>
-                  
-                  </div>
-                </div>
-                <div class="product-card">
-                  <img src="https://images.pexels.com/photos/3760067/pexels-photo-3760067.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="">
-                  <div class="product-info">
-                    <div>
-                      <p>¿Quieres ser socio?</p>
-                      <p>
-                          Unete a las filas de nuestra cooperativa, para ser socio solo necesitas llenar un pequeño formulario
+                          Si el solicitante es casado o casada se debe de realizar este paso.
                       </p>
                     </div>
                   </div>
                 </div>
+                <!-- #Actividad Economica -->
                 <div class="product-card">
-                  <img src="https://images.pexels.com/photos/3760067/pexels-photo-3760067.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="">
+                  <img src="{% static 'resources/actividad_economica.jpg' %}" alt="" title="Actividad Economica">
                   <div class="product-info">
                     <div>
-                      <p>¿Quieres ser socio?</p>
+                      <p>PASO III: Rellenar Datos de Actividad Economica</p>
                       <p>
-                          Unete a las filas de nuestra cooperativa, para ser socio solo necesitas llenar un pequeño formulario
+                          Ingrese los datos correspondientes a la actividad economica del solicitante.
                       </p>
                     </div>
                   </div>
                 </div>
+                <!-- #Referencias -->
                 <div class="product-card">
-                  <img src="https://images.pexels.com/photos/3760067/pexels-photo-3760067.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="">
+                  <img src="{% static 'resources/referencias.jpg' %}" alt="" title="Referencias Familiares y Personales">
                   <div class="product-info">
                     <div>
-                      <p>¿Quieres ser socio?</p>
+                      <p>PASO IV: Ingresar Referencias</p>
                       <p>
-                          Unete a las filas de nuestra cooperativa, para ser socio solo necesitas llenar un pequeño formulario
+                          Añada las referencias del solicitante.
                       </p>
                     </div>
                   </div>
                 </div>
+                <!-- #Beneficiarios -->
                 <div class="product-card">
-                  <img src="https://images.pexels.com/photos/3760067/pexels-photo-3760067.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="">
+                    <img src="{% static 'resources/beneficiarios.jpg' %}" alt="" title="Beneficiarios">
+                    <div class="product-info">
+                      <div>
+                        <p>PASO V: Ingresar Beneficiarios</p>
+                        <p>
+                            Ingrese las personas fisicas, que recibirán los beneficios.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                <!-- #Domicilio -->
+                <div class="product-card">
+                  <img src="{% static 'resources/domicilio.jpg' %}" alt="" title="Domicilio">
                   <div class="product-info">
                     <div>
-                      <p>¿Quieres ser socio?</p>
+                      <p>PASO VI: Ingresar Domicilio</p>
                       <p>
-                          Unete a las filas de nuestra cooperativa, para ser socio solo necesitas llenar un pequeño formulario
+                          Complete la información correspondiente al domicilio del solicitante.
                       </p>
                     </div>
                   </div>
                 </div>
+                <!-- #Anexos -->
                 <div class="product-card">
-                    {% load static %}
-                  <img src="{% static 'resources/actividad_economica.jpg' %}" alt="" title="Actividad Económica">
+                  <img src="{% static 'resources/documentacion.jpg' %}" alt="" title="Documentos">
                   <div class="product-info">
                     <div>
-                      <p>¿Quieres ser socio?</p>
+                      <p>PASO VII: Ingresar Documentación Adjunta</p>
                       <p>
-                          Unete a las filas de nuestra cooperativa, para ser socio solo necesitas llenar un pequeño formulario
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <div class="product-card">
-                  <img src="https://images.pexels.com/photos/3760067/pexels-photo-3760067.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="">
-                  <div class="product-info">
-                    <div>
-                      <p>¿Quieres ser socio?</p>
-                      <p>
-                          Unete a las filas de nuestra cooperativa, para ser socio solo necesitas llenar un pequeño formulario
+                          Adjunte los documentos pedidos, para completar la solicitud.
                       </p>
                     </div>
                   </div>
                 </div>
               </div>
-              <a href="" class="boton">Sé parte de nuestros asociados</a>
+              <a href="" class="boton">Generar Documentación</a>
             </section>
           </body>
     </body>

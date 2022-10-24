@@ -8,11 +8,13 @@
     <section class="main-container">
       <table>
         <thead>
-            <tr><th>Id</th><th>Nombres</th><th>Apellidos</th><th>Apellido de Casada</tr><th>Nacional</th><th>Fecha de Nacimiento</th></tr>
+            <tr><th>Id</th><th>Nombres</th><th>Apellidos</th><th>Apellido de Casada</th><th>Nacionalidad</th><th>Fecha de Nacimiento</th></tr>
         </thead>
-        {% for solicitud in solicitante %}
-          <tr><td></td><td></td><td></td><td></td><td></td><tr>
-        {% endfor %}
+        <tbody>
+          {% for solicitud in solicitante %}
+            <tr>1<td>Nombre</td><td>Apellidos</td><td>Appellido C</td><td>Nacionalidad</td><td>Fecha Nacimiento</td><tr>
+          {% endfor %}
+        </tbody>
     </section>
   </body>
 </html>
