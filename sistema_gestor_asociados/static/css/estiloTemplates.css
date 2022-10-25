@@ -34,6 +34,9 @@
     justify-content: space-between;
     padding: 0 24px;
     border-bottom: 1px solid var(--hospital-green);
+    box-shadow: 1px -4px 12px 4px rgba(49,148,124,0.58);
+    -webkit-box-shadow: 1px -4px 12px 4px rgba(49,148,124,0.58);
+    -moz-box-shadow: 1px -4px 12px 4px rgba(49,148,124,0.58);
   }
 
   thead {
@@ -56,8 +59,15 @@
   .menu {
     display: none;
   }
+
+  .opciones {
+    border-left: solid 3px var(--hospital-green);
+    border-right: solid 2px var(--hospital-green);
+  }
+
   .logo {
     width: 70px;
+    height: 70px;
   }
   .navbar-left ul,
     .navbar-right ul {
@@ -72,7 +82,7 @@
       display: flex;
     }
     .navbar-left ul {
-      margin-left: 12px;
+      margin-left: 20px;
     }
     .navbar-left ul li a,
     .navbar-right ul li a {
