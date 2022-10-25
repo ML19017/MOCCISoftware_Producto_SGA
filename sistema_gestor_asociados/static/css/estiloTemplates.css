@@ -11,10 +11,17 @@
     --lg: 18px;
     --xlg: 28px;
   }
- 
-  a {
+  
+  a.product-card {
     text-decoration: none;
     color: #000000;
+    margin: 3px;
+    padding: 3px;
+    border-radius: 5px;
+  }
+
+  a.product-card:hover {
+    border-bottom: solid 3px #00B040;
   }
 
   body {
