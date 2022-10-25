@@ -11,6 +11,12 @@
     --lg: 18px;
     --xlg: 28px;
   }
+ 
+  a {
+    text-decoration: none;
+    color: #000000;
+  }
+
   body {
     margin: 0;
     font-family: 'Quicksand', sans-serif;
@@ -117,6 +123,7 @@
         margin-right: 200px;
       }
       .product-card {
+        cursor: pointer;
         width: 240px;
       }
       .product-card img {

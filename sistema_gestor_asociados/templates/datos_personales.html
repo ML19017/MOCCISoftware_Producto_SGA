@@ -1,9 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+    <head>
+        <title>Datos Personales</title>
+        {% include "nav.html" %}
+    </head>
     <body>
         <div class="comun">
             <div class="form-container">
-                <form action="/sistema_gestor_asociados/" class="form" method="post">
+                <form class="form" action="/sistema_gestor_asociados/ingresar_solicitud" method="post">
                     <!-- @ID && @PARAMS : patron / name-name
                         #fecha-Solicitante
                         #lugar-Solicitante
@@ -46,16 +50,20 @@
                         Genero:
                     </label>
                         <select class="input" id="generoSolicitante" name="generoSolicitante" title="" placeholder="" required>
-                            <option>Opcion 1</option>
+                            {% for genero in generos %}
+                                <option value="{{ genero.id }}">{{ genero.nombre }}</option>
+                            {% endfor %}
                         </select>
-
+                    <!-- #Estado civil -->
                     <label class="label" for="estadoCivilSolicitante">
                         Estado Civil:
                     </label>
                         <select class="input" id="estadoCivilSolicitante" name="estadoCivilSolicitante" title="" placeholder="" required>
-                            <option>Opcion 1</option>
+                            {% for estado in estado_civil %}
+                                <option value="{{ estado.id }}">{{ estado.nombre }}</option>
+                            {% endfor %}
                         </select>
-
+                    <!-- #Fin de estado civil -->
                     <label class="label" for="fecha-Solicitante">
                         Fecha de Nacimiento:
                     </label>
@@ -86,6 +94,9 @@
                         Tipo de Documento:
                     </label>
                         <select class="input" id="tipo-documento-Solicitante" name="tipo-documento-Solicitante" title="Seleccione un tipo de Documento" required>
+                            {% for tipo in tipo_documento %}
+                                <option value="{{ tipo_documento.id }}">{{ tipo_documento.nombre }}</option>
+                            {% endfor %}
                         </select>
                     <label class="label" for="numero-identidad-Solicitante">
                         Número de Identidad:
@@ -125,7 +136,6 @@
                     (?=[a-z 0-9-]{1,63}\z)[a-z 0-9](?:[a-z 0-9-]*[a-z 0-9])? \z" placeholder="ejemplo@correo.com" required>
                     <!-- #Fin de datos de contacto -->
                     <input  type="submit" value="Enviar" class="primary-button">
-                    </div>
                 </form>
             </div>
         </div>
