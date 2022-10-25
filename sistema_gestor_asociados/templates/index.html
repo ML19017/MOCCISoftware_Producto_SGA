@@ -5,16 +5,18 @@
     {% include "nav.html" %}
   </head>
   <body>
-    <section class="main-container">
+    <div class="comun">
       <table>
         <thead>
             <tr><th>Id</th><th>Nombres</th><th>Apellidos</th><th>Apellido de Casada</th><th>Nacionalidad</th><th>Fecha de Nacimiento</th></tr>
         </thead>
         <tbody>
-          {% for solicitud in solicitante %}
+          <!-- {% for solicitud in solicitante %} -->
             <tr>1<td>Nombre</td><td>Apellidos</td><td>Appellido C</td><td>Nacionalidad</td><td>Fecha Nacimiento</td><tr>
-          {% endfor %}
+          <!-- {% endfor %} -->
         </tbody>
-    </section>
+      </table>
+    </div>
+    {% include "footer.html" %}
   </body>
 </html>
