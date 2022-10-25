@@ -24,7 +24,7 @@ def datos_conyuge(request):
 
     return render(request, "datos_conyuge.html")
 
-def actividad_conomica(request):
+def actividad_economica(request):
 
     return render(request, "actividad_economica.html")
 
@@ -39,3 +39,7 @@ def beneficiarios(request):
 def domicilio(request):
 
     return render(request, "domicilio.html")
+
+def anexo_documentacion(request):
+
+    return render(request, "anexo_documentacion.html")

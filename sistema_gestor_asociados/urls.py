@@ -24,8 +24,9 @@ urlpatterns = [
     path('sistema_gestor_asociados/ingresar_solicitud', ingresar_solicitud),
     path('sistema_gestor_asociados/ingresar_solicitud/datos_personales', datos_personales),
     path('sistema_gestor_asociados/ingresar_solicitud/datos_conyuge', datos_conyuge),
-    path('sistema_gestor_asociados/ingresar_solicitud/actividad_economica', actividad_conomica),
+    path('sistema_gestor_asociados/ingresar_solicitud/actividad_economica', actividad_economica),
     path('sistema_gestor_asociados/ingresar_solicitud/referencias', referencias),
     path('sistema_gestor_asociados/ingresar_solicitud/beneficiarios', beneficiarios),
     path('sistema_gestor_asociados/ingresar_solicitud/domicilio', domicilio),
+    path('sistema_gestor_asociados/ingresar_solicitud/documentacion', anexo_documentacion),
 ]

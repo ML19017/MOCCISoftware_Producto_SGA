@@ -1,84 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500;700&amp;display=swap" rel="stylesheet">
-<link rel="stylesheet" href="estiloTemplates.css">
-<title>Documentos Legales</title>
-</head>
-<body>
-    
-
-<nav>
-    <img src="./iconos/icono.svg" alt="menu" class="menu">
-
-    <div class="navbar-left">
-      <img src="./iconos/icono.svg" alt="logo" class="logo">
-
-      <ul>
-        <li>
-          <a href="/">INICIO</a>
-        </li>
-        <li>
-          <a href="/">SÉ SOCIO</a>
-        </li>
-        <li>
-          <a href="/">ANEXOS</a>
-        </li>
-        <li>
-          <a href="/">NOSOTROS</a>
-        </li>
-        <li>
-            <a href="/">TU PROCESO</a>
-          </li>
-      </ul>
-    </div>
-
-    <div class="navbar-right">
-      <ul>
-        <li class="navbar-email">MOCCI SOFTWARE</li>
-      </ul>
-    </div>
-  </nav>
-
-
-
-  <div class="comun">
-    <div class="form-container">
-        <form action="POST" class="form"></form>
-    <label class="labelTitulo">Documentos Legales de Rigor</label>
-    <!-- Anexo de los documentos legales de rigor del asociado -->
-        <label class="label" for="fotocop-DUI">
-            Fotocopia (Documento Único de Identidad - DUI): 
-        </label>
-            <input class="input" type="file" accept=".pdf, image*/" id="fotocop-DUI" name="fotocop-DUI" title="Anexar fotocopia de DUI en formato PDF.">
-        <label class="label" for="fotocop-NIT">
-            Fotocopia (Documento del Número de Identificación Tributaria - NIT): </label>
-                <input class="input" type="file" accept=".pdf, image*/" id="fotocop-NIT" name="fotocop-NIT" title="Anexar fotocopia de NIT en formato PDF.">
-        <label class="label" for="fotocop-ISSS">
-            Fotocopia (Documento del Seguro Social): 
-        </label>
-            <input class="input" type="file" accept=".pdf, image*/" id="fotocop-ISSS" name="fotocop-ISSS" title="Anexar fotocopia de documento ISSS en formato PDF.">
-    <label class="labelTitulo">
-        Documentos Complementarios
-    </label>
-    <!-- Anexo de los documentos complementarios asociado -->
-        <label class="label" for="fotocop-IVA">
-            Fotocopia (Tarjeta de IVA): 
-        </label>
-            <input class="input" type="file" accept=".pdf, image*/" id="fotocop-IVA" name="fotocop-IVA" title="Anexar fotocopia de tarjeta de IVA en formato PDF.">
-        <label class="label" for="fotocop-const-salario">
-            Fotocopia (Constancia de Salario): 
-        </label>
-            <input class="input" type="file" accept=".pdf, image*/" id="fotocop-const-salario" name="fotocop-const-salario" title="Anexar fotocopia de constancia de salario en formato PDF."> <br></br>
-            <input  type="submit" value="Enviar" class="primary-button">
+  <head>
+    <title>Documentación</title>
+    {% include "nav.html" %}
+  </head>
+  <body>
+    <div class="comun">
+      <div class="form-container">
+        <form class="form" action="/sistema_gestor_asociados/ingresar_solicitud" method="post">
+          <label class="labelTitulo">Documentos Legales de Rigor</label>
+          <!-- Anexo de los documentos legales de rigor del asociado -->
+          <label class="label" for="fotocop-DUI">
+              Fotocopia (Documento Único de Identidad - DUI): 
+          </label>
+              <input class="input" type="file" accept=".pdf, image*/" id="fotocop-DUI" name="fotocop-DUI" title="Anexar fotocopia de DUI en formato PDF." required>
+          <label class="label" for="fotocop-NIT">
+              Fotocopia (Documento del Número de Identificación Tributaria - NIT): </label>
+                  <input class="input" type="file" accept=".pdf, image*/" id="fotocop-NIT" name="fotocop-NIT" title="Anexar fotocopia de NIT en formato PDF." required>
+          <label class="label" for="fotocop-ISSS">
+              Fotocopia (Documento del Seguro Social): 
+          </label>
+              <input class="input" type="file" accept=".pdf, image*/" id="fotocop-ISSS" name="fotocop-ISSS" title="Anexar fotocopia de documento ISSS en formato PDF." required>
+          <label class="labelTitulo">
+              Documentos Complementarios
+          </label>
+          <!-- Anexo de los documentos complementarios asociado -->
+          <label class="label" for="fotocop-IVA">
+              Fotocopia (Tarjeta de IVA): 
+          </label>
+              <input class="input" type="file" accept=".pdf, image*/" id="fotocop-IVA" name="fotocop-IVA" title="Anexar fotocopia de tarjeta de IVA en formato PDF.">
+          <label class="label" for="fotocop-const-salario">
+              Fotocopia (Constancia de Salario): 
+          </label>
+              <input class="input" type="file" accept=".pdf, image*/" id="fotocop-const-salario" name="fotocop-const-salario" title="Anexar fotocopia de constancia de salario en formato PDF."> <br></br>
+          <input  type="submit" value="Enviar" class="primary-button">
         </form>
+      </div>
     </div>
-</div>
-
-</body>
+  </body>
 </html>

@@ -1,9 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <title>Actividad Economica</title>
+    {% include "nav.html" %}
+  </head>
   <body>
     <div class="comun">
       <div class="form-container">
-        <form class="form" action="/sistema_gestor_asociados/ingresar_solicitud/" method="post">
+        <form class="form" action="/sistema_gestor_asociados/ingresar_solicitud" method="post">
           <!-- Datos de la actividad económica del asociado-->
           <label class="labelTitulo" for="/">Actividad Económica</label>
           <label class="label" for="tipo-trabajador">Tipo de trabajador:</label>
@@ -21,7 +25,7 @@
           <label class="label" for="ahorro-mensual">Capacidad de ahorro mensual: $</label> 
           <input class="input" type="number" id="ahorro-mensual" name="ahorro-mensual" placeholder="xxxx.xx" disabled>
           <label class="label" for="ubicacion-negocio">Ubicación del negocio:</label> 
-          <input class="input" type="text" id="ubicacion-negocio" name="ubicacion-negocio" placeholder="Inserte ubicación del negocio" title="Ubicación del negocio del asociado.">
+          <input class="input" type="text" id="ubicacion-negocio" name="ubicacion-negocio" placeholder="Llene con la ubicación del negocio" title="Ubicación del negocio del asociado.">
           <input  type="submit" value="Enviar" class="primary-button">
         </form>
       </div>

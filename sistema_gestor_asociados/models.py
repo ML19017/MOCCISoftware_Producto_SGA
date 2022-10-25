@@ -47,10 +47,13 @@ class Registro(models.Model):
     lugar = models.CharField(max_length = 60)
     id_ejecutivo = models.ForeignKey(Ejecutivo, on_delete = models.DO_NOTHING)
 
+class UsoInmueble(models.Model):
+    nombre = models.CharField(max_length = 150)
+
 class Domicilio(models.Model):
     direccion = models.CharField(max_length = 150)
     numeroCasaDepart = models.IntegerField()
-    usoInmueble = models.CharField(max_length = 150)
+    usoInmueble = models.ForeignKey(UsoInmueble, on_delete = models.DO_NOTHING)
     tiempo = models.IntegerField()
 
 class Conyuge(models.Model):
@@ -89,9 +92,12 @@ class Solicitante(models.Model):
     foto = models.ImageField()
     firma = models.ImageField()
 
+class Parentesco(models.Model):
+    nombre = models.CharField(max_length = 32)
+
 class Beneficiario(models.Model):
     nombre = models.CharField(max_length = 60)
     edad = models.IntegerField()
-    parentesco = models.CharField(max_length = 15)
+    id_parentesco = models.ForeignKey(Parentesco, on_delete = models.DO_NOTHING)
     porcentajeBenef = models.DecimalField(decimal_places = 2, max_digits = 4)
     id_solicitante = models.ForeignKey(Solicitante, on_delete = models.DO_NOTHING)
