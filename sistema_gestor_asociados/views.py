@@ -43,3 +43,7 @@ def domicilio(request):
 def anexo_documentacion(request):
 
     return render(request, "anexo_documentacion.html")
+
+def host(request):
+
+    return render(request, "host.html")

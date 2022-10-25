@@ -1,0 +1,6 @@
+#mapDiv{
+    width: 50%;
+    height: 50vh;
+    display: grid;
+    place-items: center;
+}
