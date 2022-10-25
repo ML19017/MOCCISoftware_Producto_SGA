@@ -1,17 +1,16 @@
-import re
 from django.shortcuts import render
-from django.db import models
+from sistema_gestor_asociados.models import Beneficiario, Parentesco, Solicitante
 
 # Views
 def login(request):
     return render(request, "login.html")
 
-def index(request):
-    
-    return render(request, "index.html")
+def escritorio(request):
+    solicitudes  = Solicitante.objects.all()
+    return render(request, "escritorio.html", {"solicitudes": solicitudes})
 
 def ingresar_solicitud(request):
-    
+
     return render(request, "ingresar_solicitud.html")
 
 # datos personas, datos del cónyuge, actividad economica, referencias, beneficiarios, domicilio, anexos
@@ -33,8 +32,8 @@ def referencias(request):
     return render(request, "referencias.html")
 
 def beneficiarios(request):
-
-    return render(request, "beneficiarios.html")
+    parentescos = Parentesco.objects.all()
+    return render(request, "beneficiarios.html", {"parentescos": parentescos})
 
 def domicilio(request):
 

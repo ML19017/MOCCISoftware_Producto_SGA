@@ -1,9 +1,12 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
         <title>Sistema Gestor de Asociados: Login</title>
         <meta charset="UTF-8"/>
-        <meta lang="es">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+		<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500;700&amp;display=swap" rel="stylesheet">
         {% load static %}
         <link rel="stylesheet" type="text/css" href="{% static '/css/login.css' %}"/>
         <a href="https://www.freepik.es/vector-gratis/fondo-hexagonal-oscuro-color-degradado_12804207.htm#query=fondos%20de%20pantalla&position=2&from_view=keyword">Imagen de coolvector</a> en Freepik
@@ -17,10 +20,11 @@
                 </div>
                 <div class="login-box">
                     <div class="loginpage-intro">
-                        <h1>Sistema Gestor de Asociados</h1>
+                        <h1>SISTEMA GESTOR DE ASOCIADOS</h1>
                         <div class="loginpage-intro-logo">
                             {% load static %}
-                            <a href="#"><h2><img src="{% static '/resources/login-logo.png' %}" title="Sistema Gestor de Asociados" alt="MOCCI Software" class="login-logo"></h2></a>
+                            <img src="{% static '/resources/logo_coo.svg' %}" title="Sistema Gestor de Asociados" alt="MOCCI Software" class="login-logo">
+                            <h2>PYLON</h2>
                         </div>
                     </div>
                     <div class="loginerrors">
@@ -28,7 +32,7 @@
                         <div class="alert alert-danger" role="alert">Su sesión ha excedido el tiempo límite. Por favor, entre de nuevo. </div>
                     </div>
                     <div class="login-from">
-                        <form action="#" method="post" id="login">
+                        <form action="/sistema_gestor_asociados/validate.php" method="post" id="login">
                             <div class="form-group my-0">
                                 <label for="username" class="sr-only">
                                         Nombre de usuario

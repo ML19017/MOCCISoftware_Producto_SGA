@@ -1,31 +1,44 @@
-@charset "UTF-8";
+@charset "utf-8";
+
+:root {
+    --white: #FFFFFF;
+    --black: #000000;
+    --very-light-pink: #C7C7C7;
+    --text-input-field: #F7F7F7;
+    --hospital-green: #ACD9B2;
+    --vert-btn: #098f3a;
+    --red: #ff6961;
+    --vert: #00B040;
+    --sm: 14px;
+    --md: 16px;
+    --lg: 18px;
+    --xlg: 28px;
+}
 
 /* Inicio de CSS login*/
 * {
     margin: 0;
     padding: 0;
+    font-family: 'Quicksand', sans-serif;
 }
 
 *, *::before, *::after{
     box-sizing: border-box;
 }
 
-h1 {
-    font-family: Arial, Helvetica, sans-serif;
+h1, h2 {
     text-align: center;
-    padding-bottom: 20px;
 }
 
 body {
     width: 100%;
     height: 100%;
-    font-family: Georgia, 'Times New Roman', Times, serif;
     font-size: 1rem;
     font-weight: 400;
     line-height: 1.5;
     color: black;
     text-align: left;
-    background-color: linen;
+    background-color: var(--white);
 }
 
 a {
@@ -84,13 +97,13 @@ button, input {
     padding: 1rem 1.75rem;
     font-size: 1rem;
     border-radius: 5px;
-    background-color: brown;
+    background-color: var(--vert-btn);
     border: 1px solid transparent;
     color: antiquewhite;
 }
 
 .btn-lg-primary:hover {
-    background-color: lightcoral;
+    background-color: var(--hospital-green);
 }
 
 .btn-lg-primary:not(:disabled), [type="button"]:not(:disable),
@@ -102,6 +115,8 @@ button, input {
     display: flex;
     flex-wrap: wrap;
     padding-top: 2.5rem;
+    min-width: 1400px;
+    overflow: hidden;
 }
 
 .login-wrapper {
@@ -125,11 +140,9 @@ button, input {
 
 .login-logo {
     display: flex;
-    max-width: 100%;
-    max-height: 100%;
+    width: 250px;
+    height: 250px;
     margin: auto;
-    width: auto;
-    height: auto;
 }
 
 .login-bg-container {
@@ -141,6 +154,9 @@ button, input {
     height: 100%;
     width: 100%;
     border-radius: 5px;
+    box-shadow: 1px 4px 12px 4px rgba(49,148,124,0.58);
+    -webkit-box-shadow: 1px 4px 12px 4px rgba(49,148,124,0.58);
+    -moz-box-shadow: 1px 4px 12px 4px rgba(49,148,124,0.58);
 }
 
 .login-box {
@@ -150,6 +166,9 @@ button, input {
     padding: 60px;
     background-color: #fff;
     border-radius: 5px;
+    box-shadow: 1px 4px 12px 4px rgba(49,148,124,0.58);
+    -webkit-box-shadow: 1px 4px 12px 4px rgba(49,148,124,0.58);
+    -moz-box-shadow: 1px 4px 12px 4px rgba(49,148,124,0.58);
 }
 
 .mt-0, .my-0 {

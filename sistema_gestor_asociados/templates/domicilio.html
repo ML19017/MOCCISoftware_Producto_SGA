@@ -5,11 +5,13 @@
     {% include "nav.html" %}
     {% load static %}
     <link rel="stylesheet" href="{% static '/css/maps.css' %}">
+    <script src="{% static 'scripts/initMap.js' %}"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAUmnpFJIsdpOpu7d4g7kKv8l_0kq9OTn8&callback=initMap" defer></script>
   </head>
   <body>
     <div class="comun">
       <div class="form-container">
-        <form class="form" action="/sistema_gestor_asociados/ingresar_solicitud" method="post">
+        <form class="form" action="/sistema_gestor_asociados/ingresar_solicitud/" method="post">
           <!-- @ID && @PARAMS : patron / name-name
               #dirección
               #numeroCasaDepartamento
@@ -38,45 +40,9 @@
               Tiempo de Instancia:
           </label>
             <input class="input" type="text" name="tiempoDeEstancia" id="tiempoDeEstancia" placeholder="Tiempo de instancia" pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]+" minlength="5" maxlength="32" required>
-            <button class="primary-button" id="button">Mostrar ubicacion</button>
-          <div class="mapDiv" id="mapDiv"></div>
-          <!-- #SCRIPTS -->
-          <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAUmnpFJIsdpOpu7d4g7kKv8l_0kq9OTn8&callback=initMap" defer></script>
-          <script>
-            function initMap() {
-            const argCoords = { lat: 13.6976, lng: -88.896 }
-            const map = new google.maps.Map(document.getElementById("mapDiv"), {
-              zoom: 8,
-              center: argCoords,
-            });
-          const marker = new google.maps.Marker({
-            position: argCoords,
-            map,
-          });
-        
-          button.addEventListener('click',()=> {
-            if(navigator.geolocation){
-                navigator.geolocation.getCurrentPosition(
-                    ({ coords: {latitude, longitude } } ) => {
-                        const coords = {
-                            lat: latitude,
-                            lng: longitude,
-                        };
-                        map.setCenter(coords);
-                        marker.setPosition(coords);
-                        map.setZoom(15);
-                        console.log(coords);
-                    },
-                    () => {
-                        alert("Ocurrio un error");
-                    }
-                )
-            }else{
-                alert("Este navegador no es compatible con los servicios de ubicaci[on, por favor actualizar");
-            }
-          });
-        
-          }</script>   
+            <button class="primary-button" id="button" type="button">Mostrar ubicacion</button>
+          <!-- #MAPA -->
+            <div class="mapDiv" id="mapDiv"></div> 
           <input  type="submit" value="Enviar" class="primary-button">
         </form>
       </div>

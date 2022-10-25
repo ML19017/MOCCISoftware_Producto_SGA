@@ -19,17 +19,9 @@
               <br> Parentesto: <br>
             </label>
             <select class="input" form="beneficiario-parentesco" id="beneficiario-parentesco" title="beneficiario-parentesco" aria-placeholder="Seleccione una">
-              {% for parentesco in parentescos %}
-                <option value="{{ parentesco.id }}">{{ parentesco.nombre }}</option>
-              <option value="1">Padre</option>
-              <option value="2">Madre</option>
-              <option value="3">Hijo/a</option>
-              <option value="4">Hermano/a</option>
-              <option value="5">Primo/a</option>
-              <option value="6">Abuelo/a</option>
-              <option value="7">Tío/a</option>
-              <option value="8">Otro</option>
-              {% endfor  %}
+            {% for parentesco in parentescos %}
+              <option value="{{ parentesco.id }}">{{ parentesco.nombre }}</option>
+            {% endfor  %}
             </select>
             <label class="label" for="beneficiario-edad">
               <br>  Edad: <br>
