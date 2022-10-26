@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from sistema_gestor_asociados.models import Beneficiario, Parentesco, Solicitante
+from sistema_gestor_asociados.models import Beneficiario, EstadoCivil, Genero, Pais, Parentesco, Solicitante, TipoDocumento
 
 # Views
 def login(request):
@@ -16,8 +16,11 @@ def ingresar_solicitud(request):
 # datos personas, datos del cónyuge, actividad economica, referencias, beneficiarios, domicilio, anexos
 
 def datos_personales(request):
-
-    return render(request, "datos_personales.html")
+    generos = Genero.objects.all()
+    tipos = TipoDocumento.objects.all()
+    paises = Pais.objects.all()
+    estado_civil = EstadoCivil.objects.all() 
+    return render(request, "datos_personales.html", {"generos": generos, "tipo_documento": tipos, "paises": paises, "estado_civil": estado_civil})
 
 def datos_conyuge(request):
 

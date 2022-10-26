@@ -1,4 +1,5 @@
 from email.policy import default
+from unittest.util import _MAX_LENGTH
 from django.db import models
 
 # Create your models here.
@@ -9,10 +10,16 @@ class Genero(models.Model):
 
 class TipoDocumento(models.Model):
     nombre = models.CharField(max_length = 32)
+    length = models.CharField(max_length = 2)
+    codigo = models.CharField(max_length = 2)
 
-class Rubro(models.Model):
-    nombre = models.CharField(max_length = 32)
-    area = models.CharField(max_length = 32)
+class CategoriaRubro(models.Model):
+    nombre = models.CharField(max_length = 120)
+
+class Rubros(models.Model):
+    codigo = models.CharField(max_length = 10)
+    nombre = models.CharField(max_length = 240)
+    id_categoria = models.ForeignKey(CategoriaRubro, on_delete = models.DO_NOTHING)
 
 class Pais(models.Model):
     nombre = models.CharField(max_length = 50)
@@ -29,7 +36,7 @@ class Ejecutivo(models.Model):
     avatar = models.ImageField()
 
 class ActividadEconomica(models.Model):
-    rubro_profesion = models.ForeignKey(Rubro, on_delete = models.DO_NOTHING)
+    rubro_profesion = models.ForeignKey(Rubros, on_delete = models.DO_NOTHING)
     capacidadPago = models.DecimalField(decimal_places = 2, max_digits = 10)
     capacidadAhorro = models.DecimalField(decimal_places = 2, max_digits = 10)
     asociaciones = models.CharField(max_length = 50)
