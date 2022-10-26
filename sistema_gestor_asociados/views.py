@@ -23,8 +23,10 @@ def datos_personales(request):
     return render(request, "datos_personales.html", {"generos": generos, "tipo_documento": tipos, "paises": paises, "estado_civil": estado_civil})
 
 def datos_conyuge(request):
+    tipos = TipoDocumento.objects.all()
+    paises = Pais.objects.all()
 
-    return render(request, "datos_conyuge.html")
+    return render(request, "datos_conyuge.html", {"tipo_documento": tipos, "paises": paises})
 
 def actividad_economica(request):
 

@@ -60,7 +60,12 @@
                         Tipo de Documento:
                     </label>
                         <select class="input" id="tipo-documento-conyuge" name="tipo-documento-conyuge" title="Seleccione un tipo de Documento" required>
+                            <option>--------------</option>
+                            {% for documento in tipo_documento %}
+						    <option value="{{ documento.id }}">{{ documento.nombre }}</option>
+						    {% endfor %}
                         </select>
+
                     <label class="label" for="numero-identidad-conyuge">
                         Número de Identidad:
                     </label>
@@ -71,6 +76,10 @@
                         Codigo del País:
                     </label>
                         <select class="input" id="tel-pais-personal-conyuge" name="tel-pais-personal-conyuge" title="Seleccione el codigo del País" required>
+                            <option>--------------</option>
+                            {% for pais in paises %}
+                            <option value="{{ pais.id }}">{{ pais.nombre }}: +{{ pais.telefono }}</option>
+                            {% endfor %}
                         </select>
                     <label class="label" for="tel-personal-conyuge">
                         Télefono personal:
@@ -81,7 +90,10 @@
                         Codigo del País
                     </label>
                         <select class="input" id="tel-pais-oficina-conyuge" name="tel-pais-oficina-conyuge" title="" placeholder="" required>
-                            <option>Opcion 1</option>
+                            <option>--------------</option>
+                            {% for pais in paises %}
+                            <option value="{{ pais.id }}">{{ pais.nombre }}: +{{ pais.telefono }}</option>
+                            {% endfor %}
                         </select>
                     <label class="label" for="tel-oficina-conyuge">
                         Télefono de Oficina:
