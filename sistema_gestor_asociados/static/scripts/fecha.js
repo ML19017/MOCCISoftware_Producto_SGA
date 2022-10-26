@@ -14,8 +14,8 @@ function calcularEdad() {
         var edad_dt = new Date(diferencia_meses); 
         var anio = edad_dt.getUTCFullYear();
         var edad = Math.abs(anio - 1970);
-    if(edad < 18) {
-        alert("No se cumplen los requisitos de mayoria de edad: " + edad + " años.");
+    if(edad < 16) {
+        alert("No se cumplen los requisitos de edad: " + edad + " años.\nDebes ser mayor de 16 años.");
     }
     }
 }
