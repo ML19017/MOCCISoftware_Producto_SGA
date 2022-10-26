@@ -27,7 +27,7 @@ function initMap() {
                 console.log(coords);
             },
             () => {
-                alert("Ocurrio un error!");
+                alert("Ocurrió un error!");
             }
         )
     }
