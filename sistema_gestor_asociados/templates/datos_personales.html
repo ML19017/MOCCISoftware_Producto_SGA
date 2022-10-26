@@ -41,6 +41,7 @@
 					<!-- #Género -->
                     <label class="label" for="genero">Género:</label>
 					<select class="input" id="genero" name="genero" title="Género" placeholder="" required>
+						<option>--------------</option>
 						{% for genero in generos %}
 						<option value="{{ genero.id }}">{{ genero.nombre }}</option>
 						{% endfor %}
@@ -48,6 +49,7 @@
 					<!-- #Estado civil -->
                     <label class="label" for="estado-civil">Estado Civil:</label>
 					<select class="input" id="estado-civil" name="estado-civil" title="Estado Civil" placeholder="" required>
+						<option>--------------</option>
 						{% for estado in estado_civil %}
 						<option value="{{ estado.id }}">{{ estado.nombre }}</option>
 						{% endfor %}
@@ -55,6 +57,7 @@
 					<!-- #Nacionalidad -->
                     <label class="label" for="nacionalidad">Nacionalidad:</label>
 					<select class="input" id="nacionalidad" name="nacionalidad" title="Nacionalidad" placeholder="" required>
+						<option>--------------</option>
 						{% for nacionalidad in paises %}
 						<option value="{{ nacionalidad.id }}">{{ nacionalidad.nombre }}</option>
 						{% endfor %}
@@ -73,10 +76,11 @@
 					<input class="input" type="text" name="cargo" id="cargo" title="Cargo que desempeña dentro de la empresa" placeholder="Cargo ejercido" pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]+" minlength="5" maxlength="32" required>
 					<!-- #Empresa -->
                     <label class="label" for="ubicacion-empresa">Ubicación de la Empresa:</label>
-					<input class="input" type="text" name="ubicacion-empresa" id="ubicacion-empresa" title="Dirección de la Empresa" placeholder="Dirección de la emmpresa" pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]+" minlength="5" maxlength="40" required>
+					<input class="input" type="text" name="ubicacion-empresa" id="ubicacion-empresa" title="Dirección de la Empresa" placeholder="Dirección de la empresa" pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]+" minlength="5" maxlength="40" required>
 					<!-- #TipoDocumento-->
                     <label class="label" for="tipo-documento">Tipo de Documento:</label>
 					<select class="input" id="tipo-documento" name="tipo-documento" title="Seleccione un tipo de Documento" required>
+						<option>--------------</option>
 						{% for documento in tipo_documento %}
 						<option value="{{ documento.id }}">{{ documento.nombre }}</option>
 						{% endfor %}
@@ -87,7 +91,8 @@
 					<!-- #Telefono-->
 					<label class="label" for="tel-pais-personal">Codigo del País:</label>
 					<select class="input" id="tel-pais-personal" name="tel-pais-personal" title="Seleccione el codigo del País" required>
-                        {% for pais in paises %}
+                        <option>--------------</option>
+						{% for pais in paises %}
 						<option value="{{ pais.id }}">{{ pais.telefono }}</option>
 						{% endfor %}
 					</select>
@@ -96,6 +101,7 @@
 					<!-- #Telefono-->
                     <label class="label" for="tel-pais-oficina">Codigo del País</label>
 					<select class="input" id="tel-pais-oficina" name="tel-pais-oficina" title="" placeholder="" required>
+						<option>--------------</option>
 						{% for pais in paises %}
 						<option value="{{ pais.id }}">{{ pais.telefono }}</option>
 						{% endfor %}
