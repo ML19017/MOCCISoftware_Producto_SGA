@@ -19,7 +19,8 @@
               <br> Parentesto: <br>
             </label>
             <select class="input" form="beneficiario-parentesco" id="beneficiario-parentesco" title="beneficiario-parentesco" aria-placeholder="Seleccione una">
-            {% for parentesco in parentescos %}
+              <option>--------------</option>
+              {% for parentesco in parentescos %}
               <option value="{{ parentesco.id }}">{{ parentesco.nombre }}</option>
             {% endfor  %}
             </select>
@@ -30,7 +31,7 @@
             <label class="label" for="beneficiario-porcentaje">
               <br> Porcentaje: 
             </label>
-              <input class="input" type="number" name="beneficiario-porcentaje" id="beneficiario-porcentaje" title="beneficiario-porcentaje" placeholder="Porcentaje del beneficiario"/>
+              <input class="input" type="number" step="0.01" name="beneficiario-porcentaje" id="beneficiario-porcentaje" title="beneficiario-porcentaje" placeholder="Porcentaje del beneficiario"/>
             <label class="label" for="beneficiario-partida">
               <br> Partida de Nacimiento: 
             </label>
@@ -38,7 +39,7 @@
             <label class="label" for="beneficiario-dui">
               <br>  DUI: 
             </label>
-              <input class="input" type="text" name="beneficiario-dui" id="beneficiario-dui" title="beneficiario-dui" placeholder="Dui del beneficiario"/>
+              <input class="input" type="text" name="beneficiario-dui" id="beneficiario-dui" title="beneficiario-dui" placeholder="DUI del beneficiario"/>
             <!-- #Datos complementarios -->
             <label class="labelTitulo"><br>Datos complementarios </label>
             <label class="label" for="beneficiario-fecha">

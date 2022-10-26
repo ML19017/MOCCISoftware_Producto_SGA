@@ -21,15 +21,15 @@
           <!-- #Datos Personales -->
           <label for="/" class="labelTitulo">Datos de Domicilio</label>
           <label class="label" for="direccion">
-              Direccion:
+              Dirección:
           </label>
-            <input class="input" type="text" name="direccion" id="direccion" title="" placeholder="Ingrese su direccion" pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]+" minlength="5" maxlength="32" required>
+            <input class="input" type="text" name="direccion" id="direccion" title="" placeholder="Ingrese su dirección" pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]+" minlength="5" maxlength="32" required>
           <label class="label" for="numeroCasaDepartamento">
-              Numero de casa o departamento
+              Número de casa o apartamento:
           </label>
-              <input class="input" type="text" name="numeroCasaDepartamento" id="numeroCasaDepartamento" placeholder="Numero de departamento" pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]+" minlength="5" maxlength="32" required>
+              <input class="input" type="text" name="numeroCasaDepartamento" id="numeroCasaDepartamento" placeholder="Numero de apartamento" pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]+" minlength="5" maxlength="32" required>
           <label class="label" for="usoInmueble">
-              Uso inmueble
+              Tipo de uso del inmueble:
           </label>
             <select class="input" id="usoInmueble" name="usoInmueble" title="" placeholder="" required>
               {% for uso in usoInmueble %}
@@ -37,9 +37,9 @@
               {% endfor %}
             </select>
           <label class="label" for="tiempoDeEstancia">
-              Tiempo de Instancia:
+              Tiempo de Estancia:
           </label>
-            <input class="input" type="text" name="tiempoDeEstancia" id="tiempoDeEstancia" placeholder="Tiempo de instancia" pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]+" minlength="5" maxlength="32" required>
+            <input class="input" type="text" name="tiempoDeEstancia" id="tiempoDeEstancia" placeholder="Tiempo de estancia" pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]+" minlength="5" maxlength="32" required>
             <button class="primary-button" id="button" type="button">Mostrar ubicacion</button>
           <!-- #MAPA -->
             <div class="mapDiv" id="mapDiv"></div> 
