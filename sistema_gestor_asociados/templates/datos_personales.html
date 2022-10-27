@@ -93,7 +93,7 @@
 					<select class="input" id="tel-pais-personal" name="tel-pais-personal" title="Seleccione el codigo del País" required>
                         <option>--------------</option>
 						{% for pais in paises %}
-						<option value="{{ pais.id }}">{{ pais.telefono }}</option>
+						<option value="{{ pais.id }}">{{ pais.nombre }}: +{{ pais.telefono }}</option>
 						{% endfor %}
 					</select>
 					<label class="label" for="tel-personal">Télefono personal:</label>
@@ -103,7 +103,7 @@
 					<select class="input" id="tel-pais-oficina" name="tel-pais-oficina" title="" placeholder="" required>
 						<option>--------------</option>
 						{% for pais in paises %}
-						<option value="{{ pais.id }}">{{ pais.telefono }}</option>
+						<option value="{{ pais.id }}">{{ pais.nombre }}: +{{ pais.telefono }}</option>
 						{% endfor %}
 					</select>
 					<label class="label" for="tel-oficina-solicitante">Télefono de Oficina:</label>
