@@ -10,7 +10,7 @@ fechaMaxima = fechaActual.strftime('%Y-%m-%d')
 
 def salir(request):
     logout(request)
-    return redirect('http://127.0.0.1:8000/accounts/login/?next=/sistema_gestor_asociados/escritorio/')
+    return redirect('http://127.0.0.1:8000/sistema_gestor_asociados/escritorio/')
 
 @login_required
 def configuracion(request):
@@ -74,7 +74,6 @@ def anexo_documentacion(request):
 
     return render(request, "anexo_documentacion.html")
 
-@login_required
 def host(request):
 
     return render(request, "host.html")
