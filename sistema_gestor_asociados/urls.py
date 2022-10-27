@@ -22,6 +22,7 @@ urlpatterns = [
     path('', host),
     path('sistema_gestor_asociados/login/', login),
     path('sistema_gestor_asociados/escritorio/', escritorio),
+    path('sistema_gestor_asociados/configuracion/', configuracion),
     path('sistema_gestor_asociados/ingresar_solicitud/', ingresar_solicitud),
     path('sistema_gestor_asociados/ingresar_solicitud/datos_personales/', datos_personales),
     path('sistema_gestor_asociados/ingresar_solicitud/datos_conyuge/', datos_conyuge),

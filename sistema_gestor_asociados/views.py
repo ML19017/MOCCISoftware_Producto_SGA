@@ -5,6 +5,15 @@ from sistema_gestor_asociados.models import Beneficiario, EstadoCivil, Genero, P
 def login(request):
     return render(request, "login.html")
 
+def configuracion(request):
+    generos = Genero.objects.all()
+    tipos = TipoDocumento.objects.all()
+    paises = Pais.objects.all()
+    estado_civil = EstadoCivil.objects.all()
+    parentescos = Parentesco.objects.all()
+    actividades =  Parentesco.objects.all()
+    return render(request, "configuracion.html", {"actividades": actividades ,"generos": generos, "tipo_documento": tipos, "paises": paises, "estado_civil": estado_civil, "parentescos": parentescos})
+
 def escritorio(request):
     solicitudes  = Solicitante.objects.all()
     return render(request, "escritorio.html", {"solicitudes": solicitudes})
