@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from sistema_gestor_asociados.models import Beneficiario, EstadoCivil, Genero, Pais, Parentesco, Solicitante, TipoDocumento
+from sistema_gestor_asociados.models import Beneficiario, EstadoCivil, Genero, Pais, Parentesco, Solicitante, TipoDocumento, CategoriaRubro
 
 # Views
 def login(request):
@@ -29,8 +29,9 @@ def datos_conyuge(request):
     return render(request, "datos_conyuge.html", {"tipo_documento": tipos, "paises": paises})
 
 def actividad_economica(request):
+    rubros = CategoriaRubro.objects.all()
 
-    return render(request, "actividad_economica.html")
+    return render(request, "actividad_economica.html", {"rubros": rubros})
 
 def referencias(request):
 
