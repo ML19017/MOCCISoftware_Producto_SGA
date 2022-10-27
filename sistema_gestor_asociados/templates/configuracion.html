@@ -1,11 +1,24 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
+        <title>Configuración</title>
         {% include "nav.html" %}
+        {% load static %}
+        <script src="{% static 'scripts/tab.js' %}"></script>
     </head>
     <body>
-        <div class="comun">
-            <section name="actividades">
+        <div class="config">
+            <h1>CONFIGURACIÓN</h1>
+        <div class="tab">
+            <button class="tablinks" onclick="abrirTab(event, 'actividades')">ACTIVIDADES</button>
+            <button class="tablinks" onclick="abrirTab(event, 'generos')">GENEROS</button>
+            <button class="tablinks" onclick="abrirTab(event, 'estado_civil')">ESTADO CIVIL</button>
+            <button class="tablinks" onclick="abrirTab(event, 'paises')">PAISES</button>
+            <button class="tablinks" onclick="abrirTab(event, 'parentesco')">PARENTESCO</button>
+            <button class="tablinks" onclick="abrirTab(event, 'tipo_documento')">TIPO DE DOCUMENTO</button>
+        </div>
+            <div class="tabs">
+            <div id="actividades" class="tabcontent">
                 <h1>Actividades</h1>
                 <table>
                     <thead>
@@ -23,8 +36,8 @@
                         {% endfor %}
                     </tbody>
                 </table>
-            </section>
-            <section name="generos">
+            </div>
+            <div id="generos" class="tabcontent">
                 <h1>Género</h1>
                 <table>
                     <thead>
@@ -44,8 +57,8 @@
                         {% endfor %}
                     </tbody>
                 </table>
-            </section>
-            <section name="estado_civil">
+            </div>
+            <div id="estado_civil" class="tabcontent">
                 <h1>Estado Civil</h1>
                 <table>
                     <thead>
@@ -63,8 +76,8 @@
                         {% endfor %}
                     </tbody>
                 </table>
-            </section>
-            <section name="paises">
+            </div>
+            <div id="paises" class="tabcontent">
                 <h1>Paises</h1>
                 <table>
                     <thead>
@@ -86,8 +99,8 @@
                         {% endfor %}
                     </tbody>
                 </table>
-            </section>
-            <section name="parentesco">
+            </div>
+            <div id="parentesco" class="tabcontent">
                 <h1>Parentesco</h1>
                 <table>
                     <thead>
@@ -105,8 +118,8 @@
                         {% endfor %}
                     </tbody>
                 </table>
-            </section>
-            <section name="tipos_documento">
+            </div>
+            <div id="tipo_documento" class="tabcontent">
                 <h1>Tipo de Documentos</h1>
                 <table>
                     <thead>
@@ -124,7 +137,9 @@
                         {% endfor %}
                     </tbody>
                 </table>
-            </section>
+            </div>
+            </div>
         </div>
+        {% include "footer.html" %}
     </body>
 </html>

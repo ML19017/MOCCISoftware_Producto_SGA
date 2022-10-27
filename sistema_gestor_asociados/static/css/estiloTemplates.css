@@ -154,12 +154,12 @@ caption {
 
 .cards-container {
   display: grid;
-  grid-template-columns: repeat(auto-fill, 240px);
+  grid-template-columns: auto auto auto;
   gap: 100px;
   place-content: center;
   margin: 24px;
-  margin-left: 200px;
-  margin-right: 200px;
+  padding-left: 200px;
+  padding-right: 200px;
 }
 
 .product-card {
@@ -257,12 +257,16 @@ caption {
 
 .comun {
   width: 100%;
-  min-height: calc(100vh - 200px);
-  max-height: calc(100vh - 200px);
+  min-height: calc(100vh - 210px);
+  max-height: calc(100vh - 210px);
   overflow-y: scroll;
   overflow-x: hidden;
   display: grid;
   place-items: center;
+}
+
+.display-block {
+  display: block;
 }
 
 .primary-button {
@@ -344,12 +348,22 @@ caption {
   border-top: none;
 }
 
-.config {
+.tabs {
   width: 100%;
-  min-height: calc(100vh - 200px);
-  max-height: calc(100vh - 200px);
+  display: block;
+  max-height: 660px;
   overflow-y: scroll;
   overflow-x: hidden;
-  display: grid;
+  place-items: center;
+  border-bottom: solid 3px var(--hospital-green);
+}
+
+.config {
+  width: 100%;
+  min-height: calc(100vh - 210px);
+  max-height: calc(100vh - 210px);
+  overflow-y: scroll;
+  overflow-x: hidden;
+  display: block;
   place-items: center;
 }
