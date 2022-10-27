@@ -81,6 +81,10 @@ caption {
   border-left: solid 3px var(--hospital-green);
 }
 
+.opciones li{
+  margin-left: 20px;
+}
+
 .logo {
   width: 70px;
   height: 70px;
