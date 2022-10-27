@@ -19,13 +19,3 @@ function calcularEdad() {
     }
     }
 }
-
-function configurarFechas() {
-    var input = document.getElementById("fecha-nacimiento");
-    var fechaMaxima = new Date();
-    var fechaMinima = new Date(new Date().setFullYear(new Date().getFullYear() - 120));
-    var min = fechaMinima.getFullYear() + "-" + (fechaMinima.getMonth() + 1) + "-" + fechaMinima.getDate();
-    var max = fechaMaxima.getFullYear() + "-" + (fechaMaxima.getMonth() + 1) + "-" + fechaMaxima.getDate();
-    input.setAttribute("min", min);
-    input.setAttribute("max", max);
-}

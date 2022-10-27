@@ -6,7 +6,7 @@
 		<script src="{% static 'scripts/fecha.js' %}"></script>
 		{% include "nav.html" %}
 	</head>
-	<body onload="configurarFechas();">
+	<body>
 		<div class="comun">
 			<div class="form-container">
 				<form class="form" action="/sistema_gestor_asociados/ingresar_solicitud/" method="post">
@@ -64,7 +64,7 @@
 					</select>
 					<!-- #Fecha de Nacimiento -->
                     <label class="label" for="fecha-nacimiento">Fecha de Nacimiento:</label>
-					<input class="input" type="date" name="fecha-nacimiento" id="fecha-nacimiento" title="Fecha de Nacimiento" max="" min="" onchange="calcularEdad()" required>
+					<input class="input" type="date" name="fecha-nacimiento" id="fecha-nacimiento" title="Fecha de Nacimiento" min="{{ fechaMinima }}" max="{{ fechaMaxima }}" onchange="calcularEdad()" required>
 					<!-- #Lugar -->
                     <label class="label" for="lugar-nacimiento">Lugar de Nacimiento:</label>                
 					<input class="input" type="text" name="lugar-nacimiento" id="lugar-nacimiento" title="" placeholder="Lugar de Nacimiento" pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]+" minlength="5" maxlength="40" required>

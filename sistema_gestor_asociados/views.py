@@ -1,11 +1,12 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import logout
+from datetime import datetime
 from sistema_gestor_asociados.models import Beneficiario, EstadoCivil, Genero, Pais, Parentesco, Solicitante, TipoDocumento, CategoriaRubro
 
-# Views
-#def login(request):
-    #return render(request, "login.html")
+fechaActual = datetime.today()
+fechaMinima = str(fechaActual.year - 100) + "-" + str(fechaActual.month) + "-" + str(fechaActual.day)
+fechaMaxima = fechaActual.strftime('%Y-%m-%d')
 
 def salir(request):
     logout(request)
@@ -38,7 +39,7 @@ def datos_personales(request):
     tipos = TipoDocumento.objects.all()
     paises = Pais.objects.all()
     estado_civil = EstadoCivil.objects.all() 
-    return render(request, "datos_personales.html", {"generos": generos, "tipo_documento": tipos, "paises": paises, "estado_civil": estado_civil})
+    return render(request, "datos_personales.html", {"fechaMaxima": fechaMaxima,"fechaMinima": fechaMinima ,"generos": generos, "tipo_documento": tipos, "paises": paises, "estado_civil": estado_civil})
 
 @login_required
 def datos_conyuge(request):
@@ -61,7 +62,7 @@ def referencias(request):
 @login_required
 def beneficiarios(request):
     parentescos = Parentesco.objects.all()
-    return render(request, "beneficiarios.html", {"parentescos": parentescos})
+    return render(request, "beneficiarios.html", {"fechaMaxima": fechaMaxima,"fechaMinima": fechaMinima ,"parentescos": parentescos})
 
 @login_required
 def domicilio(request):
