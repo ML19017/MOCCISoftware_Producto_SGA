@@ -15,12 +15,14 @@ Including another URLconf
 """
 from sistema_gestor_asociados.views import *
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', host),
-    path('sistema_gestor_asociados/login/', login),
+    path('accounts/', include('django.contrib.auth.urls')),
+    path('salir/', salir, name="salir"), 
+    #path('sistema_gestor_asociados/login/', login),
     path('sistema_gestor_asociados/escritorio/', escritorio),
     path('sistema_gestor_asociados/configuracion/', configuracion),
     path('sistema_gestor_asociados/ingresar_solicitud/', ingresar_solicitud),
