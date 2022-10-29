@@ -20,9 +20,9 @@
           <input type="text" name="" id="autocomplete" class="input">
           <label for="numeroCasa" class="label"><br>Escriba su número de casa o de apartamento</label>
           <input class="input" type="number" id="numeroCasa" title="numeroCasa" name="numeroCasa" placeholder="N Casa o Apt">
-          <label class="label" for="usoInmueble"><br>Tipo de uso del inmueble:</label>
-          <select class="input" id="usoInmueble" name="usoInmueble" title="" placeholder="" required>
-            {% for uso in usoInmueble %}
+          <label class="label" for="uso-inmueble"><br>Tipo de uso del inmueble:</label>
+          <select class="input" id="uso-inmueble" name="uso-inmueble" title="" placeholder="" required>
+            {% for uso in uso_inmueble %}
               <option value="{{ uso.id }}">{{ uso.nombre }}</option>
             {% endfor %}
           </select>
