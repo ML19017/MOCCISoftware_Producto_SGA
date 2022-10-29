@@ -1,43 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>Domicilio</title>
-    {% include "nav.html" %}
-    {% load static %}
-    <link rel="stylesheet" href="{% static '/css/maps.css' %}">
-    <link rel="stylesheet" href="{% static '/css/mapaEstilo.css' %}">
-    <script src="{% static 'scripts/ubicacion.js' %}"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAUmnpFJIsdpOpu7d4g7kKv8l_0kq9OTn8&libraries=places&callback=initMap" ></script>
-  </head>
-
-  <body>
-   
-    <div class="comun">
-      <div class="form-container">
-        <form class="form" action="/sistema_gestor_asociados/ingresar_solicitud/" method="post"></form>
-        <label for="autocomplete" class="label">Escriba su dirección</label>
-        <div class="map">
-          <input type="text" name="" id="autocomplete" class="input">
-          <label for="numeroCasa" class="label"><br>Escriba su número de casa o de apartamento</label>
-          <input class="input" type="number" id="numeroCasa" title="numeroCasa" name="numeroCasa" placeholder="N Casa o Apt">
+	<head>
+		<title>Domicilio</title>
+		{% include "nav.html" %}
+		{% load static %}
+		<link rel="stylesheet" href="{% static '/css/maps.css' %}">
+		<link rel="stylesheet" href="{% static '/css/mapaEstilo.css' %}">
+		<script src="{% static 'scripts/ubicacion.js' %}"></script>
+		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAUmnpFJIsdpOpu7d4g7kKv8l_0kq9OTn8&libraries=places&callback=initMap" ></script>
+	</head>
+	<body>
+		<div class="comun">
+			<div class="form-container">
+				<form class="form" action="/sistema_gestor_asociados/ingresar_solicitud/" method="post">
+          <label for="/" class="labelTitulo">Datos de Domicilio</label>
+				  <label for="autocomplete" class="label">Escriba su dirección</label>
+				  <input type="text" name="" id="autocomplete" class="input">
+					<label for="numeroCasa" class="label"><br>Escriba su número de casa o de apartamento</label>
+					<input class="input" type="number" id="numeroCasa" title="numeroCasa" name="numeroCasa" placeholder="N Casa o Apt">
+					<label  class="lable"><br><strong>Dirección</strong> <br> </label>
+					<label id="direccion" class="lable"><br></label><br>
+          <div class="map">
+            <div id="map" class="map" ></div>
+          </div>
           <label class="label" for="uso-inmueble"><br>Tipo de uso del inmueble:</label>
           <select class="input" id="uso-inmueble" name="uso-inmueble" title="" placeholder="" required>
             {% for uso in uso_inmueble %}
-              <option value="{{ uso.id }}">{{ uso.nombre }}</option>
+            <option value="{{ uso.id }}">{{ uso.nombre }}</option>
             {% endfor %}
           </select>
-          <label  class="lable"><br><strong> dirección es:</strong> <br> </label>
-          <label id="direccion" class="lable"><br></label><br>
-          <div id="map" class="map" ></div>
-          
-        </div>
-        
-        <input  type="submit" value="Enviar" class="primary-button">
-        </form>
-      </div>
-    </div>
-    
-
-    {% include "footer.html" %}
-</body>
+          <label class="label" for="tiempo-estancia">Tiempo de Estancia [Años]:</label>
+          <input class="input" type="number" name="tiempo-estancia" id="tiempo-estancia" title="Tiempo de estancia [años]" value="0" min="0" max="99" step="1" required>
+          <input  type="submit" value="Enviar" class="primary-button">
+			  </form>
+			</div>
+		</div>
+		{% include "footer.html" %}
+	</body>
 </html>
