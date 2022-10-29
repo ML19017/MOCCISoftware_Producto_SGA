@@ -5,8 +5,10 @@ from django.contrib.auth import logout
 from datetime import datetime
 from sistema_gestor_asociados.models import Beneficiario, EstadoCivil, Genero, Pais, Parentesco, Solicitante, TipoDocumento, CategoriaRubro
 
+#---------FORMULARIOS------------------
 #datos personas, datos del cónyuge, actividad economica, referencias, beneficiarios, domicilio, anexos
 
+#----------VARIABLES DE SESION---------
 #fecha-nacimiento
 #lugar-nacimiento
 #nombres
@@ -58,6 +60,13 @@ from sistema_gestor_asociados.models import Beneficiario, EstadoCivil, Genero, P
 #beneficiario-numero-identificacion
 #fecha-acta
 #lugar-acta
+
+#uso-inmueble
+#direccion
+#tiempo-estancia
+
+#--------------------------------------
+# NOTA: Preconfiguracion
 
 fechaActual = datetime.today()
 fechaMinima = str(fechaActual.year - 100) + "-" + str(fechaActual.month) + "-" + str(fechaActual.day)
