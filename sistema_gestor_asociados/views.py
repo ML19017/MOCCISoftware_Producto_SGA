@@ -1,72 +1,8 @@
-from contextlib import nullcontext
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import logout
 from datetime import datetime
 from sistema_gestor_asociados.models import Beneficiario, EstadoCivil, Genero, Pais, Parentesco, Solicitante, TipoDocumento, CategoriaRubro
-
-#---------FORMULARIOS------------------
-#datos personas, datos del cónyuge, actividad economica, referencias, beneficiarios, domicilio, anexos
-
-#----------VARIABLES DE SESION---------
-#fecha-nacimiento
-#lugar-nacimiento
-#nombres
-#apellidos
-#empresa
-#cargo
-#ubicacion-empresa
-#tipo-documento
-#numero-identidad
-#tel-pais-personal
-#tel-personal
-#tel-pais-oficina
-#tel-oficina
-#email
-
-#nombre-referencia-familiar
-#tel-familiar-referencia
-#email-referencia-familiar
-#nombre-referencia-personal
-#tel-personal-referencia
-#email-referencia-personal
-
-#fecha-conyuge
-#lugar-conyuge
-#nombres-conyuge
-#apellidos-conyuge
-#empresa-conyuge
-#cargo-conyuge
-#ubicacion-empresa-conyuge
-#tipo-documento-conyuge
-#numero-identidad-conyuge
-#tel-pais-personal-conyuge
-#tel-personal-conyuge
-#tel-pais-oficina-conyuge
-#tel-oficina-conyuge
-#email-conyuge
-
-#tipo-trabajador
-#rubro
-#capacidad-pago
-#ahorro-mensual
-#ubicacion-negocio
-
-#beneficiario-nombre
-#beneficiario-parentesco
-#beneficiario-edad
-#beneficiario-partida
-#beneficiario-tipo
-#beneficiario-numero-identificacion
-#fecha-acta
-#lugar-acta
-
-#uso-inmueble
-#direccion
-#tiempo-estancia
-
-#--------------------------------------
-# NOTA: Preconfiguracion
 
 fechaActual = datetime.today()
 fechaMinima = str(fechaActual.year - 100) + "-" + str(fechaActual.month) + "-" + str(fechaActual.day)
@@ -137,6 +73,11 @@ def domicilio(request):
 def anexo_documentacion(request):
 
     return render(request, "anexo_documentacion.html")
+
+@login_required
+def reciboPago(request):
+
+    return render(request, "recibo.html")
 
 def host(request):
 
