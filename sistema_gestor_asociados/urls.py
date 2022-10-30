@@ -33,4 +33,5 @@ urlpatterns = [
     path('sistema_gestor_asociados/ingresar_solicitud/beneficiarios/', beneficiarios),
     path('sistema_gestor_asociados/ingresar_solicitud/domicilio/', domicilio),
     path('sistema_gestor_asociados/ingresar_solicitud/documentacion/', anexo_documentacion),
+    path('sistema_gestor_asociados/ingresar_solicitud/recibo/', reciboPago),
 ]
