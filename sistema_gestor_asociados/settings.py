@@ -78,7 +78,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'sga_db',
-        'USER': 'postgres',
+        'USER': 'usuario',
         'PASSWORD': '1234',
         'HOST': '127.0.0.1',
         'DATEBASE_PORT': '5432',
@@ -128,3 +128,11 @@ STATICFILES_DIRS = (os.path.join(BASE_DIR, 'sistema_gestor_asociados/static'),)
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_USE_TLS = True
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'ap16contact@gmail.com'
+EMAIL_HOST_PASSWORD = 'ricdesmbqznffhel'

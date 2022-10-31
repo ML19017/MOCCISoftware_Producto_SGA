@@ -6,7 +6,7 @@
         <meta lang="es">
         {% load static %}
         <link rel="stylesheet" type="text/css" href="{% static '/css/login.css' %}"/>
-        <a href="https://www.freepik.es/vector-gratis/fondo-hexagonal-oscuro-color-degradado_12804207.htm#query=fondos%20de%20pantalla&position=2&from_view=keyword">Imagen de coolvector</a> en Freepik
+        <a href="https://www.freepik.es/vector-gratis/fondo-hexagonal-oscuro-color-degradado_12804207.htm#query=fondos%20de%20pantalla&position=2&from_view=keyword"></a>
     </head>
     <body>
         <div class="login-container">
@@ -16,30 +16,43 @@
                     </div>
                 </div>
                 <div class="login-box">
+            
                     <div class="loginpage-intro">
                         <h1>Sistema Gestor de Asociados</h1>
                         <div class="loginpage-intro-logo">
-                            {% load static %}
-                            <a href="#"><h2><img src="{% static '/resources/login-logo.png' %}" title="Sistema Gestor de Asociados" alt="MOCCI Software" class="login-logo"></h2></a>
+                            <a><h2><img src="{% static '/resources/login-logo.png' %}" title="Sistema Gestor de Asociados" alt="MOCCI Software" class="login-logo"></h2></a>
                         </div>
                     </div>
-                    <div class="loginerrors">
+                    <!-- <div class="loginerrors">
                         <a href="#" id="loginerrormessage" class="accesshide">Su sesión ha excedido el tiempo límite. Por favor, entre de nuevo.</a>
                         <div class="alert alert-danger" role="alert">Su sesión ha excedido el tiempo límite. Por favor, entre de nuevo. </div>
+                    </div> -->
+                     <h3 class="card-title text-center"></h3>
+                    {% if messages %}
+
+                    {% for message in messages %}
+                    <div class="alert alert-info">
+                    {{ message }}
                     </div>
+                    {% endfor %}
+                    {% endif %}
                     <div class="login-from">
-                        <form action="#" method="post" id="login">
+                        <form method="post">
+                             {% csrf_token %}
                             <div class="form-group my-0">
                                 <label for="username" class="sr-only">
                                         Nombre de usuario
                                 </label>                                
-                                <input type="text" name="username" id="username" class="form-control form-control--username" value="" placeholder="Nombre de usuario" autocomplete="username">
+                                <input type="text" name="username" id="username" class="form-control form-control--username" placeholder="Nombre de usuario">
                             </div>
                             <div class="form-group my-1">
                                 <label for="password" class="sr-only">Contraseña</label>
-                                <input type="password" name="password" id="password" value="" class="form-control form-control--password" placeholder="Contraseña" autocomplete="current-password">
+                                <input type="password" name="password" id="exampleInputPassword1" class="form-control form-control--password" placeholder="Contraseña">
                             </div>
-                            <button type="submit" class="btn-lg-primary" id="loginbtn">Acceder</button>
+                            <button type="submit" class="btn-lg-primary" id="loginbtn">Acceder</button><br>
+                            <div class="sign-up">
+                        No tienes una cuenta? <a href="{% url 'register_attempt' %}">Crea una!.</a>
+                    </div>
                         </form>
                     </div>
                 </div>

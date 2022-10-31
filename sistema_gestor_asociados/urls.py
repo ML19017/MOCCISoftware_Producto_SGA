@@ -16,10 +16,15 @@ Including another URLconf
 from sistema_gestor_asociados.views import *
 from django.contrib import admin
 from django.urls import path
-
+from .views import *
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('sistema_gestor_asociados/login', login),
+    path('register/' , register_attempt , name="register_attempt"),
+    path('sistema_gestor_asociados/login', login,name="login"),
+    path('token/' , token_send , name="token_send"),
+    path('success/' , success , name="success"),
+    path('verify/<auth_token>/' , verify , name="verify"),
+    path('error/' , error_page , name="error"),
     path('sistema_gestor_asociados/desktop', index),
     path('sistema_gestor_asociados/ingresar_solicitud', ingresar_solicitud),
     path('sistema_gestor_asociados/ingresar_solicitud/datos_personales', datos_personales),
