@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Configuración</title>
+        {% include "nav.html" %}
+        {% load static %}
+        <script src="{% static 'scripts/tab.js' %}"></script>
+    </head>
+    <body>
+        <div class="config">
+            <h1>CONFIGURACIÓN</h1>
+        <div class="tab">
+            <button class="tablinks" onclick="abrirTab(event, 'actividades')">ACTIVIDADES</button>
+            <button class="tablinks" onclick="abrirTab(event, 'generos')">GENEROS</button>
+            <button class="tablinks" onclick="abrirTab(event, 'estado_civil')">ESTADO CIVIL</button>
+            <button class="tablinks" onclick="abrirTab(event, 'paises')">PAISES</button>
+            <button class="tablinks" onclick="abrirTab(event, 'parentesco')">PARENTESCO</button>
+            <button class="tablinks" onclick="abrirTab(event, 'tipo_documento')">TIPO DE DOCUMENTO</button>
+        </div>
+            <div class="tabs">
+            <div id="actividades" class="tabcontent">
+                <h1>Actividades</h1>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Nombre</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for actividad in actividades %}
+                        <tr>
+                            <td>{{ actividad.id }}</td>
+                            <td>{{ actividad.nombre }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            <div id="generos" class="tabcontent">
+                <h1>Género</h1>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Nombre</th>
+                            <th>Código</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for genero in generos %}
+                        <tr>
+                            <td>{{ genero.id }}</td>
+                            <td>{{ genero.nombre }}</td>
+                            <td>{{ genero.codigo }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            <div id="estado_civil" class="tabcontent">
+                <h1>Estado Civil</h1>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Nombre</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for estado in estado_civil %}
+                        <tr>
+                            <td>{{ estado.id }}</td>
+                            <td>{{ estado.nombre }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            <div id="paises" class="tabcontent">
+                <h1>Paises</h1>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Nombre</th>
+                            <th>Código</th>
+                            <th>Telefono</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for pais in paises %}
+                        <tr>
+                            <td>{{ pais.id }}</td>
+                            <td>{{ pais.nombre }}</td>
+                            <td>{{ pais.codigo }}</td>
+                            <td>{{ pais.telefono }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            <div id="parentesco" class="tabcontent">
+                <h1>Parentesco</h1>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Nombre</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for parentesco in parentescos %}
+                        <tr>
+                            <td>{{ parentesco.id }}</td>
+                            <td>{{ parentesco.nombre }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            <div id="tipo_documento" class="tabcontent">
+                <h1>Tipo de Documentos</h1>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Nombre</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for tipo in tipo_documento %}
+                        <tr>
+                            <td>{{ tipo.id }}</td>
+                            <td>{{ tipo.nombre }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            </div>
+        </div>
+        {% include "footer.html" %}
+    </body>
+</html>

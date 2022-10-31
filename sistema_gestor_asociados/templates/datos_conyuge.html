@@ -7,7 +7,7 @@
     <body>
         <div class="comun">
             <div class="form-container">
-                <form class="form" action="/sistema_gestor_asociados/ingresar_solicitud" method="post">
+                <form class="form" action="/sistema_gestor_asociados/ingresar_solicitud/" method="post">
                     <!-- @ID && @PARAMS : patron / name-name
                         #fecha-conyuge
                         #lugar-conyuge
@@ -25,7 +25,7 @@
                         #email-conyuge
                     -->
                     <!-- #Datos Personales -->
-                    <label for="/" class="labelTitulo">Datos del Conyuge</label>
+                    <label for="/" class="labelTitulo">Datos del Cónyuge</label>
                     <label class="label" for="fecha-conyuge">
                         Fecha de Nacimiento:
                     </label>
@@ -53,14 +53,19 @@
                     <label class="label" for="ubicacion-empresa-conyuge">
                         Ubicación de la Empresa:
                     </label>
-                        <input class="input" type="text" name="ubicacion-empresa-conyuge" id="ubicacion-empresa-conyuge" title="Dirección de la Empresa" placeholder="Dirección de la emmpresa" pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]+" minlength="5" maxlength="40" required>
+                        <input class="input" type="text" name="ubicacion-empresa-conyuge" id="ubicacion-empresa-conyuge" title="Dirección de la Empresa" placeholder="Dirección de la empresa" pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]+" minlength="5" maxlength="40" required>
                     <!-- #Fin de datos personales -->
                     <!-- #Datos Legales-->
                     <label class="label" for="tipo-documento-conyuge">
                         Tipo de Documento:
                     </label>
                         <select class="input" id="tipo-documento-conyuge" name="tipo-documento-conyuge" title="Seleccione un tipo de Documento" required>
+                            <option>--------------</option>
+                            {% for documento in tipo_documento %}
+						    <option value="{{ documento.id }}">{{ documento.nombre }}</option>
+						    {% endfor %}
                         </select>
+
                     <label class="label" for="numero-identidad-conyuge">
                         Número de Identidad:
                     </label>
@@ -71,6 +76,10 @@
                         Codigo del País:
                     </label>
                         <select class="input" id="tel-pais-personal-conyuge" name="tel-pais-personal-conyuge" title="Seleccione el codigo del País" required>
+                            <option>--------------</option>
+                            {% for pais in paises %}
+                            <option value="{{ pais.id }}">{{ pais.nombre }}: +{{ pais.telefono }}</option>
+                            {% endfor %}
                         </select>
                     <label class="label" for="tel-personal-conyuge">
                         Télefono personal:
@@ -81,7 +90,10 @@
                         Codigo del País
                     </label>
                         <select class="input" id="tel-pais-oficina-conyuge" name="tel-pais-oficina-conyuge" title="" placeholder="" required>
-                            <option>Opcion 1</option>
+                            <option>--------------</option>
+                            {% for pais in paises %}
+                            <option value="{{ pais.id }}">{{ pais.nombre }}: +{{ pais.telefono }}</option>
+                            {% endfor %}
                         </select>
                     <label class="label" for="tel-oficina-conyuge">
                         Télefono de Oficina:
@@ -102,5 +114,6 @@
                 </form>
             </div>
         </div>
+        {% include "footer.html" %}
     </body>
 </html>

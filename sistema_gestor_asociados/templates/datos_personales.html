@@ -1,143 +1,127 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <title>Datos Personales</title>
-        {% include "nav.html" %}
-    </head>
-    <body>
-        <div class="comun">
-            <div class="form-container">
-                <form class="form" action="/sistema_gestor_asociados/ingresar_solicitud" method="post">
-                    <!-- @ID && @PARAMS : patron / name-name
-                        #fecha-Solicitante
-                        #lugar-Solicitante
-                        #nombres-Solicitante
-                        #apellidos-Solicitante
-                        #empresa-Solicitante
-                        #cargo-Solicitante
-                        #ubicacion-empresa-Solicitante
-                        #tipo-documento-Solicitante
-                        #numero-identidad-Solicitante
-                        #tel-pais-personal-Solicitante
-                        #tel-personal-Solicitante
-                        #tel-pais-oficina-Solicitante
-                        #tel-oficina-Solicitante
-                        #email-Solicitante
-                    -->
-                    <!-- #Datos Personales -->
-                    <label for="/" class="labelTitulo">Datos Personales</label>
-                    <label class="label" for="nombres-Solicitante">
-                        Nombres:
-                    </label>
-                        <input class="input" type="text" name="nombres-Solicitante" id="nombres-Solicitante" title="" placeholder="Nombres del Solicitante" pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]+" minlength="5" maxlength="32" required>
-
-                    <label class="label" for="apellido1-Solicitante">
-                        Apellido 1:
-                    </label>
-                        <input class="input" type="text" name="apellido1-Solicitante" id="apellido1-Solicitante" placeholder="Apellido 1 del Solicitante" pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]+" minlength="5" maxlength="32" required>
-
-                    <label class="label" for="apellido2-Solicitante">
-                        Apellido 2:
-                    </label>
-                        <input class="input" type="text" name="apellido2-Solicitante" id="apellido2-Solicitante" placeholder="Apellido 2 del Solicitante" pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]+" minlength="5" maxlength="32" required>
-
-                    <label class="label" for="apellidoCasada-Solicitante">
-                        Apellido Casada:
-                    </label>
-                        <input class="input" type="text" name="apellidoCasada-Solicitante" id="apellidoCasada-Solicitante" placeholder="Apellido de casada de la Solicitante" pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]+" minlength="5" maxlength="32" required>
-
-                    <label class="label" for="generoSolicitante">
-                        Genero:
-                    </label>
-                        <select class="input" id="generoSolicitante" name="generoSolicitante" title="" placeholder="" required>
-                            {% for genero in generos %}
-                                <option value="{{ genero.id }}">{{ genero.nombre }}</option>
-                            {% endfor %}
-                        </select>
-                    <!-- #Estado civil -->
-                    <label class="label" for="estadoCivilSolicitante">
-                        Estado Civil:
-                    </label>
-                        <select class="input" id="estadoCivilSolicitante" name="estadoCivilSolicitante" title="" placeholder="" required>
-                            {% for estado in estado_civil %}
-                                <option value="{{ estado.id }}">{{ estado.nombre }}</option>
-                            {% endfor %}
-                        </select>
-                    <!-- #Fin de estado civil -->
-                    <label class="label" for="fecha-Solicitante">
-                        Fecha de Nacimiento:
-                    </label>
-                        <input class="input" type="date" name="fecha-Solicitante" id="fecha-Solicitante" title="Fecha de Nacimiento" required>
-
-                    <label class="label" for="lugar-Solicitante">
-                        Lugar de Nacimiento:
-                    </label>
-                        <input class="input" type="text" name="lugar-Solicitante" id="lugar-Solicitante" title="" placeholder="Lugar de Nacimiento" pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]+" minlength="5" maxlength="40" required>
-
-                    <label class="label" for="empresa-Solicitante">
-                        Empresa donde trabaja:
-                    </label>
-                        <input class="input" type="text" name="empresa-Solicitante" id="empresa-Solicitante" title="Nombre de la Empresa" placeholder="Nombre de la Empresa/Institución" pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]+" minlength="5" maxlength="32" required>
-
-                    <label class="label" for="cargo-Solicitante">
-                        Cargo:
-                    </label>
-                        <input class="input" type="text" name="cargo-Solicitante" id="cargo-Solicitante" title="Cargo que desempeña dentro de la empresa" placeholder="Cargo ejercido" pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]+" minlength="5" maxlength="32" required>
-
-                    <label class="label" for="ubicacion-empresa-Solicitante">
-                        Ubicación de la Empresa:
-                    </label>
-                        <input class="input" type="text" name="ubicacion-empresa-Solicitante" id="ubicacion-empresa-Solicitante" title="Dirección de la Empresa" placeholder="Dirección de la emmpresa" pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]+" minlength="5" maxlength="40" required>
-                    <!-- #Fin de datos personales -->
-                    <!-- #Datos Legales-->
-                    <label class="label" for="tipo-documento-Solicitante">
-                        Tipo de Documento:
-                    </label>
-                        <select class="input" id="tipo-documento-Solicitante" name="tipo-documento-Solicitante" title="Seleccione un tipo de Documento" required>
-                            {% for tipo in tipo_documento %}
-                                <option value="{{ tipo_documento.id }}">{{ tipo_documento.nombre }}</option>
-                            {% endfor %}
-                        </select>
-                    <label class="label" for="numero-identidad-Solicitante">
-                        Número de Identidad:
-                    </label>
-                        <input class="input" type="text" name="numero-identidad-Solicitante" id="numero-identidad-Solicitante" title="Número de Identidad #" placeholder="Número de Identidad" pattern="[0-9]+" minlength="5" required>
-                    <!-- #Fin de datos legales -->
-                    <!-- #Datos de contacto -->
-                    <label class="label" for="tel-pais-personal-Solicitante">
-                        Codigo del País:
-                    </label>
-                        <select class="input" id="tel-pais-personal-Solicitante" name="tel-pais-personal-Solicitante" title="Seleccione el codigo del País" required>
-                        </select>
-                    <label class="label" for="tel-personal-Solicitante">
-                        Télefono personal:
-                    </label>
-                        <input class="input" type="tel" name="tel-personal-Solicitante" id="tel-personal-Solicitante" title="Un número de teléfono válido consiste de cuatro dígitos 
-                    con un (-) seguido y cuatro dígitos más" placeholder="9999-4444" pattern="[0-9]{4}[ -][0-9]{4}" minlength="9" maxlength="9" required>
-                    <label class="label" for="tel-pais-oficina-Solicitante">
-                        Codigo del País
-                    </label>
-                        <select class="input" id="tel-pais-oficina-Solicitante" name="tel-pais-oficina-Solicitante" title="" placeholder="" required>
-                            <option>Opcion 1</option>
-                        </select>
-                    <label class="label" for="tel-oficina-Solicitante">
-                        Télefono de Oficina:
-                    </label>
-                        <input class="input" type="tel" name="tel-oficina-Solicitante" id="" title="Un número de teléfono válido consiste de cuatro dígitos
-                    con un (-) seguido y cuatro dígitos más" placeholder="7777-3333" pattern="[0-9]{4}[ -][0-9]{4}" minlength="9" maxlength="9" required>
-                    <!-- #RFC5322 15S@1 REGEX -->
-                    <label class="label" for="email-Solicitante">
-                        Correo Electrónico:
-                    </label>
-                        <input class="input" type="email" name="email-Solicitante" id="email-Solicitante" title="Ingrese un Correo Electrónico" pattern="\A(?=[a-z0-9@.! #$%&'*+/=?^_'{|} ~-]{6,254}\z)
-                    (?=[a-z 0-9.! #$%&'*+/=?^_'{|} ~-]{1,64}@)
-                    [a-z 0-9!#$%&'*+/=?^_'{|} ~-]+(?:\. [a-z0-9!#$%&'*+/=?^_'{|} ~-]+)*
-                    @ (?:(?=[a-z0-9-]{1,63}\. )[a-z 0-9](?:[a-z 0-9-]*[a-z 0-9])? \. )+
-                    (?=[a-z 0-9-]{1,63}\z)[a-z 0-9](?:[a-z 0-9-]*[a-z 0-9])? \z" placeholder="ejemplo@correo.com" required>
-                    <!-- #Fin de datos de contacto -->
-                    <input  type="submit" value="Enviar" class="primary-button">
-                </form>
-            </div>
-        </div>
-    </body>
+	<head>
+		<title>Datos Personales</title>
+		{% load static %}
+		<script src="{% static 'scripts/fecha.js' %}"></script>
+		{% include "nav.html" %}
+	</head>
+	<body>
+		<div class="comun">
+			<div class="form-container">
+				<form class="form" action="/sistema_gestor_asociados/ingresar_solicitud/" method="post">
+					<!-- @ID && @PARAMS : patron / name-name
+						#fecha-nacimiento
+						#lugar-nacimiento
+						#nombres
+						#apellidos
+						#empresa
+						#cargo
+						#ubicacion-empresa
+						#tipo-documento
+						#numero-identidad
+						#tel-pais-personal
+						#tel-personal
+						#tel-pais-oficina
+						#tel-oficina
+						#email
+						-->
+					<!-- #Datos Personales -->
+					<label for="/" class="labelTitulo">Datos Personales</label>
+                    <!-- #Nombres -->
+                    <label class="label" for="nombres">Nombres:</label>
+                    <input class="input" type="text" name="nombres" id="nombres" title="" placeholder="Nombres" pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]+" minlength="5" maxlength="32" required>
+                    <!-- #Apellidos -->
+                    <label class="label" for="apellido1">Primer Apellido:</label>
+                    <input class="input" type="text" name="apellido1" id="apellido1" placeholder="Primer apellido" pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]+" minlength="5" maxlength="32" required>
+                    <label class="label" for="apellido2">Segundo Apellido:</label>
+					<input class="input" type="text" name="apellido2" id="apellido2" placeholder="Segundo apellido" pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]+" minlength="5" maxlength="32" required>
+                    <label class="label" for="apellido-casada">Apellido Casada:</label>
+					<input class="input" type="text" name="apellido-casada" id="apellido-casada" placeholder="Apellido de casada" pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]+" minlength="5" maxlength="32" required>
+					<!-- #Género -->
+                    <label class="label" for="genero">Género:</label>
+					<select class="input" id="genero" name="genero" title="Género" placeholder="" required>
+						<option>--------------</option>
+						{% for genero in generos %}
+						<option value="{{ genero.id }}">{{ genero.nombre }}</option>
+						{% endfor %}
+					</select>
+					<!-- #Estado civil -->
+                    <label class="label" for="estado-civil">Estado Civil:</label>
+					<select class="input" id="estado-civil" name="estado-civil" title="Estado Civil" placeholder="" required>
+						<option>--------------</option>
+						{% for estado in estado_civil %}
+						<option value="{{ estado.id }}">{{ estado.nombre }}</option>
+						{% endfor %}
+					</select>
+					<!-- #Nacionalidad -->
+                    <label class="label" for="nacionalidad">Nacionalidad:</label>
+					<select class="input" id="nacionalidad" name="nacionalidad" title="Nacionalidad" placeholder="" required>
+						<option>--------------</option>
+						{% for nacionalidad in paises %}
+						<option value="{{ nacionalidad.id }}">{{ nacionalidad.nombre }}</option>
+						{% endfor %}
+					</select>
+					<!-- #Fecha de Nacimiento -->
+                    <label class="label" for="fecha-nacimiento">Fecha de Nacimiento:</label>
+					<input class="input" type="date" name="fecha-nacimiento" id="fecha-nacimiento" title="Fecha de Nacimiento" min="{{ fechaMinima }}" max="{{ fechaMaxima }}" onchange="calcularEdad()" required>
+					<!-- #Lugar -->
+                    <label class="label" for="lugar-nacimiento">Lugar de Nacimiento:</label>                
+					<input class="input" type="text" name="lugar-nacimiento" id="lugar-nacimiento" title="" placeholder="Lugar de Nacimiento" pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]+" minlength="5" maxlength="40" required>
+					<!-- #Empresa -->
+                    <label class="label" for="empresa">Empresa donde trabaja:</label>
+					<input class="input" type="text" name="empresa" id="empresa" title="Nombre de la Empresa" placeholder="Nombre de la Empresa/Institución" pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]+" minlength="5" maxlength="32" required>
+					<!-- #Cargo -->
+                    <label class="label" for="cargo">Cargo:</label>
+					<input class="input" type="text" name="cargo" id="cargo" title="Cargo que desempeña dentro de la empresa" placeholder="Cargo ejercido" pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]+" minlength="5" maxlength="32" required>
+					<!-- #Empresa -->
+                    <label class="label" for="ubicacion-empresa">Ubicación de la Empresa:</label>
+					<input class="input" type="text" name="ubicacion-empresa" id="ubicacion-empresa" title="Dirección de la Empresa" placeholder="Dirección de la empresa" pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]+" minlength="5" maxlength="40" required>
+					<!-- #TipoDocumento-->
+                    <label class="label" for="tipo-documento">Tipo de Documento:</label>
+					<select class="input" id="tipo-documento" name="tipo-documento" title="Seleccione un tipo de Documento" required>
+						<option>--------------</option>
+						{% for documento in tipo_documento %}
+						<option value="{{ documento.id }}">{{ documento.nombre }}</option>
+						{% endfor %}
+					</select>
+					<!-- #Numero Identidad -->
+                    <label class="label" for="numero-identidad">Número de Identidad:</label>
+					<input class="input" type="text" name="numero-identidad" id="numero-identidad" title="Número de Identidad #" placeholder="Número de Identidad" pattern="[0-9]+" minlength="5" required>
+					<!-- #Telefono-->
+					<label class="label" for="tel-pais-personal">Codigo del País:</label>
+					<select class="input" id="tel-pais-personal" name="tel-pais-personal" title="Seleccione el codigo del País" required>
+                        <option>--------------</option>
+						{% for pais in paises %}
+						<option value="{{ pais.id }}">{{ pais.nombre }}: +{{ pais.telefono }}</option>
+						{% endfor %}
+					</select>
+					<label class="label" for="tel-personal">Télefono personal:</label>
+					<input class="input" type="tel" name="tel-personal" id="tel-personal" title="Un número de teléfono válido consiste de cuatro dígitos con un (-) seguido y cuatro dígitos más" placeholder="9999-4444" pattern="[0-9]{4}[ -][0-9]{4}" minlength="9" maxlength="9" required>
+					<!-- #Telefono-->
+                    <label class="label" for="tel-pais-oficina">Codigo del País</label>
+					<select class="input" id="tel-pais-oficina" name="tel-pais-oficina" title="" placeholder="" required>
+						<option>--------------</option>
+						{% for pais in paises %}
+						<option value="{{ pais.id }}">{{ pais.nombre }}: +{{ pais.telefono }}</option>
+						{% endfor %}
+					</select>
+					<label class="label" for="tel-oficina-solicitante">Télefono de Oficina:</label>
+					<input class="input" type="tel" name="tel-oficina-solicitante" id="" title="Un número de teléfono válido consiste de cuatro dígitos con un (-) seguido y cuatro dígitos más" placeholder="7777-3333" pattern="[0-9]{4}[ -][0-9]{4}" minlength="9" maxlength="9" required>
+					<!-- #EMAIL-->
+					<label class="label" for="email-solicitante">
+					Correo Electrónico:
+					</label>
+					<input class="input" type="email" name="email-solicitante" id="email-solicitante" title="Ingrese un Correo Electrónico" pattern="\A(?=[a-z0-9@.! #$%&'*+/=?^_'{|} ~-]{6,254}\z)
+						(?=[a-z 0-9.! #$%&'*+/=?^_'{|} ~-]{1,64}@)
+						[a-z 0-9!#$%&'*+/=?^_'{|} ~-]+(?:\. [a-z0-9!#$%&'*+/=?^_'{|} ~-]+)*
+						@ (?:(?=[a-z0-9-]{1,63}\. )[a-z 0-9](?:[a-z 0-9-]*[a-z 0-9])? \. )+
+						(?=[a-z 0-9-]{1,63}\z)[a-z 0-9](?:[a-z 0-9-]*[a-z 0-9])? \z" placeholder="ejemplo@correo.com" required>
+					<!-- #BOTON -->
+					<input  type="submit" value="Enviar" class="primary-button">
+				</form>
+			</div>
+		</div>
+		{% include "footer.html" %}
+	</body>
 </html>

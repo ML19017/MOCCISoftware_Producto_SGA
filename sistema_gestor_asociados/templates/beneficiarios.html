@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Beneficiarios</title>
+    {% load static %}
+		<script src="{% static 'scripts/fecha.js' %}"></script>
+    {% include "nav.html" %}
+  </head>
+  <body>
+      <div class="comun">
+        <div class="form-container">
+          <form class="form" action="/sistema_gestor_asociados/ingresar_solicitud" method="post">
+            <label class="labelTitulo">
+              Datos Beneficiario: <br>
+            </label>
+            <label class="label" for="beneficiario-nombre">
+              Nombre: <br>
+            </label>
+              <input class="input" type="text" name="beneficiario-nombre" id="beneficiario-nombre" title="beneficiario-nombre" placeholder="Nombre del beneficiario" required>
+            <label class="label" for="beneficiario-parentesco">
+              <br> Parentesto: <br>
+            </label>
+            <select class="input" form="beneficiario-parentesco" id="beneficiario-parentesco" title="beneficiario-parentesco" required>
+              <option>--------------</option>
+              {% for parentesco in parentescos %}
+              <option value="{{ parentesco.id }}">{{ parentesco.nombre }}</option>
+              {% endfor  %}
+            </select>
+            <label class="label" for="beneficiario-edad">
+              <br>  Edad: <br>
+            </label>
+              <input class="input" type="number" name="beneficiario-edad" id="beneficiario-edad" title="beneficiario-edad" placeholder="Edad del beneficiario" required/>
+            <label class="label" for="beneficiario-porcentaje">
+              <br> Porcentaje: 
+            </label>
+              <input class="input" type="number" step="0.01" name="beneficiario-porcentaje" id="beneficiario-porcentaje" title="beneficiario-porcentaje" placeholder="Porcentaje del beneficiario" required>
+            <label class="label" for="beneficiario-partida">
+              <br> Partida de Nacimiento: 
+            </label>
+              <input class="input" type="file" name="beneficiario-partida" id="beneficiario-partida" title="beneficiario-partida" required>
+            <label class="label" for="beneficiario-numero-identificacion">
+              <br>  DUI: 
+            </label>
+              <input class="input" type="text" name="beneficiario-numero-identificacion" id="beneficiario-numero-identificacion" title="beneficiario-numero-identificacion" placeholder="DUI del beneficiario" required>
+            <!-- #Datos complementarios -->
+            <label class="labelTitulo"><br>Datos complementarios </label>
+            <label class="label" for="fecha-acta">
+              <br> Fecha de Acta: 
+            </label>
+              <input class="input" type="date" name="fecha-acta" id="fecha-acta" title="fecha-acta" placeholder="Fecha de acta" min="{{ fechaMinima }}" max="{{ fechaMaxima }}" required>
+            <label class="label" for="lugar-acta"><br>Lugar </label>
+              <input class="input" type="text" name="lugar-acta" id="lugar-acta" title="lugar-acta" placeholder="Lugar del Acta" required>
+              <input  type="submit" value="Enviar" class="primary-button">
+          </form>
+        </div>
+      </div>
+    {% include "footer.html" %}
+  </body>
+</html>
