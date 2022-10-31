@@ -3,6 +3,11 @@
   <head>
     <title>Actividad Economica</title>
     {% include "nav.html" %}
+    {% load static %}
+		<link rel="stylesheet" href="{% static '/css/maps.css' %}">
+		<link rel="stylesheet" href="{% static '/css/mapaEstilo.css' %}">
+		<script src="{% static 'scripts/ubicacion.js' %}"></script>
+		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAUmnpFJIsdpOpu7d4g7kKv8l_0kq9OTn8&libraries=places&callback=initMap" ></script>
   </head>
   <body>
     <div class="comun">
@@ -27,7 +32,11 @@
           <label class="label" for="ahorro-mensual">Capacidad de ahorro mensual: US$</label> 
           <input class="input" type="number" id="ahorro-mensual" name="ahorro-mensual" placeholder="xxxx.xx" disabled>
           <label class="label" for="ubicacion-negocio">Ubicación del negocio:</label> 
-          <input class="input" type="text" id="ubicacion-negocio" name="ubicacion-negocio" placeholder="Llene con la ubicación del negocio" title="Ubicación del negocio del asociado.">
+          <input class="input" type="text" id="autocomplete" name="ubicacion-negocio" placeholder="Llene con la ubicación del negocio" title="Ubicación del negocio del asociado.">
+      <div class="map">
+        <div id="map" class="map">
+        </div>
+      </div>
           <input  type="submit" value="Enviar" class="primary-button">
         </form>
       </div>
