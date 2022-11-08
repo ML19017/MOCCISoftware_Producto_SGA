@@ -13,6 +13,7 @@
 <div class="large">
   <div class="panel-options">
     <form id="form_beneficiarios" class="form" action="#" onsubmit=" return false" method="get">
+      {% csrf_token %}
       {{ form_beneficiarios }}
       <input type="submit" value="Agregar" class="primary-button" onclick="agregarBeneficiario()"></input>
     </form>

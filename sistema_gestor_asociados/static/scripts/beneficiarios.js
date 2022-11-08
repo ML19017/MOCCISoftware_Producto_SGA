@@ -195,6 +195,13 @@ function enviarBeneficiarios() {
             },
             method:"post", 
             body: JSON.stringify({'id': id,'data':data})
+        }).then(response=>{
+            if(!response.ok)
+                alert('No se han podido guardar los datos! : ', response.status);
+            else {
+                alert('Se han guardado los cambios!');
+                window.location = "/sistema_gestor_asociados/escritorio/";
+            }
         });
     }
     else {

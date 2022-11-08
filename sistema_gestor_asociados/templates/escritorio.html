@@ -36,11 +36,20 @@
     </div>
   </div>
   <div id="solicitudes" class="tabcontent">
-    <form class="form_solicitudes" action="" method="post">
-      {% csrf_token %}
+    <form class="form_solicitudes" action="" method="get">
       <table class="tabla">
         <thead>
-          <tr><th class="select">►</th><th>Id</th><th>Nombres ▼▲</th><th>Apellidos ▼▲</th><th>Nacionalidad</th><th>Fecha de Nacimiento</th></tr>
+          <tr>
+            <th class="select">►</th>
+            <th>Id</th>
+            <th>Nombres ▼▲</th>
+            <th>Apellidos ▼▲</th>
+            <th>Género</th>
+            <th>Estado Cívil</th>
+            <th>Nacionalidad</th>
+            <th>Fecha de Nacimiento</th>
+            <th>Tipo</th>
+            <th>Identificación</th></tr>
         </thead>
         <tbody>
           {% for asociado in asociados %}
@@ -50,8 +59,12 @@
             <td class="id">{{ asociado.id }}</td>
             <td class="nombres">{{ asociado.nombres }}</td>
             <td class="apellidos">{{ asociado.primer_apellido }} {{ asociado.segundo_apellido }}</td>
+            <td class="genero">{{ asociado.genero.nombre }}</td>
+            <td class="estado_familiar">{{ asociado.estado_familiar.nombre }}</td>
             <td class="nacionalidad">{{ asociado.nacionalidad.nombre }}</td>
             <td class="fecha_nacimiento">{{ asociado.fecha_nacimiento }}</td>
+            <td class="tipo_trabajador">{{ asociado.tipo_trabajador.nombre }}</td>
+            <td class="numero_documento">{{ asociado.numero_identidad }}</td>
           <tr>
           {% endif %}
           {% endfor %}
@@ -62,17 +75,30 @@
   <div id="asociados" class="tabcontent">
     <table class="tabla">
       <thead>
-        <tr><th>Id</th><th>Nombres</th><th>Apellidos</th><th>Nacionalidad</th><th>Fecha de Nacimiento</th></tr>
+        <tr>
+          <th>Id</th>
+          <th>Nombres ▼▲</th>
+          <th>Apellidos ▼▲</th>
+          <th>Género</th>
+          <th>Estado Cívil</th>
+          <th>Nacionalidad</th>
+          <th>Fecha de Nacimiento</th>
+          <th>Tipo</th>
+          <th>Identificación</th></tr>
       </thead>
       <tbody>
         {% for asociado in asociados %}
         {% if asociado.estado_aprobado == True %}
         <tr>
           <td class="id">{{ asociado.id }}</td>
-          <td class="nombres">{{ asociado.nombres }}</td>
-          <td class="apellidos">{{ asociado.primer_apellido }} {{ asociado.segundo_apellido}}}</td>
-          <td class="nacionalidad">{{ asociado.nacionalidad }}</td>
-          <td class="fecha_nacimiento">{{ asociado.fecha_nacimiento }}</td>
+            <td class="nombres">{{ asociado.nombres }}</td>
+            <td class="apellidos">{{ asociado.primer_apellido }} {{ asociado.segundo_apellido }}</td>
+            <td class="genero">{{ asociado.genero.nombre }}</td>
+            <td class="estado_familiar">{{ asociado.estado_familiar.nombre }}</td>
+            <td class="nacionalidad">{{ asociado.nacionalidad.nombre }}</td>
+            <td class="fecha_nacimiento">{{ asociado.fecha_nacimiento }}</td>
+            <td class="tipo_trabajador">{{ asociado.tipo_trabajador.nombre }}</td>
+            <td class="numero_documento">{{ asociado.numero_identidad }}</td>
         <tr>
         {% endif %}
         {% endfor %}

@@ -100,4 +100,4 @@ class Form_Beneficiarios(forms.Form):
     nombres = forms.CharField(label='Nombres del Benificiario', min_length=3, max_length=120, required=True, widget=forms.TextInput(attrs={'class':'input', 'placeholder':'Nombres del Beneficiario'}))
     apellidos = forms.CharField(label='Apellidos del Beneficiario', min_length=3, max_length=120, required=True, widget=forms.TextInput(attrs={'class':'input', 'placeholder':'Apellidos del Beneficiario'}))
     parentesco = forms.ChoiceField(choices=Parentescos.getSet, label='Parentesco', required=True, widget=forms.Select(attrs={'class':'input'}))
-    porcentaje = forms.IntegerField(label='Porcentaje', min_value=1, max_value=101, required=True, widget=forms.NumberInput(attrs={'class':'input','value':'1', 'step':'10'}))
+    porcentaje = forms.IntegerField(label='Porcentaje', min_value=1, max_value=100, required=True, widget=forms.NumberInput(attrs={'class':'input','value':'1', 'step':'1.00'}))

@@ -131,7 +131,6 @@ def success(request):
 def administracion(request):
 
     usuarios = User.objects.all()
-
     
     return render(request, "administracion.html", {'display': True, 'usuarios': usuarios})
 
@@ -160,6 +159,23 @@ def escritorio(request):
 
         asociado = Asociado()
         conyuge = Conyuge()
+
+        if form_datos_conyuge.isValid():
+            conyuge.nombres_conyuge = form_datos_conyuge.changed_data['nombres_conyuge']
+            conyuge.apellidos_conyuge = form_datos_conyuge.changed_data['apellidos_conyuge']
+            conyuge.fecha_nacimiento_conyuge = form_datos_conyuge.changed_data['fecha_nacimiento']
+            conyuge.empresa = form_datos_conyuge.changed_data['empresa']
+            conyuge.cargo = form_datos_conyuge.changed_data['cargo']
+            conyuge.nacionalidad_conyuge = form_datos_conyuge.changed_data['nacionalidad_conyuge']
+            conyuge.tipo_documento_conyuge = form_datos_conyuge.changed_data['tipo_documento_conyue']
+            conyuge.numero_documento_conyuge = form_datos_conyuge.changed_data['numero_documento_conyuge']
+            conyuge.telefono_personal_conyuge = form_datos_conyuge.changed_data['telefono_personal_conyuge']
+            conyuge.telefono_oficina_conyuge = form_datos_conyuge.changed_data['telefono_oficina_conyuge']
+            conyuge.correo = form_datos_conyuge.changed_data['correo']
+            conyuge.save()
+            
+            id_conyuge = conyuge.id
+            asociado.conyuge = Conyuge.objects.get(id_conyuge=id_conyuge)
         
         if form_datos_nacionalidad.isValid():
             asociado.nacionalidad = form_datos_nacionalidad.changed_data['nacionalidad']
@@ -198,18 +214,10 @@ def escritorio(request):
             asociado.numero_domicilio = form_domicilio.changed_data['numero_domicilio']
             asociado.ubicacion_geografica = form_domicilio.changed_data['ubicacion_geografica']
 
-        if form_datos_conyuge.isValid():
-            conyuge.nombres_conyuge = form_datos_conyuge.changed_data['nombres_conyuge']
-            conyuge.apellidos_conyuge = form_datos_conyuge.changed_data['apellidos_conyuge']
-            conyuge.fecha_nacimiento_conyuge = form_datos_conyuge.changed_data['fecha_nacimiento']
-            conyuge.empresa = form_datos_conyuge.changed_data['empresa']
-            conyuge.cargo = form_datos_conyuge.changed_data['cargo']
-            conyuge.nacionalidad_conyuge = form_datos_conyuge.changed_data['nacionalidad_conyuge']
-            conyuge.tipo_documento_conyuge = form_datos_conyuge.changed_data['tipo_documento_conyue']
-            conyuge.numero_documento_conyuge = form_datos_conyuge.changed_data['numero_documento_conyuge']
-            conyuge.telefono_personal_conyuge = form_datos_conyuge.changed_data['telefono_personal_conyuge']
-            conyuge.telefono_oficina_conyuge = form_datos_conyuge.changed_data['telefono_oficina_conyuge']
-            conyuge.correo = form_datos_conyuge.changed_data['correo']
+        asociado.conyuge = Conyuge.objects.get(id_conyuge=id_conyuge)
+        asociado.save()
+
+        
     
     return render(request, "escritorio.html", {'display': True,'asociados': asociados})
 
