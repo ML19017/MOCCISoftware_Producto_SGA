@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="form-container">
+  <form class="form" action="/sistema_gestor_asociados/ingresar_solicitud" method="post">
+    <label class="labelTitulo">Documentos Legales de Rigor</label>
+    <!-- #Anexo de los documentos legales de rigor del asociado -->
+    <label class="label" for="fotocop-DUI">
+    Fotocopia (Documento Único de Identidad - DUI): 
+    </label>
+    <input class="input" type="file" accept=".pdf, image*/" id="fotocop-DUI" name="fotocop-DUI" title="Anexar fotocopia de DUI en formato PDF." required>
+    <label class="label" for="fotocop-NIT">
+    Fotocopia (Documento del Número de Identificación Tributaria - NIT): </label>
+    <input class="input" type="file" accept=".pdf, image*/" id="fotocop-NIT" name="fotocop-NIT" title="Anexar fotocopia de NIT en formato PDF." required>
+    <label class="label" for="fotocop-ISSS">
+    Fotocopia (Documento del Seguro Social): 
+    </label>
+    <input class="input" type="file" accept=".pdf, image*/" id="fotocop-ISSS" name="fotocop-ISSS" title="Anexar fotocopia de documento ISSS en formato PDF." required>
+    <label class="labelTitulo">
+    Documentos Complementarios
+    </label>
+    <!-- #Anexo de los documentos complementarios asociado -->
+    <label class="label" for="fotocop-IVA">
+    Fotocopia (Tarjeta de IVA): 
+    </label>
+    <input class="input" type="file" accept=".pdf, image*/" id="fotocop-IVA" name="fotocop-IVA" title="Anexar fotocopia de tarjeta de IVA en formato PDF.">
+    <label class="label" for="fotocop-const-salario">
+    Fotocopia (Constancia de Salario): 
+    </label>
+    <input class="input" type="file" accept=".pdf, image*/" id="fotocop-const-salario" name="fotocop-const-salario" title="Anexar fotocopia de constancia de salario en formato PDF."> <br></br>
+    <input  type="submit" value="Enviar" class="primary-button">
+  </form>
+</div>
+{% endblock %}

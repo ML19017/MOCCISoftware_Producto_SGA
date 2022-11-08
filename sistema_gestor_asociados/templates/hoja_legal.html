@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+<title>Generar Recibo</title>
+{% endblock %}
+
+{% block content %}
+<form class="form" action="/sistema_gestor_asociados/ingresar_solicitud" method="post">
+  <!-- Datos para el recibo-->
+  <label for="/" class="labelTitulo">Hoja Legal</label>
+  <label for="/" class="labelTitulo">Cooperativa PYLON</label>
+  
+        <label for="/" class="label" >Yo, con nombre: <label for="/" class="label_second" id="nombre"></label><br> </label><br> 
+        <label for="/" class="label">Y apellido: <label for="/" class="label_second" id="apellido"></label><br></label><br> 
+        <label for="/" class="label">Nacido el: <label for="/" class="label_second" id="fecha_nacimiento"></label><br></label><br> 
+        <label for="/" class="label">Residente de: <label for="/" class="label_second" id="nacionalidad"></label><br></label><br> 
+        <label for="/" class="label">Número correlativo: <label for="/" class="label_second" id="id"></label><br></label><br>   
+
+  
+
+  <object class="pdf" data="{% static './resources/Hoja Legal PYLON.pdf' %}" type="application/pdf"></object>
+  
+  <div class="padre">
+    <label for="main_canvas" class="label"><br>Firma</label>
+    <div class="canva"> 
+      <canvas id="main_canvas" width="300px" height="70px">
+      </canvas>
+    </div>
+  </div>
+</form>
+<script src="{% static 'scripts/imprimiendoDatos.js' %}"></script>
+<script src="{% static 'scripts/canvas.js' %}"></script>
+<link rel="stylesheet" href="{% static 'css/hoja_legal.css' %}">
+{% endblock %}

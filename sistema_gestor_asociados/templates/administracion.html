@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+<title>Administración</title>
+{% endblock %}
+
+{% block link %}
+<link rel="stylesheet" href="{% static 'css/escritorio.css' %}">
+{% endblock %}
+
+{% block content %}
+{% if user.is_superuser %}
+  <div class="tab">
+    <button type="button" id="button_usuarios" class="tablinks" onclick="abrirTab(event, 'usuarios')">USUARIOS</button>
+  </div>
+
+  <div class="tabs">
+    <div class="panel-options">
+        <button class="button" type="button" onclick="eliminar()">Eliminar</button>
+        <button class="button" type="button" onclick="crear()">Crear Usuario</button>
+        <div class="info_panel administracion">
+          <h5>ID:</h5>
+          <p class="info_id" id="info_id"></p>
+          <h5>Username:</h5>
+          <p class="info_username" id="info_username"></p>
+          <h5>Email:</h5>
+          <p class="info_email" id="info_email"></p>
+        </div>
+    </div>
+    <div id="usuarios" class="tabcontent">
+        <form class="form_usuarios" action="" method="post">
+          {% csrf_token %}
+          <table class="tabla">
+            <thead>
+                <tr><th class="select">►</th><th>Id</th><th>Username ▼▲</th><th>Email ▼▲</th></tr>
+            </thead>
+            <tbody>
+                {% for usuario in usuarios %}
+                <tr>
+                    <td class="select"><input type="radio" id="radio_id" name="id" value="{{ usuario.id }}" onchange="getInfo(this)" required></td>
+                    <td class="id">{{ usuario.id }}</td>
+                    <td class="username">{{ usuario.username }}</td>
+                    <td class="email">{{ usuario.email }}</td>
+                  <tr>
+                {% endfor %}
+            </tbody>
+          </table>
+        </form>
+    </div>
+
+  </div>
+  {% else %}
+  <div class="tab">
+    <label>USTED NO TIENE ACCESO A ESTA PÁGINA</label>
+  </div>
+{% endif %}
+
+<script src="{% static 'scripts/administracion.js' %}"></script>
+<script src="{% static 'scripts/tab.js' %}"></script>
+{% endblock %}

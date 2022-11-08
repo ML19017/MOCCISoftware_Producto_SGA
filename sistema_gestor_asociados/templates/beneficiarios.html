@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+<title>Beneficiarios</title>
+{% endblock %}
+
+{% block link %}
+<link rel="stylesheet" href="{% static 'css/beneficiarios.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="large">
+  <div class="panel-options">
+    <form id="form_beneficiarios" class="form" action="#" onsubmit=" return false" method="get">
+      {{ form_beneficiarios }}
+      <input type="submit" value="Agregar" class="primary-button" onclick="agregarBeneficiario()"></input>
+    </form>
+    <h5>Nombre:</h5>
+    <p class="info_nombres" id="info_nombres">{{asociado.nombres}} {{asociado.primer_apellido}} {{asociado.segundo_apellido}}</p>
+    <h5>Fecha Nacimiento:</h5>
+    <p class="info_fecha" id="info_fecha">{{asociado.fecha_nacimiento}} {{asociado.nacionalidad.nombre}}</p>
+    <h5>ID:</h5>
+    <p class="info_id" id="info_id">{{asociado.id}}</p>
+    <button id="id_submit" class="primary-button" type="button" onclick="enviarBeneficiarios()">Enviar</button>
+  </div>
+  <div class="beneficiarios-container">
+    <h1 class="labelTitulo">Beneficiarios</h1>
+    <table id="id_tabla_beneficiarios" class="tabla">
+      <thead>
+        <tr><th>Acción</th><th>Nombres</th><th>Apellidos</th><th>Edad</th><th>Parentesco</th><th>%</th></tr>
+      </thead>
+      <tbody>
+          {% for beneficiario in beneficiarios %}
+          <tr class="item_beneficiario">
+            <td class="action"><button type="button" onclick="eliminar(this)">Eliminar</button></td>
+            <td class="nombres">{{ beneficiario.nombres }}</td>
+            <td class="apellidos">{{ beneficiario.apellidos }}</td>
+            <td class="edad">{{ beneficiario.edad }}</td>
+            <td class="parentesco">{{ beneficiario.parentesco.nombre }}</td>
+            <td class="porcentaje">{{ beneficiario.porcentaje }}</td>
+          </tr>
+          {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+<script>
+  let parentescos_list = [
+    {% for parentesco in parentescos %}
+    ({{parentesco.id}}, '{{parentesco.nombre}}'),
+    {% endfor %}
+  ]
+
+  function toParentesco(str) {
+    for(var i = 0; i < parentescos_list.length; i++) {
+      if(parentescos_list[i] === str)
+        return i + 1;
+    }
+    return 0;
+}
+</script>
+<script src="{% static 'scripts/beneficiarios.js' %}"></script>
+{% endblock %}

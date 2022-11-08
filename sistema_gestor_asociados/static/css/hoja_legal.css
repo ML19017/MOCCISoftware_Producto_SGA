@@ -1,0 +1,44 @@
+@charset "utf-8";
+
+:root {
+  --white: #FFFFFF;
+  --black: #000000;
+  --very-light-pink: #C7C7C7;
+  --text-input-field: #F7F7F7;
+  --hospital-green: #ACD9B2;
+  --vert-btn: #098f3a;
+  --red: #ff6961;
+  --vert: #00B040;
+  --sm: 14px;
+  --md: 16px;
+  --lg: 18px;
+  --xlg: 28px;
+}
+.pdf{
+    width: 800px;
+    height: 500px;
+    border-radius: 6px;
+    box-shadow: 0 2px 2px 0 rgb(0, 0, 0.2);
+}
+.label_second{
+    font-weight: lighter;
+    font-size: var(--sm);
+}
+.label{
+    font-size: var(--md);
+}
+.padre{
+    text-align: center;
+}
+.canva{
+    display: grid;
+    border-bottom: 2px solid black;
+    width: 300px;
+    height: 70px;
+    margin: 0px auto;
+    margin-top: 10px;
+    border-radius: 2px;
+}
+canvas{ 
+    background-color: white;
+}

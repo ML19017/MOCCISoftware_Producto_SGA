@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+	{% load static %}
+	<head>
+		<meta charset="utf-8">
+		{% block title %}
+
+		{% endblock %}
+		<meta name="keywords" content="HTML, CSS, JavaScript">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="shortcut icon" href="{% static '/iconos/integration.ico' %}">
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+		<link type="text/css" rel="stylesheet" href="{% static 'css/estiloTemplates.css' %}">
+		{% block link %}
+
+		{% endblock %}
+  	</head>
+	<body onload="_init_()">
+		<nav id="nav-base">
+			<div class="navbar-left">
+				<img src="{% static './resources/logo_coo.svg' %}" alt="logo" class="logo">
+				<h1>PYLON</h1>
+				<ul class="opciones">
+					{% if user.is_superuser %}
+						{% if display %}
+						<li><a href="/sistema_gestor_asociados/escritorio/crear_asociado/">CREAR SOLICITUD</a></li>
+						{% else %}
+						<li><a href="/sistema_gestor_asociados/escritorio/">REGRESAR AL INICIO</a></li>
+						{% endif %}
+						<li><a href="/sistema_gestor_asociados/administracion/">ADMINISTRACIÓN</a></li>
+					{% else %}
+						{% if display %}
+						<li><a href="/sistema_gestor_asociados/escritorio/crear_asociado/">CREAR SOLICITUD</a></li>
+						{% else %}
+						<li><a href="/sistema_gestor_asociados/escritorio/">REGRESAR AL INICIO</a></li>
+						{% endif %}
+					{% endif %}
+				</ul>
+			</div>
+			<div class="navbar-right">
+			  <ul>
+				<li class="navbar-email">BIENVENIDO, {{ user.username }}</li>
+				<li><a href="{% url 'salir' %}">Cerrar Sesión</a></li>
+			  </ul>
+			</div>
+		</nav>
+		<div id="body-base" class="comun">
+			{% block content %}
+
+			{% endblock %}
+		</div>
+		<footer id="foot-base">
+			<p><img src="{% static '/resources/dev_logo.jpg' %}" title="MOCCI Software" alt="MOCCI Software" class="dev-logo">MOCCI Software 2022</p>
+		</footer>
+	</body>
+</html>

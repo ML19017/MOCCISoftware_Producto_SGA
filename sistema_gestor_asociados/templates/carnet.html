@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+<section id="ocultar">
+{% load static %}
+{% block title %}
+<title>Generar Carnet</title>
+{% endblock %}
+
+
+{% block content %}
+</section>
+
+  <form class="form" action="/sistema_gestor_asociados/ingresar_solicitud" method="post">
+      
+    <!-- Datos para el recibo-->
+    
+    <div class="central" id="central">
+      <label for="/" class="labelTitulo">CARNET DE ASOCIADO PYLON</label><br>
+      <div class="second" id="second">
+          <label for="/" class="label">ID:</label>
+          <label for="/" class="label_second" id="id"><br></label><br>
+          <label for="/" class="label" ><br>Nombre:</label><br>
+          <label for="/" class="label_second" id="nombre"></label><br>
+          <label for="/" class="label"><br>Apellido:</label><br>
+          <label for="/" class="label_second" id="apellido"><br></label><br>
+          <label for="/" class="label"><br>Fecha de Nacimiento:<br></label>
+          <label for="/" class="label_second" id="fecha_nacimiento"></label>
+      </div>
+      <div class="img" id="img">
+          <img src="{% static 'resources/logo.jpeg' %}" class="logoCarnet"/>
+          <label for="/" class="label_logo">PYLON</label>
+      </div>
+    </div>
+    <section id="Area_imprimir">
+      <input type="button" value="Imprimir Carnet" class="imprimir" id="botonImprimir" onclick="imprimir()">
+    </section>
+    <script src="{% static 'scripts/imprimir.js' %}"></script>
+  </form>
+<link rel="shortcut icon" href="{% static '/iconos/integration.ico' %}">
+<script src="{% static 'scripts/imprimiendoDatosEnCarnet.js' %}"></script>
+<link rel="stylesheet" href="{% static 'css/carnet.css' %}">
+{% endblock %}
+

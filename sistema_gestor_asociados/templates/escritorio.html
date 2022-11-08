@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+<title>Escritorio</title>
+{% endblock %}
+
+{% block link %}
+<link rel="stylesheet" href="{% static 'css/escritorio.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="tab">
+  <button type="button" id="button_solicitudes" class="tablinks" onclick="abrirTab(event, 'solicitudes')">SOLICITUDES</button>
+  <button type="button" id="button_asociados"   class="tablinks" onclick="abrirTab(event, 'asociados')">ASOCIADOS</button>
+</div>
+<div class="tabs">
+  <div class="panel-options">
+    <button class="button" type="button" onclick="beneficiarios()">Beneficiarios</button>
+    <button class="button" type="button" onclick="anexarDocumentos()">Anexos</button>
+    <button class="button" type="button" onclick="generarRecibo()">Recibo</button>
+    <button class="button" id="DocumentoBoton" type="button" onclick="generarDocumentos()">Generar Documentos</button>
+    <button class="button" type="button" onclick="aprobar()">Aprobar</button>
+    <button class="button" id="carnetBoton" type="button" onclick="carnet()">Carnet</button>
+    <div class="info_panel">
+      <h5>ID:</h5>
+      <p class="info_id" id="info_id"></p>
+      <h5>Nombres:</h5>
+      <p class="info_nombres" id="info_nombres"></p>
+      <h5>Apellidos:</h5>
+      <p class="info_apellidos" id="info_apellidos"></p>
+      <h5>Fecha Nacimiento:</h5>
+      <p class="info_fecha" id="info_fecha"></p>
+      <h5>Nacionalidad:</h5>
+      <p class="info_pais" id="info_pais"></p>
+    </div>
+  </div>
+  <div id="solicitudes" class="tabcontent">
+    <form class="form_solicitudes" action="" method="post">
+      {% csrf_token %}
+      <table class="tabla">
+        <thead>
+          <tr><th class="select">►</th><th>Id</th><th>Nombres ▼▲</th><th>Apellidos ▼▲</th><th>Nacionalidad</th><th>Fecha de Nacimiento</th></tr>
+        </thead>
+        <tbody>
+          {% for asociado in asociados %}
+          {% if asociado.estado_aprobado == False %}
+          <tr>
+            <td class="select"><input type="radio" id="radio_id" name="id" value="{{ asociado.id }}" onchange="getInfo(this)" required></td>
+            <td class="id">{{ asociado.id }}</td>
+            <td class="nombres">{{ asociado.nombres }}</td>
+            <td class="apellidos">{{ asociado.primer_apellido }} {{ asociado.segundo_apellido }}</td>
+            <td class="nacionalidad">{{ asociado.nacionalidad.nombre }}</td>
+            <td class="fecha_nacimiento">{{ asociado.fecha_nacimiento }}</td>
+          <tr>
+          {% endif %}
+          {% endfor %}
+        </tbody>
+      </table>
+    </form>
+  </div>
+  <div id="asociados" class="tabcontent">
+    <table class="tabla">
+      <thead>
+        <tr><th>Id</th><th>Nombres</th><th>Apellidos</th><th>Nacionalidad</th><th>Fecha de Nacimiento</th></tr>
+      </thead>
+      <tbody>
+        {% for asociado in asociados %}
+        {% if asociado.estado_aprobado == True %}
+        <tr>
+          <td class="id">{{ asociado.id }}</td>
+          <td class="nombres">{{ asociado.nombres }}</td>
+          <td class="apellidos">{{ asociado.primer_apellido }} {{ asociado.segundo_apellido}}}</td>
+          <td class="nacionalidad">{{ asociado.nacionalidad }}</td>
+          <td class="fecha_nacimiento">{{ asociado.fecha_nacimiento }}</td>
+        <tr>
+        {% endif %}
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+<script src="{% static 'scripts/tomarDatos.js' %}"></script>
+<script src="{% static 'scripts/escritorio.js' %}"></script>
+<script src="{% static 'scripts/tab.js' %}"></script>
+{% endblock %}

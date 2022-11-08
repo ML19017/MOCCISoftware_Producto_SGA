@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+<title>Generar Recibo</title>
+{% endblock %}
+
+{% block content %}
+<form class="form" action="/sistema_gestor_asociados/ingresar_solicitud" method="post">
+  <!-- Datos para el recibo-->
+  <label class="labelTitulo" for="/">Recibo de Pago</label>
+  <label class="label" for="tipo-trabajador">Digite el total de sus ingresos en US$:</label>
+  <input class="input" type="number" id="IngresosSolicitante" name="IngresosSolicitante" placeholder="$$$$" title="IngresosSolicitante"  required>
+  <label for="porcentajeAhorro" class="label">Seleccione el porcentaje mensual que quiere ahorrar</label>
+  <select class="input" name="porcentajeAhorro" id="porcentajeAhorro">
+    <option value="0.02">2%</option>
+    <option value="0.03">3%</option>
+    <option value="0.05">5%</option>
+    <option value="0.08">8%</option>
+    <option value="0.1">10%</option>
+  </select>
+  <input  type="button" value="Calcular" class="primary-button" onclick="calcularPago()">
+  <label for="/" class="label">La cantidad de ahorro fija mensual a pagar es:</label>
+  <label type="text" class="labelTitulo" id="CantidadAhorro" name="CantidadAhorro"></label>
+  <label for="/" class="label">El costo para unirse a la Cooperativa es:</label>
+  <label type="text" class="labelTitulo" id="CostoParaUnirse" name="CostoParaUnirse"></label>
+  <label for="/" class="label">El monto total a pagar es:</label>
+  <label type="text" class="labelTitulo" id="CostoTotal" name="CostoTotal"></label>
+  <label for="/" class="label"><strong>Tome en cuenta que el costo para unirse a la Cooperativa solo será cancelado una vez</strong></label>
+</form>
+<script src="{% static 'scripts/reciboPago.js' %}"></script>
+{% endblock %}

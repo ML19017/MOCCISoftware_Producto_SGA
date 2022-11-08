@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+<title>Crear Registro</title>
+{% endblock %}
+
+{% block link %}
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500;700&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{% static '/css/maps.css' %}">
+<link rel="stylesheet" href="{% static '/css/mapaEstilo.css' %}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css"/>
+{% endblock %}
+
+{% block content %}
+<div class="form-container">
+	<form class="form" action="/sistema_gestor_asociados/escritorio/" method="post" enctype="multipart/form-data">
+		{% csrf_token %}
+		<label class="labelTitulo">Datos Personales del Solicitante</label>
+		<div id="form_datos_nacionalidad" class="form">
+			{{ form_datos_nacionalidad }}
+		</div>
+
+		<div id="form_documentos_obligatorios" class="form">
+			{{ form_documentos_obligatorios }}
+		</div>
+		<div id="form_datos_personales" class="form">
+			{{ form_datos_personales }}
+		</div>
+
+		<div id="form_apellido_casada" class="form">
+			{{ form_apellido_casada }}
+		</div>
+		<div id="form_datos_conyuge" class="form">
+			<label class="labelTitulo">Datos del Cónyuge</label>
+			{{ form_datos_conyuge}}
+			<label class="labelTitulo">Datos Personales del Solicitante</label>
+		</div>
+		<div id="form_tipo_trabajador" class="form">
+			{{ form_tipo_trabajador }}
+		</div>
+
+		<div id="form_rubro" class="form">
+			{{ form_rubro }}
+		</div>
+
+		<div id="form_referencias" class="form">
+			<label class="labelTitulo">Referencias Personales</label>
+			{{ form_referencias_personales }}
+			<label class="labelTitulo">Referencias Familiares</label>
+			{{ form_referencias_familiares }}
+		</div>
+		
+		<label class="labelTitulo">Domicilio</label>
+		<div id="form_domicilio" class="form">
+			{{ form_domicilio }}
+		</div>
+
+		<div class="map">
+			<div id="map" class="map"></div>
+		</div>
+		
+		<label class="labelTitulo">Información del Sistema</label>
+		<div id="form_registro" class="form">
+			{{ form_registro }}
+		</div>
+
+		<input type="submit" value="Enviar" class="primary-button">
+	</form>
+</div>
+<script src="{% static 'scripts/currency.js' %}"></script>
+<script src="{% static 'scripts/ordenLlenado.js' %}"></script>
+<script src="{% static 'scripts/ubicacion.js' %}"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAUmnpFJIsdpOpu7d4g7kKv8l_0kq9OTn8&libraries=places&callback=initMap"></script>		
+<script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
+{% endblock %}
+
+
