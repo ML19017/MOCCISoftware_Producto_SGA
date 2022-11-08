@@ -27,17 +27,17 @@ def acceder(request):
     if request.method == 'POST':
         username = request.POST.get('username')
         password = request.POST.get('password')
-
+        
         user_obj = User.objects.filter(username = username).first()
         if user_obj is None:
             messages.success(request, 'El usuario no se ha encontrado.')
             return redirect('Acceder')
         
-        profile_obj = Profile.objects.filter(user = user_obj ).first()
-
-        if not profile_obj.is_verified:
-            messages.success(request, 'El perfil no está verificado, por favor revisa tu correo electrónico.')
-            return redirect('Acceder')
+        if Profile.objects.filter(user = user_obj).exists():
+            profile_obj = Profile.objects.filter(user = user_obj ).first()
+            if not profile_obj.is_verified:
+                messages.success(request, 'El perfil no está verificado, por favor revisa tu correo electrónico.')
+                return redirect('Acceder')
 
         user = authenticate(username = username , password = password)
         if user is None:
