@@ -7,10 +7,8 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import redirect,render
 from django.contrib.auth.models import User
 from sistema_gestor_asociados.models import Profile
-from django.core import serializers
 import uuid
 import json
-from json import dump, dumps
 from sistema_gestor_asociados.forms import *
 from sistema_gestor_asociados.models import Asociado
 
@@ -141,83 +139,129 @@ def eliminar(request):
 
 @login_required
 def escritorio(request):    
-    
+
     asociados = Asociado.objects.prefetch_related().all()
+    
     if request.method == "POST":
-        data = request
-        form_datos_nacionalidad = Form_Datos_Nacionalidad(data.POST)
-        form_documentos_obligatorios = Form_Documentos_Obligatorios(data.POST)
-        form_datos_personales =  Form_Datos_Personales(data.POST)
-        form_apellido_casada = Form_Apellido_Casada(data.POST)
-        form_datos_conyuge  = Form_Datos_Conyuge(data.POST)
-        form_tipo_trabajador = Form_Tipo_Trabajador(data.POST)
-        form_rubro = Form_Rubro(data.POST)
-        form_referencias_personales = Form_Referencias_Personales(data.POST)
-        form_referencias_familiares = Form_Referencias_Familiares(data.POST)
-        form_domicilio = Form_Domicilio(data.POST)
-        form_registro = Form_Registro(data.POST)
 
-        asociado = Asociado()
-        conyuge = Conyuge()
+        try:
+            data = request
+            form_datos_nacionalidad = Form_Datos_Nacionalidad(data.POST)
+            form_documentos_obligatorios = Form_Documentos_Obligatorios(data.POST)
+            form_datos_personales =  Form_Datos_Personales(data.POST)
+            form_apellido_casada = Form_Apellido_Casada(data.POST)
+            form_datos_conyuge  = Form_Datos_Conyuge(data.POST)
+            form_tipo_trabajador = Form_Tipo_Trabajador(data.POST)
+            form_rubro = Form_Rubro(data.POST)
+            form_referencias_personales = Form_Referencias_Personales(data.POST)
+            form_referencias_familiares = Form_Referencias_Familiares(data.POST)
+            form_domicilio = Form_Domicilio(data.POST)
 
-        if form_datos_conyuge.isValid():
-            conyuge.nombres_conyuge = form_datos_conyuge.changed_data['nombres_conyuge']
-            conyuge.apellidos_conyuge = form_datos_conyuge.changed_data['apellidos_conyuge']
-            conyuge.fecha_nacimiento_conyuge = form_datos_conyuge.changed_data['fecha_nacimiento']
-            conyuge.empresa = form_datos_conyuge.changed_data['empresa']
-            conyuge.cargo = form_datos_conyuge.changed_data['cargo']
-            conyuge.nacionalidad_conyuge = form_datos_conyuge.changed_data['nacionalidad_conyuge']
-            conyuge.tipo_documento_conyuge = form_datos_conyuge.changed_data['tipo_documento_conyue']
-            conyuge.numero_documento_conyuge = form_datos_conyuge.changed_data['numero_documento_conyuge']
-            conyuge.telefono_personal_conyuge = form_datos_conyuge.changed_data['telefono_personal_conyuge']
-            conyuge.telefono_oficina_conyuge = form_datos_conyuge.changed_data['telefono_oficina_conyuge']
-            conyuge.correo = form_datos_conyuge.changed_data['correo']
-            conyuge.save()
+            asociado = Asociado()
+            conyuge = Conyuge()
+
+            if form_datos_conyuge.is_valid():
+                conyuge.nombres_conyuge = form_datos_conyuge.cleaned_data['nombres_conyuge']
+                conyuge.apellidos_conyuge = form_datos_conyuge.cleaned_data['apellidos_conyuge']
+                conyuge.fecha_nacimiento_conyuge = form_datos_conyuge.cleaned_data['fecha_nacimiento']
+                conyuge.empresa = form_datos_conyuge.cleaned_data['empresa']
+                conyuge.cargo = form_datos_conyuge.cleaned_data['cargo']
+                conyuge.nacionalidad_conyuge = form_datos_conyuge.cleaned_data['nacionalidad_conyuge']
+                conyuge.tipo_documento_conyuge = form_datos_conyuge.cleaned_data['tipo_documento_conyue']
+                conyuge.numero_documento_conyuge = form_datos_conyuge.cleaned_data['numero_documento_conyuge']
+                conyuge.telefono_personal_conyuge = form_datos_conyuge.cleaned_data['telefono_personal_conyuge']
+                conyuge.telefono_oficina_conyuge = form_datos_conyuge.cleaned_data['telefono_oficina_conyuge']
+                conyuge.correo = form_datos_conyuge.cleaned_data['correo']
+                conyuge.save()
+                
+                id_conyuge = conyuge.id
+                asociado.conyuge = Conyuge.objects.get(id_conyuge=id_conyuge)
             
-            id_conyuge = conyuge.id
+            if form_datos_nacionalidad.is_valid():
+                asociado.nacionalidad = Pais.objects.form_datos_nacionalidad.cleaned_data['nacionalidad']
+                asociado.pais_nacimiento = form_datos_nacionalidad.cleaned_data['pais_nacimiento']
+                asociado.tipo_documento = form_datos_nacionalidad.cleaned_data['tipo_documento']
+                asociado.numero_identidad = form_datos_nacionalidad.cleaned_data['numero_identidad']
+            
+            if form_documentos_obligatorios.is_valid():
+                asociado.isss = form_documentos_obligatorios.cleaned_data['isss']
+                asociado.nit = form_documentos_obligatorios.cleaned_data['nit']
+                asociado.nup = form_documentos_obligatorios.cleaned_data['nup']
+            
+            if form_datos_personales.is_valid():
+                asociado.fecha_nacimiento = form_datos_personales.cleaned_data['fecha_nacimiento']
+                asociado.genero = form_datos_personales.cleaned_data['genero']
+                asociado.estado_familiar = form_datos_personales.cleaned_data['estado_familiar']
+                asociado.nombres = form_datos_personales.cleaned_data['nombres']
+                asociado.primer_apellido = form_datos_personales.cleaned_data['primer_apellido']
+                asociado.segundo_apellido = form_datos_personales.cleaned_data['segundo_apellido']
+
+            if form_apellido_casada.is_valid():
+                asociado.apellido_casada = form_apellido_casada.cleaned_data['apellido_casada']
+
+            
+            if form_tipo_trabajador.is_valid():
+                asociado.salario = form_tipo_trabajador.cleaned_data['salario']
+                asociado.tipo_trabajador = form_tipo_trabajador.cleaned_data['tipo_trabajador']
+
+            if form_rubro.is_valid():
+                asociado.rubro = form_rubro.cleaned_data['rubro']
+            
+            if form_domicilio.is_valid():
+                asociado.direccion = form_domicilio.cleaned_data['direccion']
+                asociado.uso_inmueble = form_domicilio.cleaned_data['uso_inmueble']
+                asociado.tiempo = form_domicilio.cleaned_data['tiempo']
+                asociado.numero_domicilio = form_domicilio.cleaned_data['numero_domicilio']
+                asociado.ubicacion_geografica = form_domicilio.cleaned_data['ubicacion_geografica']
+
             asociado.conyuge = Conyuge.objects.get(id_conyuge=id_conyuge)
-        
-        if form_datos_nacionalidad.isValid():
-            asociado.nacionalidad = form_datos_nacionalidad.changed_data['nacionalidad']
-            asociado.pais_nacimiento = form_datos_nacionalidad.changed_data['pais_nacimiento']
-            asociado.tipo_documento = form_datos_nacionalidad.changed_data['tipo_documento']
-            asociado.numero_identidad = form_datos_nacionalidad.changed_data['numero_identidad']
-        
-        if form_documentos_obligatorios.isValid():
-            asociado.isss = form_documentos_obligatorios.cleaned_data['isss']
-            asociado.nit = form_documentos_obligatorios.cleaned_data['nit']
-            asociado.nup = form_documentos_obligatorios.cleaned_data['nup']
-        
-        if form_datos_personales.isValid():
-            asociado.fecha_nacimiento = form_datos_personales.cleaned_data['fecha_nacimiento']
-            asociado.genero = form_datos_personales.cleaned_data['genero']
-            asociado.estado_familiar = form_datos_personales.cleaned_data['estado_familiar']
-            asociado.nombres = form_datos_personales.cleaned_data['nombres']
-            asociado.primer_apellido = form_datos_personales.cleaned_data['primer_apellido']
-            asociado.segundo_apellido = form_datos_personales.cleaned_data['segundo_apellido']
+            asociado.save()
 
-        if form_apellido_casada.isValid():
-            asociado.apellido_casada = form_apellido_casada.cleaned_data['apellido_casada']
+            if form_referencias_personales.is_valid():
+                referencia_1 = Referencia()
+                referencia_2 = Referencia()
 
-        
-        if form_tipo_trabajador.isValid():
-            asociado.salario = form_tipo_trabajador.changed_data['salario']
-            asociado.tipo_trabajador = form_tipo_trabajador.changed_data['tipo_trabajador']
+                referencia_1.nombre = form_referencias_personales.cleaned_data['nombre_primera_referencia_personal']
+                referencia_1.telefono_personal = form_referencias_personales.cleaned_data['telefono_primera_referencia_personal']
+                referencia_1.correo = form_referencias_personales.cleaned_data['correo_primera_referencia_personal']
+                referencia_1.tipo = 0
+                referencia_1.asociado = Asociado.objects.get(id=asociado.id)
+                referencia_1.save()
 
-        if form_rubro.isValid():
-            asociado.rubro = form_rubro.changed_data['rubro']
-        
-        if form_domicilio.isValid():
-            asociado.direccion = form_domicilio.changed_data['direccion']
-            asociado.uso_inmueble = form_domicilio.changed_data['uso_inmueble']
-            asociado.tiempo = form_domicilio.changed_data['tiempo']
-            asociado.numero_domicilio = form_domicilio.changed_data['numero_domicilio']
-            asociado.ubicacion_geografica = form_domicilio.changed_data['ubicacion_geografica']
+                referencia_2.nombre = form_referencias_personales.cleaned_data['nombre_segunda_referencia_personal']
+                referencia_2.telefono_personal = form_referencias_personales.cleaned_data['telefono_segunda_referencia_personal']
+                referencia_2.correo = form_referencias_personales.cleaned_data['correo_segunda_referencia_personal']
+                referencia_2.tipo = 0
+                referencia_2.asociado = Asociado.objects.get(id=asociado.id)
+                referencia_2.save()
 
-        asociado.conyuge = Conyuge.objects.get(id_conyuge=id_conyuge)
-        asociado.save()
+            if form_referencias_personales.is_valid():
+                referencia_1 = Referencia()
+                referencia_2 = Referencia()
 
-        
+                referencia_1.nombre = form_referencias_familiares.cleaned_data['nombre_primera_referencia_familiar']
+                referencia_1.telefono_personal = form_referencias_familiares.cleaned_data['telefono_primera_referencia_familiar']
+                referencia_1.correo = form_referencias_familiares.cleaned_data['correo_primera_referencia_familiar']
+                referencia_1.tipo = 1
+                referencia_1.asociado = Asociado.objects.get(id=asociado.id)
+                referencia_1.save()
+
+                referencia_2.nombre = form_referencias_familiares.cleaned_data['nombre_segunda_referencia_familiar']
+                referencia_2.telefono_personal = form_referencias_familiares.cleaned_data['telefono_segunda_referencia_familiar']
+                referencia_2.correo = form_referencias_familiares.cleaned_data['correo_segunda_referencia_familiar']
+                referencia_2.tipo = 1
+                referencia_2.asociado = Asociado.objects.get(id=asociado.id)
+                referencia_1.save()
+            
+            registro = Registro()        
+            registro.ejecutivo = request.session['username']
+            registro.asociado = asociado.id
+            registro.fecha = datetime.now
+            registro.save()
+
+        except Exception as exp:
+            print(exp)
+            return redirect('Error')
     
     return render(request, "escritorio.html", {'display': True,'asociados': asociados})
 
@@ -236,7 +280,6 @@ def crear_asociado(request):
     form_referencias_personales = Form_Referencias_Personales()
     form_referencias_familiares = Form_Referencias_Familiares()
     form_domicilio = Form_Domicilio()
-    form_registro = Form_Registro()
 
     contexto = {
         'display':False,
@@ -250,8 +293,8 @@ def crear_asociado(request):
         'form_referencias_personales':form_referencias_personales,
         'form_referencias_familiares':form_referencias_familiares,
         'form_domicilio':form_domicilio,
-        'form_registro': form_registro,
     }
+    
     return render(request, "crear_asociado.html", context=contexto)
 
 @login_required
@@ -266,7 +309,7 @@ def beneficiarios(request):
             beneficiarios = Beneficiario.objects.filter(asociado=id_asociado).prefetch_related()
         
         asociado = Asociado.objects.get(id=id_asociado)
-        parentescos = Parentescos.objects.all()
+        parentescos = Parentesco.objects.all()
         contexto = {
             'display':False,
             'form_beneficiarios':form_beneficiarios,
@@ -294,10 +337,12 @@ def beneficiarios(request):
             model.nombres = beneficiario[0]
             model.apellidos = beneficiario[1]
             model.edad = int(beneficiario[2])
-            model.parentesco = Parentescos.objects.get(id=int(beneficiario[3]))
+            model.parentesco = Parentesco.objects.get(id=int(beneficiario[3]))
             model.porcentaje = float(beneficiario[4])
             model.asociado = Asociado.objects.get(id=id_asociado)
             model.save()
+        
+        return redirect('Escritorio')
     return render(request, "beneficiarios.html", {'display': True})
 
 @login_required

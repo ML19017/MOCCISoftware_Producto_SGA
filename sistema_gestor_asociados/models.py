@@ -11,11 +11,11 @@ class Profile(models.Model):
     def __str__(self):
         return self.user.username
 
-class Generos(models.Model):
+class Genero(models.Model):
     nombre = models.CharField(max_length=50)
 
     def getSet():
-        elements = Generos.objects.all()
+        elements = Genero.objects.all()
         choices = []
         for element in elements:
             choices.append((element.id, element.nombre))
@@ -53,11 +53,11 @@ class EstadoFamiliar(models.Model):
         return choices
 
 
-class Parentescos(models.Model):
+class Parentesco(models.Model):
     nombre = models.CharField(max_length=50)
 
     def getSet():
-        elements = Parentescos.objects.all()
+        elements = Parentesco.objects.all()
         choices = []
         for element in elements:
             choices.append((element.id, element.nombre))
@@ -77,28 +77,28 @@ class UsoInmueble(models.Model):
             choices.append((element.id, element.nombre))
         return choices
 
-class Paises(models.Model):
+class Pais(models.Model):
     nombre = models.CharField(max_length=120)
     alfa_2 = models.CharField(max_length=2)
     alfa_3 = models.CharField(max_length=3)
     alfa_numerico = models.CharField(max_length=3)
 
     def getSet():
-        elements = Paises.objects.all()
+        elements = Pais.objects.all()
         choices = []
         for element in elements:
             choices.append((element.id, element.nombre))
         return choices
     
     def get_name_alfa2():
-        elements = Paises.objects.order_by('id')
+        elements = Pais.objects.order_by('id')
         choices = []
         for element in elements:
             choices.append((element.id, (element.nombre + ' (' + element.alfa_2 + ')')))
         return choices
     
     def paisNacimiento(id):
-        element = Paises.objects.get(id=id)
+        element = Pais.objects.get(id=id)
         return str(element.nombre + ' (' + element.alfa_2 + ')')
 
 class Rubros(models.Model):
@@ -138,10 +138,10 @@ class Asociado(models.Model):
     estado_pagado = models.BooleanField(default=False)
 
     conyuge = models.ForeignKey(Conyuge, on_delete = models.CASCADE, null=True)
-    nacionalidad = models.ForeignKey(Paises, related_name='nacionalidad', on_delete=models.DO_NOTHING)
-    pais_nacimiento = models.ForeignKey(Paises, related_name='pais_nacimiento', on_delete=models.DO_NOTHING)
+    nacionalidad = models.ForeignKey(Pais, related_name='nacionalidad', on_delete=models.DO_NOTHING)
+    pais_nacimiento = models.ForeignKey(Pais, related_name='pais_nacimiento', on_delete=models.DO_NOTHING)
     tipo_documento = models.ForeignKey(TipoDocumento, on_delete=models.DO_NOTHING)
-    genero = models.ForeignKey(Generos, on_delete = models.DO_NOTHING)
+    genero = models.ForeignKey(Genero, on_delete = models.DO_NOTHING)
     estado_familiar = models.ForeignKey(EstadoFamiliar, on_delete=models.DO_NOTHING)
     tipo_trabajador = models.ForeignKey(TipoTrabajador, on_delete=models.DO_NOTHING)
     
@@ -149,27 +149,17 @@ class Beneficiario(models.Model):
     nombres = models.CharField(max_length=120)
     apellidos = models.CharField(max_length=120)
     edad = models.SmallIntegerField(default=0)
-    parentesco = models.ForeignKey(Parentescos, on_delete = models.DO_NOTHING)
+    parentesco = models.ForeignKey(Parentesco, on_delete = models.DO_NOTHING)
     porcentaje = models.DecimalField(decimal_places=2, max_digits=4, default=0)
-    asociado = models.ForeignKey(Asociado, on_delete=models.DO_NOTHING)
+    tipo = models.SmallIntegerField()
+    asociado = models.ForeignKey(Asociado, on_delete=models.CASCADE)
 
-class ReferenciasPersonales(models.Model):
-    nombre_primera_referencia_personal = models.CharField(max_length=120, default='no especificado')
-    telefono_primera_referencia_personal = models.CharField(max_length=120, default='no especificado')
-    correo_primera_referencia_personal = models.EmailField(max_length=120, default='no especificado')
-    nombre_segunda_referencia_personal = models.CharField(max_length=120, default='no especificado')
-    telefono_segunda_referencia_personal = models.CharField(max_length=120, default='no especificado')
-    correo_segunda_referencia_personal = models.EmailField(max_length=120, default='no especificado')
-    asociado = models.ForeignKey(Asociado, on_delete=models.DO_NOTHING)
-
-class ReferenciasFamiliares(models.Model):
-    nombre_primera_referencia_familiar = models.CharField(max_length=120, default='no especificado')
-    telefono_primera_referencia_familiar = models.CharField(max_length=120, default='no especificado')
-    correo_primera_referencia_familiar = models.EmailField(max_length=120, default='no especificado')
-    nombre_segunda_referencia_familiar = models.CharField(max_length=120, default='no especificado')
-    telefono_segunda_referencia_familiar = models.CharField(max_length=120, default='no especificado')
-    correo_segunda_referencia_familiar = models.EmailField(max_length=120, default='no especificado')
-    asociado = models.ForeignKey(Asociado, on_delete=models.DO_NOTHING)
+class Referencia(models.Model):
+    nombre = models.CharField(max_length=120, default='no especificado')
+    telefono_personal = models.CharField(max_length=120, default='no especificado')
+    correo_personal = models.EmailField(max_length=120, default='no especificado')
+    tipo =  models.SmallIntegerField()
+    asociado = models.ForeignKey(Asociado, on_delete=models.CASCADE)
 
 class Registro(models.Model):
     ejecutivo = models.CharField(max_length=120)
@@ -182,5 +172,5 @@ class Domicilio(models.Model):
     ubicacion_geografica = models.CharField(max_length=120, default='no especificado')
     tiempo = models.SmallIntegerField(default=0)
     uso_inmueble = models.ForeignKey(UsoInmueble, on_delete=models.DO_NOTHING)
-    asociado = models.ForeignKey(Asociado, on_delete=models.DO_NOTHING)
+    asociado = models.ForeignKey(Asociado, on_delete=models.CASCADE)
     
