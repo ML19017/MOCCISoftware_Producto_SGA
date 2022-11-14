@@ -71,6 +71,7 @@ def register_attempt(request):
 
             if permission == 'Superusuario':
                 user_obj.is_superuser = True
+                user_obj.is_staff = True
 
             if permission == 'Ejecutivo':
                 user_obj.is_staff = True

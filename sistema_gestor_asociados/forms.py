@@ -13,14 +13,14 @@ class Form_Datos_Nacionalidad(forms.Form):
     nacionalidad = forms.ChoiceField(choices=Pais.getSet, label='Nacionalidad', required=True, widget=forms.Select(attrs={'class':'input'}))
     pais_nacimiento = forms.ChoiceField(choices=Pais.get_name_alfa2, label='Pais de Nacimiento', required=True, widget=forms.Select(attrs={'class':'input', 'onchange':'selectPaisNacimiento()'}))
     tipo_documento = forms.ChoiceField(choices=TipoDocumento.getSet,label='Tipo de Documento', required=True, widget=forms.Select(attrs={'class':'input'}))
-    numero_identidad = forms.IntegerField(label='Número de Identidad', min_value=9, max_value=14, required=True, widget=forms.NumberInput(attrs={'class':'input','placeholder':'Número de Identidad','step':'0'}))
+    numero_identidad = forms.CharField(label='Número de Identidad', required=True, widget=forms.TextInput(attrs={'class':'input','placeholder':'Número de Identidad','step':'0'}))
     # --> Documentos Obligatorios
 
 class Form_Documentos_Obligatorios(forms.Form):
     match_nacionalidad = forms.CharField(show_hidden_initial=True, required=True, widget=forms.HiddenInput(attrs={'value': ID_PAIS, 'id':'id_match_nacionalidad'}))
-    isss = forms.IntegerField(label='Número de ISSS', min_value=9, max_value=9, required=True, widget=forms.NumberInput(attrs={'class':'input', 'placeholder':'XXX.XXX.XX-X'}))
-    nit = forms.IntegerField(label='Número de NIT', min_value=14, max_value=14, required=True, widget=forms.NumberInput(attrs={'class':'input', 'placeholder':'XXXX.XXXXXX.XXX-X'}))
-    nup = forms.IntegerField(label='Número de NUP', min_value=9, max_value=9, required=True, widget=forms.NumberInput(attrs={'class':'input', 'placeholder':'XXX.XXX.XX-X'}))
+    isss = forms.IntegerField(label='Número de ISSS', required=True, widget=forms.NumberInput(attrs={'class':'input', 'placeholder':'XXX.XXX.XX-X'}))
+    nit = forms.IntegerField(label='Número de NIT', required=True, widget=forms.NumberInput(attrs={'class':'input', 'placeholder':'XXXX.XXXXXX.XXX-X'}))
+    nup = forms.IntegerField(label='Número de NUP', required=True, widget=forms.NumberInput(attrs={'class':'input', 'placeholder':'XXX.XXX.XX-X'}))
     # --> Datos Personales
 
 class Form_Datos_Personales(forms.Form):
