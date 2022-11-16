@@ -101,11 +101,11 @@ class Pais(models.Model):
         element = Pais.objects.get(id=id)
         return str(element.nombre + ' (' + element.alfa_2 + ')')
 
-class Rubros(models.Model):
+class Rubro(models.Model):
     nombre = models.CharField(max_length=120)
 
     def getSet():
-        elements = Rubros.objects.all()
+        elements = Rubro.objects.all()
         choices = []
         for element in elements:
             choices.append((element.id, element.nombre))

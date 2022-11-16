@@ -13,14 +13,14 @@ class Form_Datos_Nacionalidad(forms.Form):
     nacionalidad = forms.ChoiceField(choices=Pais.getSet, label='Nacionalidad', required=True, widget=forms.Select(attrs={'class':'input'}))
     pais_nacimiento = forms.ChoiceField(choices=Pais.get_name_alfa2, label='Pais de Nacimiento', required=True, widget=forms.Select(attrs={'class':'input', 'onchange':'selectPaisNacimiento()'}))
     tipo_documento = forms.ChoiceField(choices=TipoDocumento.getSet,label='Tipo de Documento', required=True, widget=forms.Select(attrs={'class':'input'}))
-    numero_identidad = forms.CharField(label='Número de Identidad', required=True, widget=forms.TextInput(attrs={'class':'input','placeholder':'Número de Identidad','step':'0'}))
+    numero_identidad = forms.CharField(label='Número de Identidad', required=True, min_length=9, widget=forms.TextInput(attrs={'class':'input','placeholder':'Número de Identidad','pattern':'^[a-zA-Z0-9]+$'}))
     # --> Documentos Obligatorios
 
 class Form_Documentos_Obligatorios(forms.Form):
     match_nacionalidad = forms.CharField(show_hidden_initial=True, required=True, widget=forms.HiddenInput(attrs={'value': ID_PAIS, 'id':'id_match_nacionalidad'}))
-    isss = forms.IntegerField(label='Número de ISSS', required=True, widget=forms.NumberInput(attrs={'class':'input', 'placeholder':'XXX.XXX.XX-X'}))
-    nit = forms.IntegerField(label='Número de NIT', required=True, widget=forms.NumberInput(attrs={'class':'input', 'placeholder':'XXXX.XXXXXX.XXX-X'}))
-    nup = forms.IntegerField(label='Número de NUP', required=True, widget=forms.NumberInput(attrs={'class':'input', 'placeholder':'XXX.XXX.XX-X'}))
+    isss = forms.CharField(label='Número de ISSS', required=True, min_length=9, max_length=9, widget=forms.TextInput(attrs={'class':'input', 'placeholder':'XXXXXXXXX','pattern':'[0-9]+$'}))
+    nit = forms.CharField(label='Número de NIT', required=True, min_length=14, max_length=14, widget=forms.TextInput(attrs={'class':'input', 'placeholder':'XXXXXXXXXXXXXX','pattern':'[0-9]+$'}))
+    nup = forms.CharField(label='Número de NUP', required=True, min_length=9, max_length=9, widget=forms.TextInput(attrs={'class':'input', 'placeholder':'XXXXXXXXX','pattern':'[0-9]+$'}))
     # --> Datos Personales
 
 class Form_Datos_Personales(forms.Form):
@@ -44,19 +44,19 @@ class Form_Datos_Conyuge(forms.Form):
     cargo = forms.CharField(label='Cargo desempeñado', max_length=50, required=True, widget=forms.TextInput(attrs={'class':'input','placeholder':'Cargo','pattern':'[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]+'}))
     nacionalidad_conyuge = forms.ChoiceField(choices=Pais.getSet, label='Nacionalidad del Cónyuge', required=True, widget=forms.Select(attrs={'class':'input','onchange':'selectNacionalidad()'}))
     tipo_documento_conyuge =  forms.ChoiceField(choices=TipoDocumento.getSet,label='Tipo de Documento', required=True, widget=forms.Select(attrs={'class':'input','onchange':'selectTipoDocumento()'}))
-    numero_documento_conyuge = forms.IntegerField(label='Número de Identidad del Cónyuge', min_value=9, max_value=14, required=True, widget=forms.NumberInput(attrs={'class':'input','step':'0','placeholder':'Número de Identidad'}))
+    numero_documento_conyuge = forms.CharField(label='Número de Identidad', required=True, min_length=9, widget=forms.TextInput(attrs={'class':'input','placeholder':'Número de Identidad','pattern':'^[a-zA-Z0-9]+$'}))
     telefono_personal_conyuge = forms.CharField(label='Teléfono Personal del Cónyuge', max_length=9, required=True, widget=forms.TextInput(attrs={'class':'input','type':'tel'}))
     telefono_oficina_conyuge = forms.CharField(label='Teléfono Oficina del Cónyuge', max_length=9, required=True, widget=forms.TextInput(attrs={'class':'input','type':'tel'}))
     correo = forms.EmailField(label='Correo Eléctronico', max_length=120, required=True, widget=forms.TextInput(attrs={'class':'input','type':'email','placeholder':'Correo Eléctronico','step':'0'}))
     # --> Tipo Trabajador
 
 class Form_Tipo_Trabajador(forms.Form):
-    salario = forms.DecimalField(max_digits=10, decimal_places=2, required=True, widget=forms.NumberInput(attrs={'class':'input','type':'currency','placeholder':'####.##$'}))
+    salario = forms.DecimalField(max_digits=10, decimal_places=2, required=True, widget=forms.NumberInput(attrs={'class':'input','placeholder':'####.##$'}))
     tipo_trabajador = forms.ChoiceField(choices=TipoTrabajador.getSet,label='Tipo de Trabajador', required=True, widget=forms.Select(attrs={'class':'input','onchange':'selectTipoTrabajador()'}))
     # --> Rubro
 
 class Form_Rubro(forms.Form):
-    rubro = forms.ChoiceField(choices=Rubros.getSet, label='Rubro', required=True, widget=forms.Select(attrs={'class':'input'}))
+    rubro = forms.ChoiceField(choices=Rubro.getSet, label='Rubro', required=True, widget=forms.Select(attrs={'class':'input'}))
     # --> Referencias
 
 class Form_Referencias_Personales(forms.Form):
@@ -86,7 +86,6 @@ class Form_Domicilio(forms.Form):
     uso_inmueble = forms.ChoiceField(choices=UsoInmueble.getSet, label='Uso inmueble', required=True, widget=forms.Select(attrs={'class':'input'}))
     tiempo = forms.IntegerField(label='Tiempo', min_value=0, max_value=100, required=True, widget=forms.NumberInput(attrs={'class':'input', 'placeholder':'0', 'step': '1'}))
     numero_domicilio = forms.IntegerField(label='Número Vivienda', min_value=1, max_value=1000, required=True, widget=forms.NumberInput(attrs={'class':'input', 'placeholder':'0', 'step': '1'}))
-    ubicacion_geografica = forms.CharField(label='Ubicación Geografica', max_length=120, required=True, widget=forms.TextInput(attrs={'class':'input','readonly':'True', 'placeholder':'Campo Auto Calculado'}))
 
 class Form_Beneficiarios(forms.Form):
     fecha_nacimiento = forms.DateField(label='Fecha de Nacimiento', required=True, widget=forms.DateInput(attrs={'type':'date','class':'input','min':fechaMinima, 'max':fechaMaxima}))
