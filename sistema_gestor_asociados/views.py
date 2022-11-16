@@ -169,11 +169,11 @@ def escritorio(request):
             if form_datos_conyuge.is_valid():
                 conyuge.nombres_conyuge = form_datos_conyuge.cleaned_data['nombres_conyuge']
                 conyuge.apellidos_conyuge = form_datos_conyuge.cleaned_data['apellidos_conyuge']
-                conyuge.fecha_nacimiento_conyuge = form_datos_conyuge.cleaned_data['fecha_nacimiento']
+                conyuge.fecha_nacimiento_conyuge = form_datos_conyuge.cleaned_data['fecha_nacimiento_conyuge']
                 conyuge.empresa = form_datos_conyuge.cleaned_data['empresa']
                 conyuge.cargo = form_datos_conyuge.cleaned_data['cargo']
                 conyuge.nacionalidad_conyuge = form_datos_conyuge.cleaned_data['nacionalidad_conyuge']
-                conyuge.tipo_documento_conyuge = form_datos_conyuge.cleaned_data['tipo_documento_conyue']
+                conyuge.tipo_documento_conyuge = form_datos_conyuge.cleaned_data['tipo_documento_conyuge']
                 conyuge.numero_documento_conyuge = form_datos_conyuge.cleaned_data['numero_documento_conyuge']
                 conyuge.telefono_personal_conyuge = form_datos_conyuge.cleaned_data['telefono_personal_conyuge']
                 conyuge.telefono_oficina_conyuge = form_datos_conyuge.cleaned_data['telefono_oficina_conyuge']
@@ -206,7 +206,7 @@ def escritorio(request):
                 asociado.apellido_casada = form_apellido_casada.cleaned_data['apellido_casada']
             # Dato del Trabajador
             if form_tipo_trabajador.is_valid():
-                asociado.salario = form_tipo_trabajador.cleaned_data['salario']
+                asociado.salario = float(form_tipo_trabajador.cleaned_data['salario'])
                 asociado.tipo_trabajador = TipoTrabajador.objects.get(id=form_tipo_trabajador.cleaned_data['tipo_trabajador'])
             # Datos del Rubro
             if form_rubro.is_valid():
@@ -265,7 +265,7 @@ def escritorio(request):
             registro = Registro()        
             registro.ejecutivo =  request.user.username
             registro.asociado = Asociado.objects.get(id=asociado.id)
-            registro.fecha = datetime.now
+            registro.fecha = datetime.today()#.strftime('%Y-%m-%d')
             registro.save()
         # Bloque de Excepcion
         except Exception as exp:
