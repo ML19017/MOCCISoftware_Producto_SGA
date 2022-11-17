@@ -151,14 +151,13 @@ class Beneficiario(models.Model):
     edad = models.SmallIntegerField(default=0)
     parentesco = models.ForeignKey(Parentesco, on_delete = models.DO_NOTHING)
     porcentaje = models.DecimalField(decimal_places=2, max_digits=4, default=0)
-    tipo = models.SmallIntegerField()
     asociado = models.ForeignKey(Asociado, on_delete=models.CASCADE)
 
 class Referencia(models.Model):
     nombre = models.CharField(max_length=120, default='no especificado')
     telefono_personal = models.CharField(max_length=120, default='no especificado')
     correo_personal = models.EmailField(max_length=120, default='no especificado')
-    tipo =  models.SmallIntegerField()
+    tipo =  models.BooleanField()
     asociado = models.ForeignKey(Asociado, on_delete=models.CASCADE)
 
 class Registro(models.Model):

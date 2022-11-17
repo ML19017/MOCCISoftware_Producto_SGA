@@ -231,14 +231,14 @@ def escritorio(request):
                 referencia_1.nombre = form_referencias_personales.cleaned_data['nombre_primera_referencia_personal']
                 referencia_1.telefono_personal = form_referencias_personales.cleaned_data['telefono_primera_referencia_personal']
                 referencia_1.correo = form_referencias_personales.cleaned_data['correo_primera_referencia_personal']
-                referencia_1.tipo = 0
+                referencia_1.tipo = False
                 referencia_1.asociado = Asociado.objects.get(id=asociado.id)
                 referencia_1.save()
                 # Referencia 2
                 referencia_2.nombre = form_referencias_personales.cleaned_data['nombre_segunda_referencia_personal']
                 referencia_2.telefono_personal = form_referencias_personales.cleaned_data['telefono_segunda_referencia_personal']
                 referencia_2.correo = form_referencias_personales.cleaned_data['correo_segunda_referencia_personal']
-                referencia_2.tipo = 0
+                referencia_2.tipo = False
                 referencia_2.asociado = Asociado.objects.get(id=asociado.id)
                 referencia_2.save()
             # Referencias Familiares
@@ -250,14 +250,14 @@ def escritorio(request):
                 referencia_1.nombre = form_referencias_familiares.cleaned_data['nombre_primera_referencia_familiar']
                 referencia_1.telefono_personal = form_referencias_familiares.cleaned_data['telefono_primera_referencia_familiar']
                 referencia_1.correo = form_referencias_familiares.cleaned_data['correo_primera_referencia_familiar']
-                referencia_1.tipo = 1
+                referencia_1.tipo = True
                 referencia_1.asociado = Asociado.objects.get(id=asociado.id)
                 referencia_1.save()
                 # Referencia 2
                 referencia_2.nombre = form_referencias_familiares.cleaned_data['nombre_segunda_referencia_familiar']
                 referencia_2.telefono_personal = form_referencias_familiares.cleaned_data['telefono_segunda_referencia_familiar']
                 referencia_2.correo = form_referencias_familiares.cleaned_data['correo_segunda_referencia_familiar']
-                referencia_2.tipo = 1
+                referencia_2.tipo = True
                 referencia_2.asociado = Asociado.objects.get(id=asociado.id)
                 referencia_1.save()
             # Log (registro)
