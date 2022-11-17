@@ -47,7 +47,6 @@ def acceder(request):
 
     return render(request , 'login.html')
 
-@login_required
 def register_attempt(request):
 
     if request.method == 'POST':

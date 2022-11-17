@@ -82,9 +82,41 @@
                         <h1>SISTEMA GESTOR DE ASOCIADOS</h1>
                             <div class="loginpage-intro-logo">
                                 <img src="{% static '/resources/logo_coo.svg' %}" title="Sistema Gestor de Asociados" alt="MOCCI Software" class="login-logo">
-                                <h2>USTED NO TIENE ACCESO A ESTA FUNCIÓN.</h2>
-                                <a href="{% url 'Escritorio' %}">Haz click aquí para volver</a>
+                                <h2>PYLON</h2>
                             </div>
+                    </div>
+                    <div class="login-from">
+                        {% if messages %}
+                
+                            {% for message in messages %}
+                            <div class="alert alert-danger">
+                                {{ message }}
+                            </div>
+                             {% endfor %}
+                  
+                        {% endif %}
+                        <form method="post">
+                            <strong>Cree sus credenciales de acceso: </strong>
+                             {%  csrf_token %}
+                            <div class="form-group">
+                                <input type="hidden" name="permission" value="Ejecutivo">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1" class="sr-only">Nombre de Usuario:</label>
+                                <input type="text" name="username" class="form-control form-control--username" id="exampleInputEmail1" placeholder="Nombre de usuario" aria-describedby="emailHelp" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1" class="sr-only">Email:</label>
+                                <input type="email" name="email" class="form-control form-control--username" id="exampleInputEmail1" placeholder="Email" aria-describedby="emailHelp" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputPassword1" class="sr-only">Contraseña:</label>
+                                <input type="password" name="password" class="form-control form-control--password" id="exampleInputPassword1" placeholder="Contraseña" required>
+                            </div>
+                            <button type="submit" class="btn-lg-primary">Registrarse</button>
+                    <br>
+                            <a href="{% url 'Acceder' %}">Regresar</a>
+                        </form>
                     </div>
                 </div>
             </div>

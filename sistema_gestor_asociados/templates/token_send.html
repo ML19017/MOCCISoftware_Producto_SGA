@@ -1,17 +1,27 @@
-{% extends "base.html"%}
-
-{% block title %}
-<title>Token</title>
-{% endblock %}
-
-{% block content %}
-<div class="global-container">
-    <div class="card login-form">
-    <div class="card-body">
-        <h3 class="card-title text-center">Te enviamos un email de verificacion </h3>
-        <div class="card-text text-center">
-            Por favor revisa tu correo!
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Token</title>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+		<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500;700&amp;display=swap" rel="stylesheet">
+        <link rel="shortcut icon" href="{% static '/iconos/integration.ico' %}">
+        <link rel="stylesheet" type="text/css" href="{% static '/css/login.css' %}"/>
+        <link type="text/css" rel="stylesheet" href="{% static 'css/estiloTemplates.css' %}">
+    </head>
+    <body>
+    <div class="global-container">
+        <div class="card login-form">
+        <div class="card-body">
+            <h3 class="card-title text-center">Te enviamos un email de verificacion </h3>
+            <div class="card-text text-center">
+                Por favor revisa tu correo!
+            </div>
         </div>
+        <a class="btn btn-primary" href="{% url 'Acceder' %}" >Regresar al Login</a>
     </div>
-</div>
-{% endblock %}
+    </body>
+</html>
